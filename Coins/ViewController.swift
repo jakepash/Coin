@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     var ref: DatabaseReference!
     
     @IBOutlet weak var CoinCount: UILabel!
-    
+    var gameTimer: Timer!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -24,11 +24,13 @@ class ViewController: UIViewController {
         tapRecognizer.addTarget(self, action: #selector(ViewController.didTapView))
         self.view.addGestureRecognizer(tapRecognizer)
         let userID = Auth.auth().currentUser!.uid
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GetCoins), userInfo: nil, repeats: true)
         //self.ref.child("users").child((userID)).setValue(["Coins": 0])
         GetCoins()
     }
     
-    func GetCoins() {
+    
+    @objc func GetCoins() {
         let userID = Auth.auth().currentUser?.uid
         ref.child("users").child(userID!).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value

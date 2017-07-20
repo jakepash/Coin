@@ -52,9 +52,16 @@ class SendViewController: UIViewController {
         let userID = Auth.auth().currentUser?.uid
         if let amounttosend = Int(amountToSend.text!){
             if amounttosend < 100 {
-                 moreErrorLabel.isHidden = true
-                self.ref.child("users").child(userID!).setValue(["Coins":amounttosend])
-                self.performSegue(withIdentifier: "seguetomain", sender: Any?.self)
+                moreErrorLabel.isHidden = true
+                let UserToSend = phoneNum.text!
+                
+                //
+                GetCoins()
+                DispatchQueue.main.async(execute: {
+                    self.performSegue(withIdentifier: "seguetomain", sender: nil)
+                })
+              
+                
             }
             else {
                 moreErrorLabel.isHidden = false
@@ -63,6 +70,33 @@ class SendViewController: UIViewController {
         
     }
     
+    func GetCoins() {
+        ref.child("users").child(phoneNum.text!).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value
+            var OtherUserCoins = value as! Int
+            print(OtherUserCoins)
+            // add coins to user ->
+            let amounttosend = Int(self.amountToSend.text!)
+            OtherUserCoins += amounttosend!
+            self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
+            
+            // subtract coins from current user ->
+            let userID = Auth.auth().currentUser?.uid
+            self.ref.child("users").child(userID!
+                ).child("Coins").observeSingleEvent(of: .value, with: { (othersnapshot) in
+                let userID = Auth.auth().currentUser?.uid
+                let othervalue = othersnapshot.value
+                var CurrentUserCoins = othervalue as! Int
+                print(CurrentUserCoins)
+                CurrentUserCoins -= amounttosend!
+                self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
+            })
+            
+            //let newAmountOtherUser Int(amountToSend.text!)
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
     
     @objc func didTapView(){
         self.view.endEditing(true)
