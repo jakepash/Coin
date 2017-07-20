@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>749820498518-3dna77h8ahqom2t0b390ef1qj75f977f.apps.googleusercontent.com</string>
+	<string>785415178206-qaqiglvoi43cqoemfksfvgbs9j7tvveu.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.749820498518-3dna77h8ahqom2t0b390ef1qj75f977f</string>
+	<string>com.googleusercontent.apps.785415178206-qaqiglvoi43cqoemfksfvgbs9j7tvveu</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBwCS4S9K7n5srKIsRyxUFU6lGprMnaqP4</string>
+	<string>AIzaSyAaIgOg3yHcL61eF_uooxu0vKu6qs1zPsQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>749820498518</string>
+	<string>785415178206</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.labbylabs.coin</string>
+	<string>jacobpashman.Coins</string>
 	<key>PROJECT_ID</key>
-	<string>coins-ec1a4</string>
+	<string>coins-60b69</string>
 	<key>STORAGE_BUCKET</key>
-	<string>coins-ec1a4.appspot.com</string>
+	<string>coins-60b69.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:749820498518:ios:aca1698528f64d8b</string>
+	<string>1:785415178206:ios:5ecef5b85e0276b7</string>
 	<key>DATABASE_URL</key>
-	<string>https://coins-ec1a4.firebaseio.com</string>
+	<string>https://coins-60b69.firebaseio.com</string>
 </dict>
 </plist>
