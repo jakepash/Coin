@@ -8,7 +8,9 @@ target 'Coins' do
   # Pods for Coins
   pod 'Alamofire', '~> 4.4'
   pod 'SwiftyJSON'
-
+  pod 'Firebase/Auth'
+  pod 'Firebase'
+  pod 'Firebase/Database' 
   target 'CoinsTests' do
     inherit! :search_paths
     # Pods for testing

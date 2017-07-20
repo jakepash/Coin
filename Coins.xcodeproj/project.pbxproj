@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		29487FA62974DCD9CB320571 /* Pods_CoinsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20084027BE1E935386218EFB /* Pods_CoinsUITests.framework */; };
+		66FDEB041F20ADC600A2E2E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66FDEB031F20ADC500A2E2E9 /* GoogleService-Info.plist */; };
+		66FDEB061F20AF4B00A2E2E9 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FDEB051F20AF4B00A2E2E9 /* VerifyViewController.swift */; };
 		981AC87B1F08CA2000F7830B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981AC87A1F08CA2000F7830B /* AppDelegate.swift */; };
 		981AC87D1F08CA2000F7830B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981AC87C1F08CA2000F7830B /* ViewController.swift */; };
 		981AC8801F08CA2000F7830B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 981AC87E1F08CA2000F7830B /* Main.storyboard */; };
@@ -46,6 +48,9 @@
 		567C3BE5CC072E7FBBA0A39D /* Pods-CoinsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoinsUITests/Pods-CoinsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5DB907CCBAAB2ED389B523E6 /* Pods-CoinsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoinsTests/Pods-CoinsTests.release.xcconfig"; sourceTree = "<group>"; };
 		669B2D591F1DFEF10094B4BF /* MMSlidingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSlidingButton.swift; sourceTree = "<group>"; };
+		66FDEB031F20ADC500A2E2E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../coinFiles/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		66FDEB051F20AF4B00A2E2E9 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
+		66FDEB071F20B17000A2E2E9 /* Coins.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coins.entitlements; sourceTree = "<group>"; };
 		77FFCDF670D7959DEEA94413 /* Pods-Coins.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coins.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coins/Pods-Coins.release.xcconfig"; sourceTree = "<group>"; };
 		981AC8771F08CA2000F7830B /* Coins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		981AC87A1F08CA2000F7830B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,15 +147,18 @@
 		981AC8791F08CA2000F7830B /* Coins */ = {
 			isa = PBXGroup;
 			children = (
+				66FDEB071F20B17000A2E2E9 /* Coins.entitlements */,
 				981AC87A1F08CA2000F7830B /* AppDelegate.swift */,
 				981AC87C1F08CA2000F7830B /* ViewController.swift */,
 				98F007971F09021F00EB9215 /* SendViewController.swift */,
 				98F959DB1F08DC6C00635EB8 /* SignUp.swift */,
+				66FDEB051F20AF4B00A2E2E9 /* VerifyViewController.swift */,
+				669B2D591F1DFEF10094B4BF /* MMSlidingButton.swift */,
 				981AC87E1F08CA2000F7830B /* Main.storyboard */,
 				981AC8831F08CA2000F7830B /* LaunchScreen.storyboard */,
 				98F959D91F08CD7600635EB8 /* Assets.xcassets */,
 				981AC8861F08CA2000F7830B /* Info.plist */,
-				669B2D591F1DFEF10094B4BF /* MMSlidingButton.swift */,
+				66FDEB031F20ADC500A2E2E9 /* GoogleService-Info.plist */,
 			);
 			path = Coins;
 			sourceTree = "<group>";
@@ -250,6 +258,11 @@
 				TargetAttributes = {
 					981AC8761F08CA2000F7830B = {
 						CreatedOnToolsVersion = 9.0;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					981AC88A1F08CA2000F7830B = {
 						CreatedOnToolsVersion = 9.0;
@@ -287,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				981AC8851F08CA2000F7830B /* LaunchScreen.storyboard in Resources */,
+				66FDEB041F20ADC600A2E2E9 /* GoogleService-Info.plist in Resources */,
 				98F959DA1F08CD7600635EB8 /* Assets.xcassets in Resources */,
 				981AC8801F08CA2000F7830B /* Main.storyboard in Resources */,
 			);
@@ -454,6 +468,7 @@
 				98F007981F09021F00EB9215 /* SendViewController.swift in Sources */,
 				981AC87D1F08CA2000F7830B /* ViewController.swift in Sources */,
 				98F959DC1F08DC6C00635EB8 /* SignUp.swift in Sources */,
+				66FDEB061F20AF4B00A2E2E9 /* VerifyViewController.swift in Sources */,
 				981AC87B1F08CA2000F7830B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,10 +632,11 @@
 			baseConfigurationReference = 2530248BD1DC16010C0C6C2B /* Pods-Coins.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KGN5G34954;
+				CODE_SIGN_ENTITLEMENTS = Coins/Coins.entitlements;
+				DEVELOPMENT_TEAM = Z28CSUK723;
 				INFOPLIST_FILE = Coins/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jacobpashman.Coins;
+				PRODUCT_BUNDLE_IDENTIFIER = com.labbylabs.coin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -632,10 +648,11 @@
 			baseConfigurationReference = 77FFCDF670D7959DEEA94413 /* Pods-Coins.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KGN5G34954;
+				CODE_SIGN_ENTITLEMENTS = Coins/Coins.entitlements;
+				DEVELOPMENT_TEAM = Z28CSUK723;
 				INFOPLIST_FILE = Coins/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jacobpashman.Coins;
+				PRODUCT_BUNDLE_IDENTIFIER = com.labbylabs.coin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
