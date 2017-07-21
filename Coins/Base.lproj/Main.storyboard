@@ -162,8 +162,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="underline" translatesAutoresizingMaskIntoConstraints="NO" id="Ji8-dY-UtY">
-                                <rect key="frame" x="86" y="332" width="182" height="2"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="underline" translatesAutoresizingMaskIntoConstraints="NO" id="Ji8-dY-UtY">
+                                <rect key="frame" x="90" y="332" width="182" height="2"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="DJu-Nm-lBa"/>
                                 </constraints>
@@ -189,11 +189,16 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qm1-xp-EHQ">
-                                <rect key="frame" x="16" y="121" width="320" height="60"/>
+                                <rect key="frame" x="23" y="121" width="320" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZQ-3a-Cfb">
                                 <rect key="frame" x="150" y="494" width="46" height="30"/>
@@ -204,27 +209,38 @@
                                     <action selector="tempbtn:" destination="yNc-AX-Vlj" eventType="touchUpInside" id="U9y-1u-5lD"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You cannot send more than 100 coins!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pet-ci-yTt">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="You cannot send more than 100 coins!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pet-ci-yTt">
                                 <rect key="frame" x="0.0" y="377" width="367" height="67"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                <color key="textColor" red="0.83529411764705885" green="0.054901960784313725" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You don't have enough coins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJU-Rl-r5p">
+                                <rect key="frame" x="36" y="400" width="303" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
-                                <color key="textColor" red="0.83631424492385786" green="0.055916495334636544" blue="0.15684763482744965" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.83529411764705885" green="0.054901960784313725" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.11343727260828018" green="0.12129936367273331" blue="0.13792043924331665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Pet-ci-yTt" firstAttribute="top" secondItem="Ji8-dY-UtY" secondAttribute="bottom" constant="43" id="1cy-0n-Zmu"/>
                             <constraint firstItem="wC1-SP-4W7" firstAttribute="leading" secondItem="Unc-Mw-Pmm" secondAttribute="leading" constant="2" id="1dM-eT-1u9"/>
                             <constraint firstItem="bjN-x7-UEr" firstAttribute="top" secondItem="yyC-S9-PgT" secondAttribute="top" id="9ms-sq-IBN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ji8-dY-UtY" secondAttribute="trailing" constant="87" id="A6l-xr-8JX"/>
+                            <constraint firstItem="Ji8-dY-UtY" firstAttribute="leading" secondItem="yyC-S9-PgT" secondAttribute="leadingMargin" constant="74" id="AIk-ux-if5"/>
                             <constraint firstItem="Unc-Mw-Pmm" firstAttribute="bottom" secondItem="wC1-SP-4W7" secondAttribute="bottom" constant="-150" id="Hpv-r4-srk"/>
                             <constraint firstItem="bjN-x7-UEr" firstAttribute="leading" secondItem="yyC-S9-PgT" secondAttribute="leading" id="V85-Rk-d6T"/>
                             <constraint firstItem="wC1-SP-4W7" firstAttribute="top" secondItem="bjN-x7-UEr" secondAttribute="bottom" constant="175" id="ebN-fO-6R8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wC1-SP-4W7" secondAttribute="trailing" constant="99" id="hEl-0P-nTP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Unc-Mw-Pmm" secondAttribute="trailing" constant="77" id="nzb-1X-Stb"/>
+                            <constraint firstItem="Ji8-dY-UtY" firstAttribute="centerY" secondItem="yyC-S9-PgT" secondAttribute="centerY" id="zfq-CV-1UW"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="amountToSend" destination="wC1-SP-4W7" id="dZx-kk-WCs"/>
+                        <outlet property="errorLabelNotEnough" destination="bJU-Rl-r5p" id="Z1O-nD-bYc"/>
                         <outlet property="moreErrorLabel" destination="Pet-ci-yTt" id="lXO-dg-hAI"/>
                         <outlet property="phoneNum" destination="qm1-xp-EHQ" id="bJu-0l-awu"/>
                         <outlet property="temp" destination="jZQ-3a-Cfb" id="J6C-y3-EP2"/>
@@ -319,7 +335,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                        <color key="value" red="0.53285798210000002" green="0.54133395390000005" blue="0.55218750000000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.74509803921568629" green="0.75686274509803919" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
@@ -365,14 +381,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Number" textAlignment="center" minimumFontSize="27" translatesAutoresizingMaskIntoConstraints="NO" id="6WQ-RL-aBZ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Code" textAlignment="center" minimumFontSize="27" translatesAutoresizingMaskIntoConstraints="NO" id="6WQ-RL-aBZ">
                                 <rect key="frame" x="64" y="102" width="247" height="28"/>
                                 <color key="textColor" red="0.17776930329999999" green="0.80832916499999996" blue="0.60771507020000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="23"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                        <color key="value" red="0.53285798210000002" green="0.54133395390000005" blue="0.55218750000000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.74509803921568629" green="0.75686274509803919" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
@@ -485,6 +501,6 @@
         <image name="underline" width="619" height="4"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KQc-lC-vfz"/>
+        <segue reference="Qla-Od-30a"/>
     </inferredMetricsTieBreakers>
 </document>

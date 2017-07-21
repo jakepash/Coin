@@ -23,6 +23,7 @@ class VerifyViewController: UIViewController {
         tapRecognizer.addTarget(self, action: #selector(ViewController.didTapView))
         self.view.addGestureRecognizer(tapRecognizer)
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +52,9 @@ class VerifyViewController: UIViewController {
                 self.performSegue(withIdentifier: "segue2", sender: Any?.self)
             }
         }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        code.becomeFirstResponder()
     }
     /*
     // MARK: - Navigation

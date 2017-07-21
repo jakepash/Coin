@@ -46,6 +46,7 @@ class SendViewController: UIViewController {
     @IBOutlet weak var phoneNum: UITextField!
     @IBOutlet weak var amountToSend: UITextField!
     @IBOutlet weak var moreErrorLabel: UILabel!
+    @IBOutlet weak var errorLabelNotEnough: UILabel!
     
     @IBOutlet weak var temp: UIButton!
     @IBAction func tempbtn(_ sender: Any) {
@@ -73,24 +74,32 @@ class SendViewController: UIViewController {
     
     func GetCoins() {
         ref.child("users").child(phoneNum.text!).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
+            
             let value = snapshot.value
+            
             var OtherUserCoins = value as! Int
             print(OtherUserCoins)
-            // add coins to user ->
+            
+            
             let amounttosend = Int(self.amountToSend.text!)
             OtherUserCoins += amounttosend!
-            self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
-            
             // subtract coins from current user ->
             let userID = Auth.auth().currentUser?.uid
             self.ref.child("users").child(userID!
                 ).child("Coins").observeSingleEvent(of: .value, with: { (othersnapshot) in
-                let userID = Auth.auth().currentUser?.uid
-                let othervalue = othersnapshot.value
-                var CurrentUserCoins = othervalue as! Int
-                print(CurrentUserCoins)
-                CurrentUserCoins -= amounttosend!
-                self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
+                    let userID = Auth.auth().currentUser?.uid
+                    let othervalue = othersnapshot.value
+                    var CurrentUserCoins = othervalue as! Int
+                    print(CurrentUserCoins)
+                    CurrentUserCoins -= amounttosend!
+                    if CurrentUserCoins < 0{
+                        self.errorLabelNotEnough.isHidden = false
+                    } else {
+                        self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
+                        // add coins to user ->
+                        self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
+                    }
+            
             })
             
             //let newAmountOtherUser Int(amountToSend.text!)
@@ -101,17 +110,8 @@ class SendViewController: UIViewController {
     
     @objc func didTapView(){
         self.view.endEditing(true)
+        
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
