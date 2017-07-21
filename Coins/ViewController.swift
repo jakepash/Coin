@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import Alamofire
 
 
 class ViewController: UIViewController {
@@ -20,6 +21,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         ref = Database.database().reference()
         let tapRecognizer = UITapGestureRecognizer()
@@ -29,7 +31,7 @@ class ViewController: UIViewController {
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GetCoins), userInfo: nil, repeats: true)
         //self.ref.child("users").child((userID)).setValue(["Coins": 0])
         GetCoins()
-        
+       
     }
     
     @IBOutlet weak var signout: UIButton!
@@ -62,7 +64,14 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    @IBOutlet weak var imageView: UIImageView!
+    override func viewDidAppear(_ animated: Bool) {
+        let url1 = "http://api.qrserver.com/v1/create-qr-code/?data=\(String(describing: Auth.auth().currentUser?.uid))&size=200x200"
+        if let url = NSURL(string: url1){
+            if let data = NSData(contentsOf: url as URL) {
+                imageView.image = UIImage(data: data as Data)
+                
+            } }
+    }
+    
 }
-
