@@ -92,14 +92,18 @@ class SendViewController: UIViewController {
                     var CurrentUserCoins = othervalue as! Int
                     print(CurrentUserCoins)
                     CurrentUserCoins -= amounttosend!
-                    if CurrentUserCoins < 0{
-                        self.errorLabelNotEnough.isHidden = false
-                    } else {
-                        self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
+                    // continue doing this -
+//                    if CurrentUserCoins < 0{
+//                        print ("cant")
+//                    } else {
+//                        self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
+//                        // add coins to user ->
+//                        self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
+//                    }
+                    self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
                         // add coins to user ->
-                        self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
-                    }
-            
+                     self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
+                    
             })
             
             //let newAmountOtherUser Int(amountToSend.text!)
