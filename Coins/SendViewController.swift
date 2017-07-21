@@ -70,6 +70,7 @@ class SendViewController: UIViewController {
         
     }
     
+    
     func GetCoins() {
         ref.child("users").child(phoneNum.text!).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value
@@ -101,6 +102,8 @@ class SendViewController: UIViewController {
     @objc func didTapView(){
         self.view.endEditing(true)
     }
+    
+    
     /*
     // MARK: - Navigation
 

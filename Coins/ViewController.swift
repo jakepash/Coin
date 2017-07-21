@@ -15,7 +15,9 @@ class ViewController: UIViewController {
     var ref: DatabaseReference!
     
     @IBOutlet weak var CoinCount: UILabel!
+    
     var gameTimer: Timer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -27,8 +29,19 @@ class ViewController: UIViewController {
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GetCoins), userInfo: nil, repeats: true)
         //self.ref.child("users").child((userID)).setValue(["Coins": 0])
         GetCoins()
+        
     }
     
+    @IBOutlet weak var signout: UIButton!
+    @IBAction func signout(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+    }
     
     @objc func GetCoins() {
         let userID = Auth.auth().currentUser?.uid
