@@ -50,6 +50,10 @@ class VerifyViewController: UIViewController {
 //                let userID = Auth.auth().currentUser!.uid
                 self.ref.child("users").child((user?.uid)!).setValue(["Coins": 0])
                 self.performSegue(withIdentifier: "segue2", sender: Any?.self)
+                self.ref = Database.database().reference()
+                print(((user?.phoneNumber!)!))
+                //self.ref.child("users/(user.uid)").setValue(((user?.phoneNumber!)!))
+
             }
         }
     }

@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GetCoins), userInfo: nil, repeats: true)
         //self.ref.child("users").child((userID)).setValue(["Coins": 0])
         GetCoins()
-       
+       print(Auth.auth().currentUser?.phoneNumber)
     }
     
     @IBOutlet weak var signout: UIButton!
