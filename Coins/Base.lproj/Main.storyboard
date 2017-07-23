@@ -30,20 +30,7 @@
                                 <color key="textColor" red="0.17776930329999999" green="0.80832916499999996" blue="0.60771507020000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ade-0x-Tr7">
-                                <rect key="frame" x="54" y="540" width="267" height="59"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="59" id="x0o-gw-BVq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="50"/>
-                                <state key="normal" title="Send" backgroundImage="Buttons">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="yNc-AX-Vlj" kind="show" id="9vt-pf-WCK"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kyl-4G-7Ge">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kyl-4G-7Ge">
                                 <rect key="frame" x="141" y="454" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="E63-21-O4w"/>
@@ -64,10 +51,6 @@
                             <constraint firstAttribute="trailing" secondItem="jGA-Xt-7qg" secondAttribute="trailing" id="2wV-oL-B43"/>
                             <constraint firstItem="jGA-Xt-7qg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="66m-PT-D80"/>
                             <constraint firstItem="jGA-Xt-7qg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="6IB-aE-0W2"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ade-0x-Tr7" secondAttribute="bottom" constant="68" id="dEU-z4-bzZ"/>
-                            <constraint firstItem="ade-0x-Tr7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="38" id="dUV-iJ-WJO"/>
-                            <constraint firstItem="ade-0x-Tr7" firstAttribute="top" secondItem="Kyl-4G-7Ge" secondAttribute="bottom" constant="73" id="jbe-pB-tGH"/>
-                            <constraint firstItem="jGA-Xt-7qg" firstAttribute="centerX" secondItem="ade-0x-Tr7" secondAttribute="centerX" id="qui-Rq-PC9"/>
                         </constraints>
                     </view>
                     <connections>
@@ -377,7 +360,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Buttons" width="556" height="101"/>
         <image name="arrow-right" width="73" height="107"/>
         <image name="underline" width="619" height="4"/>
     </resources>

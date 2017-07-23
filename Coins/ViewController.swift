@@ -66,7 +66,7 @@ class ViewController: UIViewController {
     }
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidAppear(_ animated: Bool) {
-        let url1 = "http://api.qrserver.com/v1/create-qr-code/?data=\(String(describing: Auth.auth().currentUser?.uid))&size=200x200"
+        let url1 = "http://api.qrsqwwwerver.com/v1/create-qr-code/?data=\(String(describing: Auth.auth().currentUser?.uid))&size=200x200"
         if let url = NSURL(string: url1){
             if let data = NSData(contentsOf: url as URL) {
                 imageView.image = UIImage(data: data as Data)
