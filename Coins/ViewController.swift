@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import Alamofire
+import QRCode
 
 
 class ViewController: UIViewController {
@@ -27,11 +28,11 @@ class ViewController: UIViewController {
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: #selector(ViewController.didTapView))
         self.view.addGestureRecognizer(tapRecognizer)
-        let userID = Auth.auth().currentUser?.uid
+        let userID = Auth.auth().currentUser!.uid
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GetCoins), userInfo: nil, repeats: true)
         //self.ref.child("users").child((userID)).setValue(["Coins": 0])
         GetCoins()
-        
+       print(Auth.auth().currentUser?.phoneNumber)
     }
     
     @IBOutlet weak var signout: UIButton!
@@ -66,12 +67,12 @@ class ViewController: UIViewController {
     }
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidAppear(_ animated: Bool) {
-        let url1 = "http://api.qrserver.com/v1/create-qr-code/?data=\(String(describing: Auth.auth().currentUser?.uid))&size=200x200"
-        if let url = NSURL(string: url1){
-            if let data = NSData(contentsOf: url as URL) {
-                imageView.image = UIImage(data: data as Data)
-                
-            } }
+        let url1 = "http://api.qrserver.com/v1/create-qr-code/?data=\(String(describing: Auth.auth().currentUser!.uid))&size=200x200"
+        print(url1)
+        var qrCode = QRCode(url1)
+        qrCode?.color = CIColor(red:0.18, green: 0.81, blue:0.61, alpha:1.0)
+        qrCode?.backgroundColor = CIColor(red:0.11, green: 0.12, blue:0.14, alpha:1.0)
+        imageView.image = qrCode?.image
     }
     
 }

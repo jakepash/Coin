@@ -50,9 +50,24 @@ class SendViewController: UIViewController {
     
     @IBOutlet weak var temp: UIButton!
     @IBAction func tempbtn(_ sender: Any) {
-        GetCoins()
         let userID = Auth.auth().currentUser?.uid
-        
+        if let amounttosend = Int(amountToSend.text!){
+            if amounttosend < 100 {
+                moreErrorLabel.isHidden = true
+                let UserToSend = phoneNum.text!
+                
+                //
+                GetCoins()
+                DispatchQueue.main.async(execute: {
+                    self.performSegue(withIdentifier: "seguetomain", sender: nil)
+                })
+              
+                
+            }
+            else {
+                moreErrorLabel.isHidden = false
+            }
+        }
         
     }
     
@@ -78,33 +93,18 @@ class SendViewController: UIViewController {
                     print(CurrentUserCoins)
                     CurrentUserCoins -= amounttosend!
                     // continue doing this -
-                    if CurrentUserCoins < 0{
-                        print ("cant")
-                        errorLabelNotEnough.isHidden = false
-                    } else {
-                        errorLabelNotEnough.isHidden = true
-                        self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
+//                    if CurrentUserCoins < 0{
+//                        print ("cant")
+//                    } else {
+//                        self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
+//                        // add coins to user ->
+//                        self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
+//                    }
+                    self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
                         // add coins to user ->
-                        self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
-                        self.performSegue(withIdentifier: "seguetomain", sender: nil)
-                        
-                        if let amounttosend = Int(self.amountToSend.text!){
-                            if amounttosend < 100 {
-                                self.moreErrorLabel.isHidden = true
-                                let UserToSend = self.phoneNum.text!
-                                
-                            }
-                            else {
-                                self.moreErrorLabel.isHidden = false
-                            }
-                        }
-                    }
-                    //self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
-                        // add coins to user ->
-                    // self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
+                     self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
                     
             })
-            
             
             //let newAmountOtherUser Int(amountToSend.text!)
         }) { (error) in

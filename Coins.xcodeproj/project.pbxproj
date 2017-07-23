@@ -17,6 +17,7 @@
 		981AC8851F08CA2000F7830B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 981AC8831F08CA2000F7830B /* LaunchScreen.storyboard */; };
 		981AC8901F08CA2000F7830B /* CoinsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981AC88F1F08CA2000F7830B /* CoinsTests.swift */; };
 		981AC89B1F08CA2000F7830B /* CoinsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981AC89A1F08CA2000F7830B /* CoinsUITests.swift */; };
+		989FFE0D1F230C350057E7E7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989FFE0C1F230C350057E7E7 /* PageViewController.swift */; };
 		98F007981F09021F00EB9215 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F007971F09021F00EB9215 /* SendViewController.swift */; };
 		98F959DA1F08CD7600635EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F959D91F08CD7600635EB8 /* Assets.xcassets */; };
 		98F959DC1F08DC6C00635EB8 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F959DB1F08DC6C00635EB8 /* SignUp.swift */; };
@@ -66,6 +67,7 @@
 		981AC8961F08CA2000F7830B /* CoinsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		981AC89A1F08CA2000F7830B /* CoinsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsUITests.swift; sourceTree = "<group>"; };
 		981AC89C1F08CA2000F7830B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		989FFE0C1F230C350057E7E7 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		98F007971F09021F00EB9215 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		98F959D91F08CD7600635EB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98F959DB1F08DC6C00635EB8 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				98F007971F09021F00EB9215 /* SendViewController.swift */,
 				66FA33F61F21E57A00A20FB7 /* TableViewController.swift */,
 				981AC87E1F08CA2000F7830B /* Main.storyboard */,
+				989FFE0C1F230C350057E7E7 /* PageViewController.swift */,
 				981AC8831F08CA2000F7830B /* LaunchScreen.storyboard */,
 				98F959D91F08CD7600635EB8 /* Assets.xcassets */,
 				981AC8861F08CA2000F7830B /* Info.plist */,
@@ -477,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98F007981F09021F00EB9215 /* SendViewController.swift in Sources */,
+				989FFE0D1F230C350057E7E7 /* PageViewController.swift in Sources */,
 				66FA33F71F21E57A00A20FB7 /* TableViewController.swift in Sources */,
 				981AC87D1F08CA2000F7830B /* ViewController.swift in Sources */,
 				98F959DC1F08DC6C00635EB8 /* SignUp.swift in Sources */,
@@ -556,8 +560,6 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -613,8 +615,6 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -647,15 +647,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2530248BD1DC16010C0C6C2B /* Pods-Coins.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Coins/Coins.entitlements;
 				DEVELOPMENT_TEAM = Z28CSUK723;
 				INFOPLIST_FILE = Coins/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.labbylabs.coin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -665,15 +668,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 77FFCDF670D7959DEEA94413 /* Pods-Coins.release.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Coins/Coins.entitlements;
 				DEVELOPMENT_TEAM = Z28CSUK723;
 				INFOPLIST_FILE = Coins/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.labbylabs.coin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

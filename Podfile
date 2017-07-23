@@ -12,6 +12,7 @@ target 'Coins' do
   pod 'Firebase'
   pod 'Firebase/Database' 
   pod 'PhoneNumberKit', '~> 1.2'
+  pod 'QRCode'
   target 'CoinsTests' do
     inherit! :search_paths
     # Pods for testing
