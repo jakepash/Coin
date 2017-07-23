@@ -48,7 +48,7 @@ class VerifyViewController: UIViewController {
                 let userInfo = user?.providerData[0]
                 print("Provider ID: \(String(describing: userInfo?.providerID))")
 //                let userID = Auth.auth().currentUser!.uid
-                self.ref.child("users").child((user?.uid)!).setValue(["Coins": 0])
+                self.ref.child("users").child((user?.uid)!).setValue(["Coins": 0,"phoneNumber":user?.phoneNumber])
                 self.performSegue(withIdentifier: "segue2", sender: Any?.self)
             }
         }
