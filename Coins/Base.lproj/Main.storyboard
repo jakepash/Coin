@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LUZ-tH-0oR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LUZ-tH-0oR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,7 +30,7 @@
                                 <color key="textColor" red="0.17776930329999999" green="0.80832916499999996" blue="0.60771507020000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kyl-4G-7Ge">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kyl-4G-7Ge">
                                 <rect key="frame" x="141" y="454" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="E63-21-O4w"/>
@@ -40,9 +40,8 @@
                                     <action selector="signout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="36r-Ex-Vm8"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yWf-Z9-CPe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yWf-Z9-CPe">
                                 <rect key="frame" x="91" y="233" width="200" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.11343727260828018" green="0.12129936367273331" blue="0.13792043924331665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -51,6 +50,9 @@
                             <constraint firstAttribute="trailing" secondItem="jGA-Xt-7qg" secondAttribute="trailing" id="2wV-oL-B43"/>
                             <constraint firstItem="jGA-Xt-7qg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="66m-PT-D80"/>
                             <constraint firstItem="jGA-Xt-7qg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="6IB-aE-0W2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kyl-4G-7Ge" secondAttribute="bottom" constant="183" id="AvG-nS-egM"/>
+                            <constraint firstItem="Kyl-4G-7Ge" firstAttribute="centerX" secondItem="yWf-Z9-CPe" secondAttribute="centerX" id="P19-JP-jbN"/>
+                            <constraint firstItem="Kyl-4G-7Ge" firstAttribute="top" secondItem="yWf-Z9-CPe" secondAttribute="bottom" constant="21" id="QhA-cS-ghK"/>
                         </constraints>
                     </view>
                     <connections>

@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
-import Alamofire
 
 
 class ViewController: UIViewController {
