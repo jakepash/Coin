@@ -157,7 +157,7 @@ protocol SlideButtonDelegate{
         self.dragPoint.addGestureRecognizer(panGestureRecognizer)
     }
     
-    func panDetected(sender: UIPanGestureRecognizer){
+    @objc func panDetected(sender: UIPanGestureRecognizer){
         var translatedPoint = sender.translation(in: self)
         translatedPoint     = CGPoint(x: translatedPoint.x, y: self.frame.size.height / 2)
         sender.view?.frame.origin.x = (dragPointWidth - self.frame.size.width) + translatedPoint.x
