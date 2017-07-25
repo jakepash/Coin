@@ -99,4 +99,3 @@ class SendViewController: UIViewController, SlideButtonDelegate {
     }
     
 
-}

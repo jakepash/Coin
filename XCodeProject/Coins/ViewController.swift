@@ -66,10 +66,27 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         let url1 = Auth.auth().currentUser!.uid
         print(url1)
-        var qrCode = QRCode(url1)
-        qrCode?.color = CIColor(red:0.18, green: 0.81, blue:0.61, alpha:1.0)
-        qrCode?.backgroundColor = CIColor(red:0.11, green: 0.12, blue:0.14, alpha:1.0)
-        imageView.image = qrCode?.image
+        let image = generateQRCode(from: "static string")
+//        qrCode?.color = CIColor(red:0.18, green: 0.81, blue:0.61, alpha:1.0)
+//        qrCode?.backgroundColor = CIColor(red:0.11, green: 0.12, blue:0.14, alpha:1.0)
+        imageView.image = image
     }
     
+    func generateQRCode( from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.isoLatin1)
+        
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            let transform = CGAffineTransform(scaleX: 1, y:1)
+            
+            if let output = filter.outputImage?.transformed(by: transform) {
+                return UIImage(ciImage: output)
+            }
+        }
+        return nil
+    }
+    
+    
 }
+    
+
