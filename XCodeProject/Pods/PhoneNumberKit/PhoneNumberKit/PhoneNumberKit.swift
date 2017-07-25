@@ -91,11 +91,11 @@ public final class PhoneNumberKit: NSObject {
     /// - parameter countryCode: international country code (e.g 44 for the UK).
     ///
     /// - returns: optional array of ISO 639 compliant region codes.
-//    public func countries(withCode countryCode: UInt64) -> [String]? {
-//        let results = metadataManager.filterTerritories(byCode: countryCode)?.map{$0.codeID}.flatMap{$0}
-//        return results
-//    }
-//
+    public func countries(withCode countryCode: UInt64) -> [String]? {
+        let results = metadataManager.filterTerritories(byCode: countryCode)?.map{$0.codeID}.flatMap{$0}
+        return results
+    }
+    
     /// Get an main ISO 639 compliant region code for a given country code.
     ///
     /// - parameter countryCode: international country code (e.g 1 for the US).

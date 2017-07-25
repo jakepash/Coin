@@ -30,12 +30,6 @@ class SendViewController: UIViewController, SlideButtonDelegate {
     @IBOutlet weak var amountToSend: UITextField!
     @IBOutlet weak var moreErrorLabel: UILabel!
     @IBOutlet weak var errorLabelNotEnough: UILabel!
-    
-    @IBOutlet weak var temp: UIButton!
-    @IBAction func tempbtn(_ sender: Any) {
-        
-        
-    }
     @IBOutlet weak var SlideToSend: MMSlidingButton!
     
     func buttonStatus(status: String, sender: MMSlidingButton) {

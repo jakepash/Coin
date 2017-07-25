@@ -13,8 +13,8 @@ extension String {
 		let utf16view = self.utf16
 		let from = range.lowerBound.samePosition(in: utf16view)
 		let to = range.upperBound.samePosition(in: utf16view)
-		return NSMakeRange(utf16view.distance(from: utf16view.startIndex, to: from),
-		                   utf16view.distance(from: from, to: to))
+        return NSMakeRange(utf16view.distance(from: utf16view.startIndex to: ),
+                           utf16view.distance(from: from, to: to))
 	}
 	
 	func range(from nsRange: NSRange) -> Range<String.Index>? {
@@ -29,6 +29,13 @@ extension String {
 }
 
 
+extension Collection {
+    
+    /// Returns the element at the specified index iff it is within bounds, otherwise nil.
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
 extension NSRegularExpression {
 	func enumerateMatches(in string: String, options: NSRegularExpression.MatchingOptions = [], range: Range<String.Index>? = nil, using block: (NSTextCheckingResult?, NSRegularExpression.MatchingFlags, UnsafeMutablePointer<ObjCBool>) -> Swift.Void) {
 		let range = range ?? string.startIndex..<string.endIndex

@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
-import QRCode
 
 class ViewController: UIViewController {
     var ref: DatabaseReference!
