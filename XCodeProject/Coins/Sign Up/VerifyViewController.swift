@@ -44,15 +44,22 @@ class VerifyViewController: UIViewController {
             if error != nil {
                 print(error?.localizedDescription)
             }else {
-                print ("Phone Number: \(String(describing: user?.phoneNumber))")
+                let phoneNumber = user?.phoneNumber
                 let userInfo = user?.providerData[0]
                 print("Provider ID: \(String(describing: userInfo?.providerID))")
 //                let userID = Auth.auth().currentUser!.uid
-                self.ref.child("users").child((user?.uid)!).setValue(["Coins": 0])
-                self.performSegue(withIdentifier: "segue2", sender: Any?.self)
-                self.ref = Database.database().reference()
-                print(((user?.phoneNumber!)!))
-                //self.ref.child("users/(user.uid)").setValue(((user?.phoneNumber!)!))
+                //self.ref.child("users").child((user?.uid)!).setValue(["Coins": 0, "PhoneNumber":phoneNumber])
+                    self.ref.child("users/\(user?.uid)").observeSingleEvent(of: .value, with: {(snap) in
+                        if snap.exists(){
+                            // User exists
+                            self.performSegue(withIdentifier: "segue2", sender: Any?.self)
+                        }else{
+                            
+                            // New User
+                            self.ref.child("users").child((user?.uid)!).setValue(["Coins": 0])
+                            self.performSegue(withIdentifier: "segue2", sender: Any?.self)
+                        }
+                    })
 
             }
         }

@@ -103,19 +103,13 @@
                                 <color key="textColor" red="0.83529411764705885" green="0.054901960784313725" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have enough coins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJU-Rl-r5p">
-                                <rect key="frame" x="40" y="435" width="335" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
-                                <color key="textColor" red="0.83529411764705885" green="0.054901960784313725" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="underline" translatesAutoresizingMaskIntoConstraints="NO" id="Unc-Mw-Pmm">
                                 <rect key="frame" x="53" y="157" width="308" height="2"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="DYe-9r-M8j"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qm1-xp-EHQ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qm1-xp-EHQ" customClass="SearchTextField" customModule="SearchTextField">
                                 <rect key="frame" x="-8" y="99" width="430" height="36"/>
                                 <color key="textColor" red="0.1764705882" green="0.80784313730000001" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="30"/>
@@ -146,6 +140,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You don't have enough coins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJU-Rl-r5p">
+                                <rect key="frame" x="39" y="458" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                <color key="textColor" red="0.83529411764705885" green="0.054901960784313725" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.11343727260828018" green="0.12129936367273331" blue="0.13792043924331665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -160,7 +160,7 @@
                             <constraint firstItem="Unc-Mw-Pmm" firstAttribute="leading" secondItem="yyC-S9-PgT" secondAttribute="leadingMargin" constant="33" id="MU9-2w-CU0"/>
                             <constraint firstItem="qm1-xp-EHQ" firstAttribute="top" secondItem="C8E-xp-6Do" secondAttribute="bottom" constant="79" id="Q95-g9-Vyl"/>
                             <constraint firstItem="Unc-Mw-Pmm" firstAttribute="top" secondItem="qm1-xp-EHQ" secondAttribute="bottom" constant="22" id="QBx-Da-Zwz"/>
-                            <constraint firstItem="xcY-d5-LOE" firstAttribute="top" secondItem="yyC-S9-PgT" secondAttribute="top" constant="614" id="VaQ-bb-L69"/>
+                            <constraint firstItem="xcY-d5-LOE" firstAttribute="top" secondItem="yyC-S9-PgT" secondAttribute="top" constant="614" id="RqX-2J-bC8"/>
                             <constraint firstItem="bJU-Rl-r5p" firstAttribute="centerY" secondItem="Pet-ci-yTt" secondAttribute="centerY" id="Vqc-zw-SNd"/>
                             <constraint firstItem="Ji8-dY-UtY" firstAttribute="leading" secondItem="yyC-S9-PgT" secondAttribute="leadingMargin" constant="74" id="ZjS-nY-BvQ"/>
                             <constraint firstItem="sAy-TZ-qCl" firstAttribute="top" secondItem="xcY-d5-LOE" secondAttribute="bottom" constant="33" id="a1Z-l6-s36"/>
@@ -184,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hM-ce-VtZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2287.1999999999998" y="936.88155922038993"/>
+            <point key="canvasLocation" x="-2288.4057971014495" y="936.68478260869574"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="0gT-Xq-cwf">
@@ -380,6 +380,6 @@
         <image name="underline" width="619" height="4"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="df5-b2-rKD"/>
+        <segue reference="gRU-zI-h78"/>
     </inferredMetricsTieBreakers>
 </document>

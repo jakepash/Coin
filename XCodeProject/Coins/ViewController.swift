@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     
     var gameTimer: Timer!
     
+    var ContactsArray = [[String:AnyObject]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,7 +31,9 @@ class ViewController: UIViewController {
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GetCoins), userInfo: nil, repeats: true)
         //self.ref.child("users").child((userID)).setValue(["Coins": 0])
         GetCoins()
-       print(Auth.auth().currentUser?.phoneNumber)
+
+        
+        //end of viewdidload()
     }
     
     @IBOutlet weak var signout: UIButton!
@@ -42,6 +46,9 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    
+    
     
     @objc func GetCoins() {
         let userID = Auth.auth().currentUser?.uid
