@@ -41,7 +41,6 @@ class SendViewController: UIViewController, SlideButtonDelegate {
     func runTimedCode() {
         phoneNum.filterStrings(ContactsArray)
     }
-    @IBOutlet weak var newActionTest: SearchTextField!
     
     @IBOutlet weak var phoneNum: SearchTextField!
     @IBOutlet weak var amountToSend: UITextField!
@@ -155,7 +154,7 @@ class SendViewController: UIViewController, SlideButtonDelegate {
 //                    self.ContactsArray.append([fullName:PhoneNumber as AnyObject])
                     self.ContactsArray.append(fullName)
                 }else {
-                    print("its okay. But there is an error")
+                    //print("its okay. But there is an error")
                 }
             }
             //            for a in self.ContactsArray{
