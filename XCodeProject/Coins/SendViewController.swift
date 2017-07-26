@@ -38,12 +38,7 @@ class SendViewController: UIViewController, SlideButtonDelegate {
             if amounttosend < 100 {
                 moreErrorLabel.isHidden = true
                 let UserToSend = phoneNum.text!
-                
-                //
                 GetCoins()
-                DispatchQueue.main.async(execute: {
-                    self.performSegue(withIdentifier: "seguetomain", sender: nil)
-                })
                 
                 
             }
@@ -74,16 +69,19 @@ class SendViewController: UIViewController, SlideButtonDelegate {
                     print(CurrentUserCoins)
                     CurrentUserCoins -= amounttosend!
                     // continue doing this -
-//                    if CurrentUserCoins < 0{
-//                        print ("cant")
-//                    } else {
-//                        self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
-//                        // add coins to user ->
-//                        self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
-//                    }
-                    self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
+                    if CurrentUserCoins < 0{
+                        print ("cant")
+                        self.SlideToSend.reset()
+                        self.errorLabelNotEnough.isHidden = false
+                    } else {
+                        self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
                         // add coins to user ->
-                     self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
+                        self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
+                        self.performSegue(withIdentifier: "seguetomain", sender: nil)
+                    }
+                    //self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
+                        // add coins to user ->
+                     //self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
                     
             })
             
