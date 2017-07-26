@@ -11,6 +11,7 @@ target 'Coins' do
     pod 'Firebase/Auth'
     pod 'Firebase'
     pod 'Firebase/Database'
+    pod 'QRCode'
     target 'CoinsTests' do
         inherit! :search_paths
         # Pods for testing
