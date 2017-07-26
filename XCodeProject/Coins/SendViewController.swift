@@ -62,7 +62,16 @@ class SendViewController: UIViewController, SlideButtonDelegate {
         }
         
     }
+    
+    var OtherUserCoins = Int()
+    
     func GetCoins() {
+        
+        if let indexOfA = ContactsArray.index(of: phoneNum.text!){
+            let phoneNumberForUID = phoneNumberArray[indexOfA] as? String
+            let FinalNum = phoneNumberForUID
+            print(FinalNum)
+        }
         // queryEqual(toValue: should be the number of the user that the current user inputed)
         ref.child("users").queryOrdered(byChild:"PhoneNumber").queryEqual(toValue: "+972528080005").observeSingleEvent(of: .value) { (snap, st) in
             for snapp in snap.children {
@@ -73,42 +82,48 @@ class SendViewController: UIViewController, SlideButtonDelegate {
         ref.child("users").child(phoneNum.text!).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
             
             let value = snapshot.value
-            
-            var OtherUserCoins = value as! Int
-            print(OtherUserCoins)
-            
-            
-            let amounttosend = Int(self.amountToSend.text!)
-            OtherUserCoins += amounttosend!
-            // subtract coins from current user ->
-            let userID = Auth.auth().currentUser?.uid
-            self.ref.child("users").child(userID!
-                ).child("Coins").observeSingleEvent(of: .value, with: { (othersnapshot) in
-                    let userID = Auth.auth().currentUser?.uid
-                    let othervalue = othersnapshot.value
-                    var CurrentUserCoins = othervalue as! Int
-                    print(CurrentUserCoins)
-                    CurrentUserCoins -= amounttosend!
-                    // continue doing this -
-                    if CurrentUserCoins < 0{
-                        print ("cant")
-                        self.SlideToSend.reset()
-                        self.errorLabelNotEnough.isHidden = false
-                    } else {
-                        self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
+            if snapshot.exists(){
+                self.OtherUserCoins = value as! Int
+                
+                print(self.OtherUserCoins)
+                
+                let amounttosend = Int(self.amountToSend.text!)
+                self.OtherUserCoins += amounttosend!
+                // subtract coins from current user ->
+                let userID = Auth.auth().currentUser?.uid
+                self.ref.child("users").child(userID!
+                    ).child("Coins").observeSingleEvent(of: .value, with: { (othersnapshot) in
+                        let userID = Auth.auth().currentUser?.uid
+                        let othervalue = othersnapshot.value
+                        var CurrentUserCoins = othervalue as! Int
+                        print(CurrentUserCoins)
+                        CurrentUserCoins -= amounttosend!
+                        // continue doing this -
+                        if CurrentUserCoins < 0{
+                            print ("cant")
+                            self.SlideToSend.reset()
+                            self.errorLabelNotEnough.isHidden = false
+                        } else {
+                            self.ref.child("users").child(userID!).updateChildValues(["Coins":CurrentUserCoins])
+                            // add coins to user ->
+                            self.ref.child("users").child(self.phoneNum.text!).updateChildValues(["Coins":self.OtherUserCoins])
+                            self.performSegue(withIdentifier: "seguetomain", sender: nil)
+                        }
+                        //self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
                         // add coins to user ->
-                        self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
-                        self.performSegue(withIdentifier: "seguetomain", sender: nil)
-                    }
-                    //self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
-                        // add coins to user ->
-                     //self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
-                    
-            })
-            
-            //let newAmountOtherUser Int(amountToSend.text!)
+                        //self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
+                        
+                    })
+                
+                //let newAmountOtherUser Int(amountToSend.text!)
+            } else {
+                print("User doesn't exist")
+                self.SlideToSend.reset()
+            }
+
         }) { (error) in
             print(error.localizedDescription)
+            self.SlideToSend.reset()
         }
     }
     
@@ -160,6 +175,7 @@ class SendViewController: UIViewController, SlideButtonDelegate {
                     let fullName = contact.givenName + " " + contact.familyName
 //                    self.ContactsArray.append([fullName:PhoneNumber as AnyObject])
                     self.ContactsArray.append(fullName)
+                    self.phoneNumberArray.append(PhoneNumber)
                 }else {
                     //print("its okay. But there is an error")
                 }
@@ -172,7 +188,7 @@ class SendViewController: UIViewController, SlideButtonDelegate {
         
     }
     
-    
+    var phoneNumberArray = [String]()
     
 
 }

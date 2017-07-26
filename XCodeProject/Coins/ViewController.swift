@@ -29,8 +29,7 @@ class ViewController: UIViewController {
         tapRecognizer.addTarget(self, action: #selector(ViewController.didTapView))
         self.view.addGestureRecognizer(tapRecognizer)
         let userID = Auth.auth().currentUser!.uid
-        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GetCoins), userInfo: nil, repeats: true)
-        //self.ref.child("users").child((userID)).setValue(["Coins": 0])
+        gameTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(GetCoins), userInfo: nil, repeats: true)
         GetCoins()
 
         

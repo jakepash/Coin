@@ -48,7 +48,6 @@ class VerifyViewController: UIViewController {
                 let userInfo = user?.providerData[0]
                 print("Provider ID: \(String(describing: userInfo?.providerID))")
 //                let userID = Auth.auth().currentUser!.uid
-                //self.ref.child("users").child((user?.uid)!).setValue(["Coins": 0, "PhoneNumber":phoneNumber])
                     self.ref.child("users/\(user?.uid)").observeSingleEvent(of: .value, with: {(snap) in
                         if snap.exists(){
                             // User exists
@@ -56,7 +55,8 @@ class VerifyViewController: UIViewController {
                         }else{
                             
                             // New User
-                            self.ref.child("users").child((user?.uid)!).setValue(["Coins": 0])
+//                            self.ref.child("users").child((user?.uid)!).setValue(["Coins": 0])
+                            self.ref.child("users").child((user?.uid)!).setValue(["Coins": 0, "PhoneNumber":phoneNumber])
                             self.performSegue(withIdentifier: "segue2", sender: Any?.self)
                         }
                     })
