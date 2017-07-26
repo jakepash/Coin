@@ -10,6 +10,8 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import QRCode
+import CoreTelephony
+
 class ViewController: UIViewController {
     var ref: DatabaseReference!
     
@@ -21,7 +23,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view, typically from a nib.
         ref = Database.database().reference()
         let tapRecognizer = UITapGestureRecognizer()

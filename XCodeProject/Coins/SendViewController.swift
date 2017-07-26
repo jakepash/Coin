@@ -63,6 +63,13 @@ class SendViewController: UIViewController, SlideButtonDelegate {
         
     }
     func GetCoins() {
+        // queryEqual(toValue: should be the number of the user that the current user inputed)
+        ref.child("users").queryOrdered(byChild:"PhoneNumber").queryEqual(toValue: "+972528080005").observeSingleEvent(of: .value) { (snap, st) in
+            for snapp in snap.children {
+                print((snapp as! DataSnapshot).key)
+            }
+        }
+        
         ref.child("users").child(phoneNum.text!).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
             
             let value = snapshot.value

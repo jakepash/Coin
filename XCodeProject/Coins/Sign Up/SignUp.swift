@@ -37,6 +37,7 @@ class SignUp: UIViewController {
     func forphonechange() {
         if let country = UserDefaults.standard.string(forKey: "selectedcell"){
             let newCountry = countryArray[country]
+            UserDefaults.standard.set(newCountry, forKey: "UserDialCode")
             phoneNumber = newCountry!+phoneLabel.text!
             btnforcountry.setTitle(newCountry, for: .normal)
         } else {
@@ -44,7 +45,7 @@ class SignUp: UIViewController {
         }
         
     }
-    
+    // remove this >>
     @IBOutlet weak var btnforcountry: UIButton!
     
     @IBAction func buttonForCountry(_ sender: Any) {
