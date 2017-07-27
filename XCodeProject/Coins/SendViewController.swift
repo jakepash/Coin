@@ -133,15 +133,6 @@ class SendViewController: UIViewController, SlideButtonDelegate {
     }
     
     func getContactsArray() {
-        //        let contactStore = CNContactStore()
-        //        let keys = [CNContactGivenNameKey, CNContactPhoneNumbersKey]
-        //        let request1 = CNContactFetchRequest(keysToFetch: keys  as [CNKeyDescriptor])
-        //
-        //        try? contactStore.enumerateContacts(with: request1) { (contact, error) in
-        //            for phone in contact.givenName {
-        //                self.ContactsArray.append(String(phone))
-        //            }
-        //        }
         
         let store = CNContactStore()
         store.requestAccess(for: .contacts, completionHandler: {

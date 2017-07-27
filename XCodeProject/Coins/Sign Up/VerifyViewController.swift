@@ -14,10 +14,12 @@ class VerifyViewController: UIViewController {
     
     var ref: DatabaseReference!
     
+    @IBOutlet weak var activityindicator: UIActivityIndicatorView!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityindicator.isHidden = true
         ref = Database.database().reference()
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: #selector(ViewController.didTapView))
@@ -41,8 +43,13 @@ class VerifyViewController: UIViewController {
         let defaults = UserDefaults.standard
         let credential: PhoneAuthCredential = PhoneAuthProvider.provider().credential(withVerificationID: defaults.string(forKey: "AuthVID")!, verificationCode: code.text!)
         Auth.auth().signIn(with: credential) { (user, error ) in
+            self.self.activityindicator.isHidden = false
+            self.activityindicator.startAnimating()
             if error != nil {
                 print(error?.localizedDescription)
+                // show error
+                //stop animating activity indicator
+                self.activityindicator.isHidden = true
             }else {
                 let phoneNumber = user?.phoneNumber
                 let userInfo = user?.providerData[0]

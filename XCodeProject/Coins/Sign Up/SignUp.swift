@@ -18,6 +18,7 @@ class SignUp: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadingIndicator.isHidden = true
         // Do any additional setup after loading the view, typically from a nib.
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: #selector(ViewController.didTapView))
@@ -45,6 +46,7 @@ class SignUp: UIViewController {
         }
         
     }
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     // remove this >>
     @IBOutlet weak var btnforcountry: UIButton!
     
@@ -56,6 +58,8 @@ class SignUp: UIViewController {
         let alert = UIAlertController(title: "Phone Number", message: "Is this your phone number?\(phoneLabel.text!)", preferredStyle: .alert)
         print(phoneNumber)
         let action = UIAlertAction(title: "Yes", style: .default) { (UIAlertAction) in
+            self.loadingIndicator.isHidden = false
+            self.loadingIndicator.startAnimating()
             PhoneAuthProvider.provider().verifyPhoneNumber(self.phoneNumber) { (verificationID, error) in
                 if error != nil{
                     print(error?.localizedDescription)
