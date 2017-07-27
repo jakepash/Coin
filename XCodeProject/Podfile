@@ -1,5 +1,6 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
+source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Coins' do
     # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -13,6 +14,9 @@ target 'Coins' do
     pod 'Firebase/Database'
     pod 'QRCode'
     pod "SearchTextField"
+    pod 'QRCodeReader.swift', '~> 7.4.3'
+    
+    
     target 'CoinsTests' do
         inherit! :search_paths
         # Pods for testing

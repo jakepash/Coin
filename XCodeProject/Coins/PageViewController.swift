@@ -10,7 +10,7 @@ import UIKit
 
 class PageViewController : UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
-    let pages = ["ViewController", "SendViewController"]
+    let pages = ["QRScanViewController","ViewController", "SendViewController"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
