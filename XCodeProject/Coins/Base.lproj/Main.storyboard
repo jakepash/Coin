@@ -382,15 +382,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VP5-1b-tEj">
-                                <rect key="frame" x="163" y="299" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Scan"/>
-                                <connections>
-                                    <action selector="ScanAction:" destination="JaC-5u-29L" eventType="touchUpInside" id="x9w-ZQ-UFP"/>
-                                    <action selector="scanAction:" destination="lLw-83-4Mf" eventType="touchUpInside" id="6p3-m5-jsD"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZHI-l1-tds">
                                 <rect key="frame" x="40" y="20" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -405,7 +396,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hx-cK-ZgO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="JaC-5u-29L" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="486" y="72"/>
         </scene>

@@ -18,25 +18,6 @@ class QRCodeScanViewController: UIViewController, QRCodeReaderViewControllerDele
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    @IBOutlet weak var previewView: UIView!
-    
-    // Good practice: create the reader lazily to avoid cpu overload during the
-    // initialization and each time we need to scan a QRCode
-    lazy var readerVC: QRCodeReaderViewController = {
-        let builder = QRCodeReaderViewControllerBuilder {
-            $0.reader = QRCodeReader(metadataObjectTypes: [AVMetadataObjectTypeQRCode], captureDevicePosition: .back)
-        }
-        
-        return QRCodeReaderViewController(builder: builder)
-    }()
-    
-    @IBAction func scanAction(_ sender: AnyObject) {
         // Retrieve the QRCode content
         // By using the delegate pattern
         readerVC.delegate = self
@@ -55,6 +36,24 @@ class QRCodeScanViewController: UIViewController, QRCodeReaderViewControllerDele
         readerVC.modalPresentationStyle = .formSheet
         present(readerVC, animated: true, completion: nil)
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    @IBOutlet weak var previewView: UIView!
+    
+    // Good practice: create the reader lazily to avoid cpu overload during the
+    // initialization and each time we need to scan a QRCode
+    lazy var readerVC: QRCodeReaderViewController = {
+        let builder = QRCodeReaderViewControllerBuilder {
+            $0.reader = QRCodeReader(metadataObjectTypes: [AVMetadataObjectTypeQRCode], captureDevicePosition: .back)
+        }
+        
+        return QRCodeReaderViewController(builder: builder)
+    }()
+    
+
     
     
     // MARK: - QRCodeReaderViewController Delegate Methods
