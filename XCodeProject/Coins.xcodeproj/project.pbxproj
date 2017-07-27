@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		187DB3579B88C40417B17E56 /* Pods_CoinsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B74783788ACFBBAE9AEFACD9 /* Pods_CoinsUITests.framework */; };
 		66A640841F286A8D008A0614 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66A640831F286A8D008A0614 /* GoogleService-Info.plist */; };
+		66C25D8C1F2A6A6700ACECD5 /* QRSendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C25D8B1F2A6A6700ACECD5 /* QRSendViewController.swift */; };
 		66C2E0CB1F2780340001A153 /* MMSlidingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C2E0C91F2780330001A153 /* MMSlidingButton.swift */; };
 		66FA33F71F21E57A00A20FB7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FA33F61F21E57A00A20FB7 /* TableViewController.swift */; };
 		66FDEB061F20AF4B00A2E2E9 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FDEB051F20AF4B00A2E2E9 /* VerifyViewController.swift */; };
@@ -53,6 +54,7 @@
 		24E63FEF4588C7F4BC0F248A /* Pods-Coins.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coins.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coins/Pods-Coins.release.xcconfig"; sourceTree = "<group>"; };
 		61A766E0B144F7535C94A6BB /* Pods-CoinsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoinsTests/Pods-CoinsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		66A640831F286A8D008A0614 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		66C25D8B1F2A6A6700ACECD5 /* QRSendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSendViewController.swift; sourceTree = "<group>"; };
 		66C2E0C91F2780330001A153 /* MMSlidingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSlidingButton.swift; sourceTree = "<group>"; };
 		66FA33F61F21E57A00A20FB7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		66FDEB051F20AF4B00A2E2E9 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				981AC87A1F08CA2000F7830B /* AppDelegate.swift */,
 				661C94CC1F2227F300CF7BE5 /* Sign Up */,
 				981AC87C1F08CA2000F7830B /* ViewController.swift */,
+				66C25D8B1F2A6A6700ACECD5 /* QRSendViewController.swift */,
 				984142E51F29ABB800D28F09 /* QRCodeScanViewController.swift */,
 				98F007971F09021F00EB9215 /* SendViewController.swift */,
 				66FA33F61F21E57A00A20FB7 /* TableViewController.swift */,
@@ -490,6 +493,7 @@
 				66FA33F71F21E57A00A20FB7 /* TableViewController.swift in Sources */,
 				981AC87D1F08CA2000F7830B /* ViewController.swift in Sources */,
 				98F959DC1F08DC6C00635EB8 /* SignUp.swift in Sources */,
+				66C25D8C1F2A6A6700ACECD5 /* QRSendViewController.swift in Sources */,
 				66FDEB061F20AF4B00A2E2E9 /* VerifyViewController.swift in Sources */,
 				981AC87B1F08CA2000F7830B /* AppDelegate.swift in Sources */,
 			);

@@ -10,6 +10,8 @@ import UIKit
 import AVFoundation
 import QRCodeReader
 
+    var QRGetUID = String()
+
 class QRCodeScanViewController: UIViewController, QRCodeReaderViewControllerDelegate {
 
     override func viewDidLoad() {
@@ -41,7 +43,12 @@ class QRCodeScanViewController: UIViewController, QRCodeReaderViewControllerDele
         
         // Or by using the closure pattern
         readerVC.completionBlock = { (result: QRCodeReaderResult?) in
+            QRGetUID = (result?.value)!
             print(result)
+            //self.performSegue(withIdentifier: "seguetosend", sender: self)
+            let newViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QRSendViewController")
+            UIApplication.topViewController()?.present(newViewController, animated: true, completion: nil)
+            print("segued")
         }
         
         // Presents the readerVC as modal form sheet
@@ -55,7 +62,7 @@ class QRCodeScanViewController: UIViewController, QRCodeReaderViewControllerDele
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         reader.stopScanning()
         
-        dismiss(animated: true, completion: nil)
+       // dismiss(animated: true, completion: nil)
     }
     
     //This is an optional delegate method, that allows you to be notified when the user switches the cameraName
@@ -81,4 +88,21 @@ class QRCodeScanViewController: UIViewController, QRCodeReaderViewControllerDele
     }
     */
 
+}
+
+extension UIApplication {
+    class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return topViewController(base: nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(base: selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return topViewController(base: presented)
+        }
+        return base
+    }
 }
