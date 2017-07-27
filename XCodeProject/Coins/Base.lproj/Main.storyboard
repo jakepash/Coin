@@ -373,7 +373,7 @@
         <!--QRScanViewController-->
         <scene sceneID="PyD-Fg-SfX">
             <objects>
-                <viewController storyboardIdentifier="QRScanViewController" title="QRScanViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lLw-83-4Mf" customClass="QRCodeScanViewController" customModule="Coins" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRScanViewController" title="QRScanViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lLw-83-4Mf" customClass="QRCodeReaderViewController" customModule="QRCodeReader" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cZ0-T5-Atj"/>
                         <viewControllerLayoutGuide type="bottom" id="gv2-fl-2Qt"/>
@@ -473,6 +473,6 @@
         <image name="underline" width="619" height="4"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6fA-D5-PUQ"/>
+        <segue reference="il0-09-Ftc"/>
     </inferredMetricsTieBreakers>
 </document>
