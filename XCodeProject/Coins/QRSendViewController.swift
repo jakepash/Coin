@@ -26,7 +26,11 @@ class QRSendViewController: UIViewController, SlideButtonDelegate {
     
     }
     
+    
 
+    @IBAction func button(_ sender: Any) {
+}
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
