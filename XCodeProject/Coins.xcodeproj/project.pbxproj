@@ -19,6 +19,7 @@
 		981AC8851F08CA2000F7830B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 981AC8831F08CA2000F7830B /* LaunchScreen.storyboard */; };
 		981AC8901F08CA2000F7830B /* CoinsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981AC88F1F08CA2000F7830B /* CoinsTests.swift */; };
 		981AC89B1F08CA2000F7830B /* CoinsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981AC89A1F08CA2000F7830B /* CoinsUITests.swift */; };
+		982A8B7E1F2E3CA400542546 /* QRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982A8B7D1F2E3CA400542546 /* QRScanViewController.swift */; };
 		984142E61F29ABB800D28F09 /* QRCodeScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984142E51F29ABB800D28F09 /* QRCodeScanViewController.swift */; };
 		989FFE0D1F230C350057E7E7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989FFE0C1F230C350057E7E7 /* PageViewController.swift */; };
 		98F007981F09021F00EB9215 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F007971F09021F00EB9215 /* SendViewController.swift */; };
@@ -72,6 +73,7 @@
 		981AC8961F08CA2000F7830B /* CoinsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		981AC89A1F08CA2000F7830B /* CoinsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsUITests.swift; sourceTree = "<group>"; };
 		981AC89C1F08CA2000F7830B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		982A8B7D1F2E3CA400542546 /* QRScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanViewController.swift; sourceTree = "<group>"; };
 		984142E51F29ABB800D28F09 /* QRCodeScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanViewController.swift; sourceTree = "<group>"; };
 		989FFE0C1F230C350057E7E7 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		98F007971F09021F00EB9215 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				661C94CC1F2227F300CF7BE5 /* Sign Up */,
 				981AC87C1F08CA2000F7830B /* ViewController.swift */,
 				66C25D8B1F2A6A6700ACECD5 /* QRSendViewController.swift */,
+				982A8B7D1F2E3CA400542546 /* QRScanViewController.swift */,
 				984142E51F29ABB800D28F09 /* QRCodeScanViewController.swift */,
 				98F007971F09021F00EB9215 /* SendViewController.swift */,
 				66FA33F61F21E57A00A20FB7 /* TableViewController.swift */,
@@ -488,6 +491,7 @@
 			files = (
 				984142E61F29ABB800D28F09 /* QRCodeScanViewController.swift in Sources */,
 				66C2E0CB1F2780340001A153 /* MMSlidingButton.swift in Sources */,
+				982A8B7E1F2E3CA400542546 /* QRScanViewController.swift in Sources */,
 				98F007981F09021F00EB9215 /* SendViewController.swift in Sources */,
 				989FFE0D1F230C350057E7E7 /* PageViewController.swift in Sources */,
 				66FA33F71F21E57A00A20FB7 /* TableViewController.swift in Sources */,

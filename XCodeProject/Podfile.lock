@@ -39,6 +39,7 @@ PODS:
   - QRCode (2.0)
   - QRCodeReader.swift (7.4.3)
   - SearchTextField (1.1.2)
+  - SwiftQRCode (3.0.2)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -49,6 +50,7 @@ DEPENDENCIES:
   - QRCode
   - QRCodeReader.swift (~> 7.4.3)
   - SearchTextField
+  - SwiftQRCode
   - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -64,8 +66,9 @@ SPEC CHECKSUMS:
   QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
   QRCodeReader.swift: 4a1d46f3057b1b6fc555578b2dc9f2dc99c7ccda
   SearchTextField: 98d9d9577ab9cbf0a306e300911224d28c4c43f5
+  SwiftQRCode: 280589699d84195c2c573011aa52f2c015c31c34
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: f45a617c6cb68a919f666a99ce39b7cbba9d16db
+PODFILE CHECKSUM: e2634d4f5cc3a36e681bec23400d4cd0a7b4468a
 
 COCOAPODS: 1.2.1

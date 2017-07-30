@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-open class QRCode: NSObject, AVCaptureMetadataOutputObjectsDelegate {
+open class SwiftQRCode: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     
     /// corner line width
     var lineWidth: CGFloat

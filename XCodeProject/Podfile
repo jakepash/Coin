@@ -15,6 +15,7 @@ target 'Coins' do
     pod 'QRCode'
     pod "SearchTextField"
     pod 'QRCodeReader.swift', '~> 7.4.3'
+    pod 'SwiftQRCode'
     
     
     target 'CoinsTests' do
