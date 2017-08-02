@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Coins/SendViewController.swift"
-            timestampString = "523404891.413622"
+            timestampString = "523406182.230513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "GetCoins()"
             landmarkType = "7">
          </BreakpointContent>

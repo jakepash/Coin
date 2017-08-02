@@ -137,7 +137,7 @@ class SendViewController: UIViewController, SlideButtonDelegate {
                         print(CurrentUserCoins)
                         CurrentUserCoins -= amounttosend!
                         // continue doing this -
-                        if CurrentUserCoins < 0{
+                        if CurrentUserCoins < 1{
                             print ("cant")
                             self.SlideToSend.reset()
                             self.errorLabelNotEnough.isHidden = false
