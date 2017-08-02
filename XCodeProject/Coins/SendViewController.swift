@@ -138,11 +138,11 @@ class SendViewController: UIViewController, SlideButtonDelegate {
         if let indexOfA = ContactsArray.index(of: phoneNum.text!){
             let phoneNumberForUID = phoneNumberArray[indexOfA] as? String
             let FinalNum = phoneNumberForUID
-            // don't fix error, need to import cocoa pod " PhoneNumberKit "f
+            // don't fix error, need to import cocoa pod " PhoneNumberKit "
             
             recognizeNumber(phone: FinalNum!)
         }
-        DispatchQueue.main.async {
+        DispatchQueue.main.sync {
             
             // don't fix error, need to import cocoa pod " PhoneNumberKit "
             self.ref.child("users").queryOrdered(byChild:"PhoneNumber").queryEqual(toValue: fullPhoneNumber).observeSingleEvent(of: .value) { (snap, st) in
