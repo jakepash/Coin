@@ -63,6 +63,48 @@ class SendViewController: UIViewController, SlideButtonDelegate {
         
     }
     
+    
+    
+    
+    var OtherUserCoins = Int()
+    var senderUID = String()
+    
+    
+    
+    func GetCoins() {
+        // synchronisly
+        
+//        DispatchQueue.main.async {
+//            self.ref.child("users").queryOrdered(byChild:"PhoneNumber").queryEqual(toValue: fullPhoneNumber).observeSingleEvent(of: .value) { (snap, st) in
+//                for snapp in snap.children {
+//                    print("UID: \((snapp as! DataSnapshot).key)")
+//                    self.senderUID = (snapp as! DataSnapshot).key
+//                }
+//            }
+//        }
+        let myGroup = DispatchGroup()
+        myGroup.enter()
+        //// Do your task
+        if let indexOfA = ContactsArray.index(of: phoneNum.text!){
+            let phoneNumberForUID = phoneNumberArray[indexOfA] as? String
+            let FinalNum = phoneNumberForUID
+            recognizeNumber(phone: FinalNum!)
+        }
+        self.ref.child("users").queryOrdered(byChild:"PhoneNumber").queryEqual(toValue: fullPhoneNumber).observeSingleEvent(of: .value) { (snap, st) in
+            for snapp in snap.children {
+                print("UID: \((snapp as! DataSnapshot).key)")
+                self.senderUID = (snapp as! DataSnapshot).key
+            }
+        }
+        //// When you task complete
+        myGroup.leave()
+        myGroup.notify(queue: DispatchQueue.main) {
+            
+            ////// do your remaining work
+            _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.coins), userInfo: nil, repeats: false)
+        }
+       
+    }
     func coins() {
         //
         //        print("their uid is - \(senderUID)")
@@ -114,31 +156,6 @@ class SendViewController: UIViewController, SlideButtonDelegate {
             self.SlideToSend.reset()
         }
     }
-    
-    
-    var OtherUserCoins = Int()
-    var senderUID = String()
-    
-    
-    
-    func GetCoins() {
-        // synchronisly
-        if let indexOfA = ContactsArray.index(of: phoneNum.text!){
-            let phoneNumberForUID = phoneNumberArray[indexOfA] as? String
-            let FinalNum = phoneNumberForUID
-            recognizeNumber(phone: FinalNum!)
-        }
-        DispatchQueue.main.async {
-            self.ref.child("users").queryOrdered(byChild:"PhoneNumber").queryEqual(toValue: fullPhoneNumber).observeSingleEvent(of: .value) { (snap, st) in
-                for snapp in snap.children {
-                    print("UID: \((snapp as! DataSnapshot).key)")
-                    self.senderUID = (snapp as! DataSnapshot).key
-                }
-            }
-        }
-        coins()
-    }
-    
     @objc func didTapView(){
         self.view.endEditing(true)
         
