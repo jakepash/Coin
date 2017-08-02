@@ -54,6 +54,7 @@ class SendViewController: UIViewController, SlideButtonDelegate {
             if amounttosend < 100 {
                 moreErrorLabel.isHidden = true
                 let UserToSend = phoneNum.text!
+                SlideToSend.reset()
                 GetCoins()
             }
             else {
