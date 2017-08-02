@@ -19,7 +19,7 @@ class QRScanViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         scanner.prepareScan(view) { (stringValue) -> () in
-            print(stringValue)
+            print("this is the value" + stringValue)
         }
         // test scan frame
         scanner.scanFrame = view.bounds

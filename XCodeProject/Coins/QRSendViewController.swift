@@ -3,8 +3,10 @@
 //  Coins
 //
 //  Created by Adam on 7/27/17.
-//  Copyright © 2017 Jacob Pashman. All rights reserved.
+//  Copyright © 2017 Adam Eliezerov. All rights reserved.
 //
+
+// This is the ready to send QR Send View Controller
 
 import UIKit
 import FirebaseAuth
