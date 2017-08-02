@@ -116,7 +116,7 @@ class SendViewController: UIViewController, SlideButtonDelegate {
     func coins() {
         //
         //        print("their uid is - \(senderUID)")
-        
+        if senderUID != Auth.auth().currentUser?.uid {
         ref.child("users").child(senderUID).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
             
             let value = snapshot.value
@@ -163,6 +163,10 @@ class SendViewController: UIViewController, SlideButtonDelegate {
         }) { (error) in
             print(error.localizedDescription)
             self.SlideToSend.reset()
+            }
+        }
+        else {
+            print("cant send money to yourself")
         }
     }
     @objc func didTapView(){
