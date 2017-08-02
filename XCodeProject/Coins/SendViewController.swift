@@ -59,12 +59,15 @@ class SendViewController: UIViewController, SlideButtonDelegate {
             else {
                 moreErrorLabel.isHidden = false
                 SlideToSend.reset()
+                _ = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(self.hideOtherErrors), userInfo: nil, repeats: false)
             }
         }
         
     }
     
-    
+    func hideOtherErrors() {
+        moreErrorLabel.isHidden = true
+    }
     
     
     var OtherUserCoins = Int()
@@ -106,6 +109,10 @@ class SendViewController: UIViewController, SlideButtonDelegate {
         }
        
     }
+    
+    func hideErrors() {
+        errorLabelNotEnough.isHidden = true
+    }
     func coins() {
         //
         //        print("their uid is - \(senderUID)")
@@ -134,6 +141,7 @@ class SendViewController: UIViewController, SlideButtonDelegate {
                             print ("cant")
                             self.SlideToSend.reset()
                             self.errorLabelNotEnough.isHidden = false
+                            _ = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(self.hideErrors), userInfo: nil, repeats: false)
                         } else {
                             self.ref.child("users").child(userID!).updateChildValues(["Coins":CurrentUserCoins])
                             // add coins to user ->
@@ -185,10 +193,10 @@ class SendViewController: UIViewController, SlideButtonDelegate {
                     cnContacts.append(contact)
                 }
             } catch let error {
-                NSLog("Fetch contact error: \(error)")
+                //NSLog("Fetch contact error: \(error)")
             }
             
-            NSLog(">>>> Contact list:")
+            //NSLog(">>>> Contact list:")
             for contact in cnContacts {
                 if contact.phoneNumbers.count > 0{
                     //print("First Name: \(contact.givenName) Last Name: \(contact.familyName)  Phone Number: \(contact.phoneNumbers[0].value.stringValue)")
