@@ -13,10 +13,11 @@ target 'Coins' do
     pod 'Firebase'
     pod 'Firebase/Database'
     pod 'QRCode'
-    pod "SearchTextField"
+    pod 'SearchTextField'
     pod 'QRCodeReader.swift', '~> 7.4.3'
     pod 'SwiftQRCode'
     pod 'PhoneNumberKit'
+    pod 'SACountingLabel'
     
     
     target 'CoinsTests' do

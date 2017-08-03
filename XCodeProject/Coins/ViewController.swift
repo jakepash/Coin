@@ -11,11 +11,12 @@ import FirebaseAuth
 import FirebaseDatabase
 import QRCode
 import CoreTelephony
+import SACountingLabel
 
 class ViewController: UIViewController {
     var ref: DatabaseReference!
     
-    @IBOutlet weak var CoinCount: UILabel!
+    @IBOutlet weak var CoinCount: SACountingLabel!
     
     var gameTimer: Timer!
     
@@ -24,6 +25,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if Reachability.isConnectedToNetwork(){
+            print("Internet Connection Available!")
+            // do nothing in this case
+        }else{
+            print("Internet Connection not Available!")
+            // things are not going to load...
+        }
+        
+        
         ref = Database.database().reference()
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: #selector(ViewController.didTapView))
@@ -54,7 +65,9 @@ class ViewController: UIViewController {
         ref.child("users").child(userID!).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value
-            self.CoinCount.text = NSString(format: "%@", value as! CVarArg) as String
+            //let newnum = NSString(format: "%@", value as! CVarArg) as Float
+            let newnum = value as! Float
+            self.CoinCount.countFrom(fromValue: 0, to: newnum, withDuration: 1.0, andAnimationType: .EaseOut, andCountingType: .Int)
         }) { (error) in
             print(error.localizedDescription)
         }

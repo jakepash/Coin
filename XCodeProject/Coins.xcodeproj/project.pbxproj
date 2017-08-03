@@ -12,6 +12,7 @@
 		66A640841F286A8D008A0614 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66A640831F286A8D008A0614 /* GoogleService-Info.plist */; };
 		66C25D8C1F2A6A6700ACECD5 /* QRSendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C25D8B1F2A6A6700ACECD5 /* QRSendViewController.swift */; };
 		66C2E0CB1F2780340001A153 /* MMSlidingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C2E0C91F2780330001A153 /* MMSlidingButton.swift */; };
+		66EDB3E01F3317710097FD48 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EDB3DF1F3317710097FD48 /* Reachability.swift */; };
 		66FA33F71F21E57A00A20FB7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FA33F61F21E57A00A20FB7 /* TableViewController.swift */; };
 		66FDEB061F20AF4B00A2E2E9 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FDEB051F20AF4B00A2E2E9 /* VerifyViewController.swift */; };
 		981AC87B1F08CA2000F7830B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981AC87A1F08CA2000F7830B /* AppDelegate.swift */; };
@@ -59,6 +60,7 @@
 		66A640831F286A8D008A0614 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		66C25D8B1F2A6A6700ACECD5 /* QRSendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSendViewController.swift; sourceTree = "<group>"; };
 		66C2E0C91F2780330001A153 /* MMSlidingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSlidingButton.swift; sourceTree = "<group>"; };
+		66EDB3DF1F3317710097FD48 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		66FA33F61F21E57A00A20FB7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		66FDEB051F20AF4B00A2E2E9 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		66FDEB071F20B17000A2E2E9 /* Coins.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coins.entitlements; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				982A8B7D1F2E3CA400542546 /* QRScanViewController.swift */,
 				984142E51F29ABB800D28F09 /* QRCodeScanViewController.swift */,
 				98F007971F09021F00EB9215 /* SendViewController.swift */,
+				66EDB3DF1F3317710097FD48 /* Reachability.swift */,
 				66FA33F61F21E57A00A20FB7 /* TableViewController.swift */,
 				981AC87E1F08CA2000F7830B /* Main.storyboard */,
 				989FFE0C1F230C350057E7E7 /* PageViewController.swift */,
@@ -504,6 +507,7 @@
 				66FDEB061F20AF4B00A2E2E9 /* VerifyViewController.swift in Sources */,
 				661F6C461F31D63D002A5309 /* OtherFunctions.swift in Sources */,
 				981AC87B1F08CA2000F7830B /* AppDelegate.swift in Sources */,
+				66EDB3E01F3317710097FD48 /* Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

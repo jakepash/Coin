@@ -56,7 +56,6 @@ class QRSendViewController: UIViewController, SlideButtonDelegate {
         // Dispose of any resources that can be recreated.
     }
     @IBOutlet weak var maxcoinserror: UILabel!
-    
     @IBOutlet weak var notEnoughCoinsError: UILabel!
     @IBOutlet weak var slidingMMS: MMSlidingButton!
     @IBOutlet weak var coinLabel: UITextField!
