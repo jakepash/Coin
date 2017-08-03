@@ -98,7 +98,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.11343727260828018" green="0.12129936367273331" blue="0.13792043924331665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.11388777196407318" green="0.12149158120155334" blue="0.13737426698207855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="yWf-Z9-CPe" firstAttribute="top" secondItem="jGA-Xt-7qg" secondAttribute="bottom" constant="17" id="LoN-07-an1"/>
                             <constraint firstItem="rJv-y2-npZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="67" id="W9P-4f-gZK"/>
@@ -549,7 +549,7 @@
                     <view key="view" contentMode="scaleToFill" id="Xuz-j6-pRi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.15310476720333099" green="0.16462267935276031" blue="0.18050529062747955" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <connections>
                         <segue destination="XSH-9n-Jl2" kind="show" identifier="seguetoqrsend" id="B5g-CZ-5Ha"/>
