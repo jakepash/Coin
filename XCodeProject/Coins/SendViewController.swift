@@ -33,15 +33,17 @@ class SendViewController: UIViewController, SlideButtonDelegate {
         store.requestAccess(for: .contacts) { (isGranted, error) in
             // Check the isGranted flag and proceed if true
         }
-        phoneNum.theme.font = UIFont.systemFont(ofSize: 12)
-        phoneNum.theme.bgColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 0.3)
-        phoneNum.theme.borderColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
-        phoneNum.theme.separatorColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 0.5)
+        phoneNum.theme.font = UIFont.systemFont(ofSize: 14)
+        
+        phoneNum.theme.bgColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
+        phoneNum.theme.borderColor = UIColor(red:0.15, green:0.70, blue:0.53, alpha:1)
+        phoneNum.theme.separatorColor = UIColor(red:0.15, green:0.70, blue:0.53, alpha:0.5)
+        phoneNum.theme.fontColor = UIColor(red:0.15, green:0.70, blue:0.53, alpha:1)
         phoneNum.theme.cellHeight = 50
         getContactsArray()
         qeuetimer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
     }
-    
+
     func runTimedCode() {
         phoneNum.filterStrings(ContactsArray)
     }

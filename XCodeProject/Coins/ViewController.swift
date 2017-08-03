@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     var gameTimer: Timer!
     
     var ContactsArray = [[String:AnyObject]]()
+    func hideNoConnectionError() {
+        noconnectionerror.isHidden = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +34,12 @@ class ViewController: UIViewController {
             // do nothing in this case
         }else{
             print("Internet Connection not Available!")
+            noconnectionerror.isHidden = false
+            _ = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(hideNoConnectionError), userInfo: nil, repeats: false)
             // things are not going to load...
         }
+        
+        
         
         
         ref = Database.database().reference()
@@ -47,15 +54,8 @@ class ViewController: UIViewController {
         //end of viewdidload()
     }
     
-    @IBOutlet weak var signout: UIButton!
-    @IBAction func signout(_ sender: Any) {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-    }
+    @IBOutlet weak var noconnectionerror: UILabel!
+
     
     
     

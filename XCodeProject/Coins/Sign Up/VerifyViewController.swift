@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import Firebase
 
 class VerifyViewController: UIViewController {
     
@@ -16,9 +17,9 @@ class VerifyViewController: UIViewController {
     
     @IBOutlet weak var activityindicator: UIActivityIndicatorView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         activityindicator.isHidden = true
         ref = Database.database().reference()
         let tapRecognizer = UITapGestureRecognizer()
@@ -38,6 +39,8 @@ class VerifyViewController: UIViewController {
     }
     
     @IBOutlet weak var code: UITextField!
+    
+    
     
     @IBAction func Login(_ sender: Any) {
         let defaults = UserDefaults.standard

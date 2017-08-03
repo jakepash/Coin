@@ -18,7 +18,7 @@ target 'Coins' do
     pod 'SwiftQRCode'
     pod 'PhoneNumberKit'
     pod 'SACountingLabel'
-    
+    pod 'Firebase/RemoteConfig'
     
     target 'CoinsTests' do
         inherit! :search_paths
