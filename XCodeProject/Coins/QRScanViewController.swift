@@ -19,7 +19,9 @@ class QRScanViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         scanner.prepareScan(view) { (stringValue) -> () in
-            print("this is the value" + stringValue)
+            print("this is the value: " + stringValue)
+            QRGetUID = stringValue
+            self.performSegue(withIdentifier: "seguetoqrsend", sender: nil)
         }
         // test scan frame
         scanner.scanFrame = view.bounds

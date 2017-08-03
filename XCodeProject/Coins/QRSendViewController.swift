@@ -18,11 +18,13 @@ class QRSendViewController: UIViewController, SlideButtonDelegate {
         if let amounttosend = Int(coinLabel.text!){
             if amounttosend < 100 {
                 //moreErrorLabel.isHidden = true
-                let UserToSend = QRGetUID
+                //let UserToSend = QRGetUID
                 GetCoins()
             }
             else {
-                //moreErrorLabel.isHidden = false
+                self.slidingMMS.reset()
+                maxcoinserror.isHidden = false
+                 _ = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.hideOtherErrors), userInfo: nil, repeats: false)
             }
         }
     
@@ -44,12 +46,18 @@ class QRSendViewController: UIViewController, SlideButtonDelegate {
     func didTapView(){
         self.view.endEditing(true)
     }
+    
+    func hideOtherErrors() {
+        maxcoinserror.isHidden = true
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBOutlet weak var maxcoinserror: UILabel!
     
+    @IBOutlet weak var notEnoughCoinsError: UILabel!
     @IBOutlet weak var slidingMMS: MMSlidingButton!
     @IBOutlet weak var coinLabel: UITextField!
     var ref: DatabaseReference!
@@ -57,52 +65,58 @@ class QRSendViewController: UIViewController, SlideButtonDelegate {
     
     func GetCoins() {
 
-        ref.child("users").child(QRGetUID).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            let value = snapshot.value
-            if snapshot.exists(){
-                self.OtherUserCoins = value as! Int
+        if QRGetUID != Auth.auth().currentUser?.uid {
+            ref.child("users").child(QRGetUID).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
                 
-                print(self.OtherUserCoins)
+                let value = snapshot.value
+                if snapshot.exists(){
+                    self.OtherUserCoins = value as! Int
+                    
+                    print(self.OtherUserCoins)
+                    
+                    let amounttosend = Int(self.coinLabel.text!)
+                    self.OtherUserCoins += amounttosend!
+                    // subtract coins from current user ->
+                    let userID = Auth.auth().currentUser?.uid
+                    self.ref.child("users").child(userID!
+                        ).child("Coins").observeSingleEvent(of: .value, with: { (othersnapshot) in
+                            let userID = Auth.auth().currentUser?.uid
+                            let othervalue = othersnapshot.value
+                            var CurrentUserCoins = othervalue as! Int
+                            print(CurrentUserCoins)
+                            CurrentUserCoins -= amounttosend!
+                            // continue doing this -
+                            if CurrentUserCoins < 1{
+                                print ("cant")
+                                self.slidingMMS.reset()
+                                self.notEnoughCoinsError.isHidden = false
+                                _ = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.hideErrors), userInfo: nil, repeats: false)
+                            } else {
+                                self.ref.child("users").child(userID!).updateChildValues(["Coins":CurrentUserCoins])
+                                // add coins to user ->
+                                self.ref.child("users").child(QRGetUID).updateChildValues(["Coins":self.OtherUserCoins])
+                                self.performSegue(withIdentifier: "seguetomain", sender: nil)
+                            }
+                            
+                        })
+                    
+                } else {
+                    print("User doesn't exist")
+                    self.slidingMMS.reset()
+                }
                 
-                let amounttosend = Int(self.coinLabel.text!)
-                self.OtherUserCoins += amounttosend!
-                // subtract coins from current user ->
-                let userID = Auth.auth().currentUser?.uid
-                self.ref.child("users").child(userID!
-                    ).child("Coins").observeSingleEvent(of: .value, with: { (othersnapshot) in
-                        let userID = Auth.auth().currentUser?.uid
-                        let othervalue = othersnapshot.value
-                        var CurrentUserCoins = othervalue as! Int
-                        print(CurrentUserCoins)
-                        CurrentUserCoins -= amounttosend!
-                        // continue doing this -
-                        if CurrentUserCoins < 0{
-                            print ("cant")
-                            self.slidingMMS.reset()
-                            //self.errorLabelNotEnough.isHidden = false
-                        } else {
-                            self.ref.child("users").child(userID!).updateChildValues(["Coins":CurrentUserCoins])
-                            // add coins to user ->
-                            self.ref.child("users").child(QRGetUID).updateChildValues(["Coins":self.OtherUserCoins])
-                            self.performSegue(withIdentifier: "seguetomain", sender: nil)
-                        }
-                        //self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
-                        // add coins to user ->
-                        //self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
-                        
-                    })
-                
-                //let newAmountOtherUser Int(amountToSend.text!)
-            } else {
-                print("User doesn't exist")
+            }) { (error) in
+                print(error.localizedDescription)
                 self.slidingMMS.reset()
             }
-            
-        }) { (error) in
-            print(error.localizedDescription)
-            self.slidingMMS.reset()
         }
+        else {
+            print("cant send money to yourself")
+        }
+    }
+    
+    func hideErrors() {
+        notEnoughCoinsError.isHidden = true
     }
     
 
