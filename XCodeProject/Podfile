@@ -19,6 +19,7 @@ target 'Coins' do
     pod 'PhoneNumberKit'
     pod 'SACountingLabel'
     pod 'Canvas'
+    pod 'Splitflap', '~> 2.1.0'
     
     target 'CoinsTests' do
         inherit! :search_paths

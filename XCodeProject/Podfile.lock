@@ -47,6 +47,7 @@ PODS:
   - QRCodeReader.swift (7.4.3)
   - SACountingLabel (0.1.1)
   - SearchTextField (1.1.2)
+  - Splitflap (2.1.0)
   - SwiftQRCode (3.0.2)
   - SwiftyJSON (3.1.4)
 
@@ -61,6 +62,7 @@ DEPENDENCIES:
   - QRCodeReader.swift (~> 7.4.3)
   - SACountingLabel
   - SearchTextField
+  - Splitflap (~> 2.1.0)
   - SwiftQRCode
   - SwiftyJSON
 
@@ -80,9 +82,10 @@ SPEC CHECKSUMS:
   QRCodeReader.swift: 4a1d46f3057b1b6fc555578b2dc9f2dc99c7ccda
   SACountingLabel: 6b0c2a177b77e65ea63772e50f4d4285bb6d5a71
   SearchTextField: 98d9d9577ab9cbf0a306e300911224d28c4c43f5
+  Splitflap: 9b1f8391a1166a9ecf76dd376c69b3fb0597a1f3
   SwiftQRCode: 280589699d84195c2c573011aa52f2c015c31c34
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 258a5ffad206aef3f93f288e3b7960674974cb9d
+PODFILE CHECKSUM: 2f42045a16b65ff2304b64d9a2a44f2f9a3b1d6b
 
-COCOAPODS: 1.3.0.beta.1
+COCOAPODS: 1.2.1
