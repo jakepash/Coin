@@ -33,7 +33,11 @@ class SendViewController: UIViewController, SlideButtonDelegate {
         store.requestAccess(for: .contacts) { (isGranted, error) in
             // Check the isGranted flag and proceed if true
         }
-        
+        phoneNum.theme.font = UIFont.systemFont(ofSize: 12)
+        phoneNum.theme.bgColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 0.3)
+        phoneNum.theme.borderColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+        phoneNum.theme.separatorColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 0.5)
+        phoneNum.theme.cellHeight = 50
         getContactsArray()
         qeuetimer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
     }
@@ -77,15 +81,7 @@ class SendViewController: UIViewController, SlideButtonDelegate {
     
     func GetCoins() {
         // synchronisly
-        
-//        DispatchQueue.main.async {
-//            self.ref.child("users").queryOrdered(byChild:"PhoneNumber").queryEqual(toValue: fullPhoneNumber).observeSingleEvent(of: .value) { (snap, st) in
-//                for snapp in snap.children {
-//                    print("UID: \((snapp as! DataSnapshot).key)")
-//                    self.senderUID = (snapp as! DataSnapshot).key
-//                }
-//            }
-//        }
+
         let myGroup = DispatchGroup()
         myGroup.enter()
         //// Do your task
