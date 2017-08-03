@@ -11,7 +11,7 @@ import UIKit
 import AVFoundation
 import QRCodeReader
 
-    var QRGetUID = String()
+    
 
 class QRCodeScanViewController: UIViewController, QRCodeReaderViewControllerDelegate {
 

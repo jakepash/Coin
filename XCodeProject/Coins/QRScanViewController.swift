@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import SwiftQRCode
 
+var QRGetUID = String()
 class QRScanViewController: UIViewController {
 
     let scanner = SwiftQRCode()

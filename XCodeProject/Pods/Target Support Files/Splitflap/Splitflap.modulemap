@@ -1,6 +1,0 @@
-framework module Splitflap {
-  umbrella header "Splitflap-umbrella.h"
-
-  export *
-  module * { export * }
-}

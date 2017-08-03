@@ -14,12 +14,10 @@ target 'Coins' do
     pod 'Firebase/Database'
     pod 'QRCode'
     pod 'SearchTextField'
-    pod 'QRCodeReader.swift', '~> 7.4.3'
     pod 'SwiftQRCode'
     pod 'PhoneNumberKit'
     pod 'SACountingLabel'
     pod 'Canvas'
-    pod 'Splitflap', '~> 2.1.0'
     
     target 'CoinsTests' do
         inherit! :search_paths

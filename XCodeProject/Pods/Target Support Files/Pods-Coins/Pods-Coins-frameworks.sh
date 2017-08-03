@@ -95,10 +95,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PhoneNumberKit/PhoneNumberKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/QRCode/QRCode.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/QRCodeReader.swift/QRCodeReader.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SACountingLabel/SACountingLabel.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SearchTextField/SearchTextField.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Splitflap/Splitflap.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftQRCode/SwiftQRCode.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
 fi
@@ -109,10 +107,8 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PhoneNumberKit/PhoneNumberKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/QRCode/QRCode.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/QRCodeReader.swift/QRCodeReader.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SACountingLabel/SACountingLabel.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SearchTextField/SearchTextField.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Splitflap/Splitflap.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftQRCode/SwiftQRCode.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
 fi
