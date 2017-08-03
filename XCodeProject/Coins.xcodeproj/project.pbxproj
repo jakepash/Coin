@@ -23,6 +23,7 @@
 		981AC8901F08CA2000F7830B /* CoinsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981AC88F1F08CA2000F7830B /* CoinsTests.swift */; };
 		981AC89B1F08CA2000F7830B /* CoinsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981AC89A1F08CA2000F7830B /* CoinsUITests.swift */; };
 		982A8B7E1F2E3CA400542546 /* QRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982A8B7D1F2E3CA400542546 /* QRScanViewController.swift */; };
+		9860E09A1F33B02700F7503A /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9860E0991F33B02700F7503A /* ShareViewController.swift */; };
 		989FFE0D1F230C350057E7E7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989FFE0C1F230C350057E7E7 /* PageViewController.swift */; };
 		98F007981F09021F00EB9215 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F007971F09021F00EB9215 /* SendViewController.swift */; };
 		98F959DA1F08CD7600635EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F959D91F08CD7600635EB8 /* Assets.xcassets */; };
@@ -79,6 +80,7 @@
 		981AC89A1F08CA2000F7830B /* CoinsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsUITests.swift; sourceTree = "<group>"; };
 		981AC89C1F08CA2000F7830B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		982A8B7D1F2E3CA400542546 /* QRScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanViewController.swift; sourceTree = "<group>"; };
+		9860E0991F33B02700F7503A /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		989FFE0C1F230C350057E7E7 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		98F007971F09021F00EB9215 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		98F959D91F08CD7600635EB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				66FA33F61F21E57A00A20FB7 /* TableViewController.swift */,
 				6697C1901F334B1500C67535 /* SettingsViewController.swift */,
 				981AC87E1F08CA2000F7830B /* Main.storyboard */,
+				9860E0991F33B02700F7503A /* ShareViewController.swift */,
 				989FFE0C1F230C350057E7E7 /* PageViewController.swift */,
 				981AC8831F08CA2000F7830B /* LaunchScreen.storyboard */,
 				98F959D91F08CD7600635EB8 /* Assets.xcassets */,
@@ -495,6 +498,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9860E09A1F33B02700F7503A /* ShareViewController.swift in Sources */,
 				66C2E0CB1F2780340001A153 /* MMSlidingButton.swift in Sources */,
 				982A8B7E1F2E3CA400542546 /* QRScanViewController.swift in Sources */,
 				98F007981F09021F00EB9215 /* SendViewController.swift in Sources */,
