@@ -29,6 +29,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        let gradient = CAGradientLayer()
+        
+        gradient.frame = view.bounds
+        gradient.colors = [UIColor.white.cgColor, UIColor.black.cgColor]
+        
+        view.layer.insertSublayer(gradient, at: 0)
+
+        
+        
+        
         if Reachability.isConnectedToNetwork(){
             print("Internet Connection Available!")
             // do nothing in this case
@@ -86,8 +97,9 @@ class ViewController: UIViewController {
         let url1 = Auth.auth().currentUser!.uid
         print(url1)
         var qrCode = QRCode(url1)
-        qrCode?.color = CIColor(red:0.18, green: 0.81, blue:0.61, alpha:1.0)
-        qrCode?.backgroundColor = CIColor(red:0.11, green: 0.12, blue:0.14, alpha:1.0)
+        qrCode?.color = CIColor(red:0.94, green:0.75, blue:0.17, alpha:1.0)
+        //qrCode?.backgroundColor = CIColor(red:0.11, green: 0.12, blue:0.14, alpha:1.0)
+        qrCode?.backgroundColor = CIColor(red:1.00, green: 1.00, blue:1.00, alpha:1.0)
         imageView.image = qrCode?.image
     }
     
