@@ -15,7 +15,6 @@
 	};
 
 
-
 	// Carousel Feature Slide
 	var owlCrouselFeatureSlide = function() {
 		var owl = $('.owl-carousel-main');

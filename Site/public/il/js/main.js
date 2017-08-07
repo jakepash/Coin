@@ -40,6 +40,8 @@
 	};
 
 
+	
+	
 	var owlCarouselScreenshots = function() {
 		var owl = $('.owl-carousel-center');
 

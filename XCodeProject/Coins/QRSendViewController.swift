@@ -47,6 +47,7 @@ class QRSendViewController: UIViewController, SlideButtonDelegate {
         self.view.endEditing(true)
     }
     
+    
     func hideOtherErrors() {
         maxcoinserror.isHidden = true
     }

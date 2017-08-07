@@ -12,12 +12,14 @@ target 'Coins' do
     pod 'Firebase/Auth'
     pod 'Firebase'
     pod 'Firebase/Database'
+    pod 'Firebase/RemoteConfig'
     pod 'QRCode'
     pod 'SearchTextField'
     pod 'SwiftQRCode'
     pod 'PhoneNumberKit'
     pod 'SACountingLabel'
     pod 'Canvas'
+    
     target 'CoinsTests' do
         inherit! :search_paths
         # Pods for testing

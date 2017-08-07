@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import Firebase
+import FirebaseRemoteConfig
 
 class VerifyViewController: UIViewController {
     
@@ -26,6 +27,7 @@ class VerifyViewController: UIViewController {
         tapRecognizer.addTarget(self, action: #selector(ViewController.didTapView))
         self.view.addGestureRecognizer(tapRecognizer)
         // Do any additional setup after loading the view.
+
         
     }
 
@@ -58,14 +60,17 @@ class VerifyViewController: UIViewController {
                 let userInfo = user?.providerData[0]
                 print("Provider ID: \(String(describing: userInfo?.providerID))")
 //                let userID = Auth.auth().currentUser!.uid
-                    self.ref.child("users/\(user?.uid)").observeSingleEvent(of: .value, with: {(snap) in
-                        if snap.exists(){
+                    self.ref.child("users").observeSingleEvent(of: .value, with: {(snap) in
+                        if snap.hasChild((user?.uid)!){
                             // User exists
                             self.performSegue(withIdentifier: "segue2", sender: Any?.self)
                         }else{
                             
                             // New User
 //                            self.ref.child("users").child((user?.uid)!).setValue(["Coins": 0])
+                            // Replace with boolean
+//                            let count = RemoteConfig.remoteConfig()["week1and2"].numberValue?.intValue as! Int
+//                            print(count)
                             self.ref.child("users").child((user?.uid)!).setValue(["Coins": 0, "PhoneNumber":phoneNumber])
                             self.performSegue(withIdentifier: "segue2", sender: Any?.self)
                         }
@@ -74,6 +79,7 @@ class VerifyViewController: UIViewController {
             }
         }
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         code.becomeFirstResponder()
     }
