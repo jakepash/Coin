@@ -19,6 +19,7 @@ target 'Coins' do
     pod 'PhoneNumberKit'
     pod 'SACountingLabel'
     pod 'Canvas'
+    pod 'Firebase/Messaging'
     
     target 'CoinsTests' do
         inherit! :search_paths

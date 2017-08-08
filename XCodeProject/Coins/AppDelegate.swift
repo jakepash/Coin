@@ -9,10 +9,18 @@
 import UIKit
 import Firebase
 import UserNotifications
+import FirebaseInstanceID
+import FirebaseMessaging
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
+    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
+        
+    }
+    
 
+    
+    
     var window: UIWindow?
 
 
@@ -22,14 +30,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 10, *) {
             UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert], completionHandler: { (granted, error) in})
             application.registerForRemoteNotifications()
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+            // For iOS 10 data message (sent via FCM
+            Messaging.messaging().remoteMessageDelegate = self
         } else {
             let notificationSettings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
             UIApplication.shared.registerUserNotificationSettings(notificationSettings)
             UIApplication.shared.registerForRemoteNotifications()
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
         }
         return true
+        
+        application.registerForRemoteNotifications()
     }
 
+    // The callback to handle data message received via FCM for devices running iOS 10 or above.
+    func application(received remoteMessage: MessagingRemoteMessage) {
+        print(remoteMessage.appData)
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
