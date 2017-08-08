@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var CoinCount: SACountingLabel!
     
-    var gameTimer: Timer!
+    
     
     var ContactsArray = [[String:AnyObject]]()
     func hideNoConnectionError() {
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         tapRecognizer.addTarget(self, action: #selector(ViewController.didTapView))
         self.view.addGestureRecognizer(tapRecognizer)
         let userID = Auth.auth().currentUser!.uid
-        gameTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(GetCoins), userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(GetCoins), userInfo: nil, repeats: true)
         GetCoins()
 
         
@@ -60,8 +60,21 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var noconnectionerror: UILabel!
 
+    var numofcoins = Float()
     
-    
+    @objc func GetCoinsFirstTime() {
+        let userID = Auth.auth().currentUser?.uid
+        ref.child("users").child(userID!).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value
+            //let newnum = NSString(format: "%@", value as! CVarArg) as Float
+            let newnum = value as! Float
+            self.numofcoins = newnum
+            self.CoinCount.countFrom(fromValue: 0, to: newnum, withDuration: 1.0, andAnimationType: .EaseOut, andCountingType: .Int)
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
     
     
     @objc func GetCoins() {
@@ -70,8 +83,9 @@ class ViewController: UIViewController {
             // Get user value
             let value = snapshot.value
             //let newnum = NSString(format: "%@", value as! CVarArg) as Float
-            let newnum = value as! Float
-            self.CoinCount.countFrom(fromValue: 0, to: newnum, withDuration: 1.0, andAnimationType: .EaseOut, andCountingType: .Int)
+            let newnum = value as? Float
+            self.numofcoins = newnum!
+            self.CoinCount.countFrom(fromValue: self.numofcoins, to: newnum!, withDuration: 1.0, andAnimationType: .EaseOut, andCountingType: .Int)
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -87,6 +101,7 @@ class ViewController: UIViewController {
     }
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidAppear(_ animated: Bool) {
+        GetCoinsFirstTime()
         let url1 = Auth.auth().currentUser!.uid
         print(url1)
         var qrCode = QRCode(url1)
