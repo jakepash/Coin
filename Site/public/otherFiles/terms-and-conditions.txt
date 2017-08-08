@@ -1,6 +1,6 @@
-﻿Terms and conditions
+Terms and conditions
 
-These terms and conditions ("Terms", "Agreement") are an agreement between Mobile Application Developer ("Mobile Application Developer", "us", "we" or "our") and you ("User", "you" or "your"). This Agreement sets forth the general terms and conditions of your use of the Koin mobile application and any of its products or services (collectively, "Mobile Application" or "Services").
+These terms and conditions ("Terms", "Agreement") are an agreement between Mobile Application Developer ("Mobile Application Developer", "us", "we" or "our") and you ("User", "you" or "your"). This Agreement sets forth the general terms and conditions of your use of the Coin mobile application and any of its products or services (collectively, "Mobile Application" or "Services").
 
 Accounts and membership
 
@@ -24,7 +24,7 @@ We reserve the right to modify this Agreement or its policies relating to the Mo
 
 Acceptance of these terms
 
-You acknowledge that you have read this Agreement and agree to all its terms and conditions. By using the Mobile Application or its Services you agree to be bound by this Agreement. If you do not agree to abide by the terms of this Agreement, you are not authorized to use or access the Mobile Application and its Services.[a]
+You acknowledge that you have read this Agreement and agree to all its terms and conditions. By using the Mobile Application or its Services you agree to be bound by this Agreement. If you do not agree to abide by the terms of this Agreement, you are not authorized to use or access the Mobile Application and its Service.
 
 
 
@@ -33,7 +33,4 @@ You acknowledge that you have read this Agreement and agree to all its terms and
 Contacting us
 
 If you have any questions about this Agreement, please contact us.
-This document was last updated on July 28, 2017
-
-
-[a]Maybe remove this
+This document was last updated on August 8, 2017
