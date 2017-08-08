@@ -271,9 +271,11 @@ If you have any questions about this Agreement, please contact us at contact@coi
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UL-hI-uKy">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UL-hI-uKy">
                                 <rect key="frame" x="131" y="572" width="112" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="112" id="YJa-e4-vFR"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="23"/>
                                 <state key="normal" title="Sign Out">
                                     <color key="titleColor" red="0.1529411765" green="0.70196078429999997" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -282,9 +284,12 @@ If you have any questions about this Agreement, please contact us at contact@coi
                                     <action selector="signout:" destination="WhZ-oK-bHJ" eventType="touchUpInside" id="IGM-FP-dNb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKL-D4-mRo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKL-D4-mRo">
                                 <rect key="frame" x="16" y="28" width="90" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="HHw-uk-Gom"/>
+                                    <constraint firstAttribute="width" constant="90" id="ULo-kn-CoB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="23"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" red="0.1529411765" green="0.70196078429999997" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -293,8 +298,11 @@ If you have any questions about this Agreement, please contact us at contact@coi
                                     <segue destination="LUZ-tH-0oR" kind="show" id="OfK-MP-BBH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7t-34-rgv">
-                                <rect key="frame" x="82" y="135" width="211" height="54"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7t-34-rgv">
+                                <rect key="frame" x="0.0" y="135" width="375" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="QbP-wc-ACs"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="23"/>
                                 <state key="normal" title="Terms &amp; Conditions">
                                     <color key="titleColor" red="0.1529411765" green="0.70196078429999997" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -306,7 +314,13 @@ If you have any questions about this Agreement, please contact us at contact@coi
                         </subviews>
                         <color key="backgroundColor" red="0.1137254902" green="0.1215686275" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="A7t-34-rgv" firstAttribute="width" secondItem="Uhk-uY-a3l" secondAttribute="width" id="UaZ-ji-nRu"/>
+                            <constraint firstItem="A7t-34-rgv" firstAttribute="leading" secondItem="Uhk-uY-a3l" secondAttribute="leading" id="7Ar-dq-ZWP"/>
+                            <constraint firstItem="2UL-hI-uKy" firstAttribute="centerX" secondItem="Uhk-uY-a3l" secondAttribute="centerX" id="8Db-Xd-XoV"/>
+                            <constraint firstItem="A7t-34-rgv" firstAttribute="centerX" secondItem="2UL-hI-uKy" secondAttribute="centerX" id="IC1-3o-nvT"/>
+                            <constraint firstItem="A7t-34-rgv" firstAttribute="top" secondItem="eKL-D4-mRo" secondAttribute="bottom" constant="71" id="OTx-6P-KnU"/>
+                            <constraint firstItem="eKL-D4-mRo" firstAttribute="top" secondItem="HQo-UM-2zn" secondAttribute="bottom" constant="8" symbolic="YES" id="PhP-sn-xg2"/>
+                            <constraint firstItem="eKL-D4-mRo" firstAttribute="leading" secondItem="Uhk-uY-a3l" secondAttribute="leadingMargin" id="q0I-lP-bdo"/>
+                            <constraint firstItem="vxo-HG-kwc" firstAttribute="top" secondItem="2UL-hI-uKy" secondAttribute="bottom" constant="55" id="zVV-Cp-Pek"/>
                         </constraints>
                     </view>
                     <connections>
@@ -848,6 +862,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
         <image name="underline" width="619" height="4"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="F1f-Zr-rI6"/>
         <segue reference="moM-oo-eEw"/>
         <segue reference="OfK-MP-BBH"/>
         <segue reference="Yy4-vb-mwm"/>

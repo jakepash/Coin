@@ -78,8 +78,8 @@ class ViewController: UIViewController {
     
     
     @objc func GetCoins() {
-        let userID = Auth.auth().currentUser?.uid
-        ref.child("users").child(userID!).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
+        if let userID = Auth.auth().currentUser?.uid{
+            ref.child("users").child(userID).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value
             //let newnum = NSString(format: "%@", value as! CVarArg) as Float
@@ -88,6 +88,9 @@ class ViewController: UIViewController {
             self.CoinCount.countFrom(fromValue: self.numofcoins, to: newnum!, withDuration: 1.0, andAnimationType: .EaseOut, andCountingType: .Int)
         }) { (error) in
             print(error.localizedDescription)
+        }
+        } else{
+            print("User signed out.")
         }
     }
     

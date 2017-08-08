@@ -42,7 +42,7 @@ class VerifyViewController: UIViewController {
     
     @IBOutlet weak var code: UITextField!
     
-    
+    var signupcoins = Int()
     
     @IBAction func Login(_ sender: Any) {
         let defaults = UserDefaults.standard
@@ -71,8 +71,18 @@ class VerifyViewController: UIViewController {
                             // Replace with boolean
 //                            let count = RemoteConfig.remoteConfig()["week1and2"].numberValue?.intValue as! Int
 //                            print(count)
-                            self.ref.child("users").child((user?.uid)!).setValue(["Coins": 0, "PhoneNumber":phoneNumber])
-                            self.performSegue(withIdentifier: "segue2", sender: Any?.self)
+                            self.ref.child("Promo").observeSingleEvent(of: .value, with: { (snapshot) in
+                                // Get user value
+                                let value = snapshot.value as? NSDictionary
+                                self.signupcoins = value?["SignUpCoins"] as? Int ?? 10
+                                print(self.signupcoins)
+                                self.ref.child("users").child((user?.uid)!).setValue(["Coins": self.signupcoins, "PhoneNumber":phoneNumber])
+                                self.performSegue(withIdentifier: "segue2", sender: Any?.self)
+                                // ...
+                            }) { (error) in
+                                print(error.localizedDescription)
+                            }
+                            
                         }
                     })
 
