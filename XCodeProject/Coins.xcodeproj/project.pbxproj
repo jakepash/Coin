@@ -23,6 +23,7 @@
 		981AC8901F08CA2000F7830B /* CoinsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981AC88F1F08CA2000F7830B /* CoinsTests.swift */; };
 		981AC89B1F08CA2000F7830B /* CoinsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981AC89A1F08CA2000F7830B /* CoinsUITests.swift */; };
 		982A8B7E1F2E3CA400542546 /* QRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982A8B7D1F2E3CA400542546 /* QRScanViewController.swift */; };
+		982F9E051F3B89BB0046E567 /* LedgerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982F9E041F3B89BB0046E567 /* LedgerCollectionViewCell.swift */; };
 		9860E09A1F33B02700F7503A /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9860E0991F33B02700F7503A /* ShareViewController.swift */; };
 		989FFE0D1F230C350057E7E7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989FFE0C1F230C350057E7E7 /* PageViewController.swift */; };
 		98F007981F09021F00EB9215 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F007971F09021F00EB9215 /* SendViewController.swift */; };
@@ -80,6 +81,7 @@
 		981AC89A1F08CA2000F7830B /* CoinsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsUITests.swift; sourceTree = "<group>"; };
 		981AC89C1F08CA2000F7830B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		982A8B7D1F2E3CA400542546 /* QRScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanViewController.swift; sourceTree = "<group>"; };
+		982F9E041F3B89BB0046E567 /* LedgerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerCollectionViewCell.swift; sourceTree = "<group>"; };
 		9860E0991F33B02700F7503A /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		989FFE0C1F230C350057E7E7 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		98F007971F09021F00EB9215 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				661F6C451F31D63D002A5309 /* OtherFunctions.swift */,
 				66C25D8B1F2A6A6700ACECD5 /* QRSendViewController.swift */,
 				982A8B7D1F2E3CA400542546 /* QRScanViewController.swift */,
+				982F9E041F3B89BB0046E567 /* LedgerCollectionViewCell.swift */,
 				98F007971F09021F00EB9215 /* SendViewController.swift */,
 				66EDB3DF1F3317710097FD48 /* Reachability.swift */,
 				66FA33F61F21E57A00A20FB7 /* TableViewController.swift */,
@@ -506,6 +509,7 @@
 				66FA33F71F21E57A00A20FB7 /* TableViewController.swift in Sources */,
 				981AC87D1F08CA2000F7830B /* ViewController.swift in Sources */,
 				98F959DC1F08DC6C00635EB8 /* SignUp.swift in Sources */,
+				982F9E051F3B89BB0046E567 /* LedgerCollectionViewCell.swift in Sources */,
 				66C25D8C1F2A6A6700ACECD5 /* QRSendViewController.swift in Sources */,
 				6697C1911F334B1500C67535 /* SettingsViewController.swift in Sources */,
 				66FDEB061F20AF4B00A2E2E9 /* VerifyViewController.swift in Sources */,

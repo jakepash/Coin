@@ -13,7 +13,7 @@ import QRCode
 import CoreTelephony
 import SACountingLabel
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     var ref: DatabaseReference!
     
     @IBOutlet weak var CoinCount: SACountingLabel!
@@ -28,10 +28,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
-        
-        
         
         if Reachability.isConnectedToNetwork(){
             print("Internet Connection Available!")
@@ -114,6 +110,67 @@ class ViewController: UIViewController {
         imageView.image = qrCode?.image
     }
     
+    
+    
+    
+    
+    let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
+    var items = ["John Smith", "+4", "Johnny Appleseed", "-3", "(650)-353-0023", "+12", "John Smith", "+4", "Johnny Appleseed", "-3", "(650)-353-0023", "+12", "John Smith", "+4", "Johnny Appleseed", "-3", "(650)-353-0023", "+12", "John Smith", "+4", "Johnny Appleseed", "-3", "(650)-353-0023", "+12"]
+    
+    
+    // MARK: - UICollectionViewDataSource protocol
+    
+    // tell the collection view how many cells to make
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.items.count
+    }
+    
+    // make a cell for each cell index path
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // get a reference to our storyboard cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! LedgerCollectionViewCell
+        
+        // Use the outlet in our custom class to get a reference to the UILabel in the cell
+        cell.myLabel.text = self.items[indexPath.item]
+        //  cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
+        
+        if cell.myLabel.text![0] == "+" {
+            cell.myLabel.textColor = UIColor(red:0.02, green:0.69, blue:0.00, alpha:1.0)
+            cell.myLabel.textAlignment = .right
+        } else if cell.myLabel.text![0] == "-" {
+            cell.myLabel.textColor = UIColor(red:0.69, green:0.05, blue:0.00, alpha:1.0)
+            cell.myLabel.textAlignment = .right
+        } else {
+            cell.myLabel.textColor = UIColor.white
+            cell.myLabel.textAlignment = .left
+        }
+        
+        return cell
+    }
+    
+    // MARK: - UICollectionViewDelegate protocol
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // handle tap events
+        print("You selected cell #\(indexPath.item)!")
+    }
 }
 
+extension String {
+    
+    subscript (i: Int) -> Character {
+        return self[index(startIndex, offsetBy: i)]
+    }
+    
+    subscript (i: Int) -> String {
+        return String(self[i] as Character)
+    }
+    
+    subscript (r: Range<Int>) -> String {
+        let start = index(startIndex, offsetBy: r.lowerBound)
+        let end = index(startIndex, offsetBy: r.upperBound)
+        return self[Range(start ..< end)]
+    }
+}
 
