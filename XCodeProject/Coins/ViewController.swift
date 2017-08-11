@@ -48,12 +48,19 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         self.view.addGestureRecognizer(tapRecognizer)
         let userID = Auth.auth().currentUser!.uid
         _ = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(GetCoins), userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(pushDeviceToken), userInfo: nil, repeats: false)
         GetCoins()
 
         
         //end of viewdidload()
     }
     
+    func pushDeviceToken() {
+        print(userDeviceToken)
+        if let userID = Auth.auth().currentUser?.uid{
+            ref.child("users/\(userID)").updateChildValues(["deviceToken": userDeviceToken])
+        }
+    }
     @IBOutlet weak var noconnectionerror: UILabel!
 
     var numofcoins = Float()
