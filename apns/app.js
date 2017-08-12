@@ -29,8 +29,6 @@ app.post('/api', function(req, res) {
     var coinamount = req.body.coinamount;
     var token = req.body.token;
 
-    // Enter the device token from the Xcode console
-var deviceToken = "1DE32A9A0911D3C72A3BA50335025449E1B234166A6CA065FB0F2313E1BF4C7A";
 
 // Prepare a new notification
 var notification = new apn.Notification();

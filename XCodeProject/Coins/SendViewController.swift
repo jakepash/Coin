@@ -111,6 +111,7 @@ class SendViewController: UIViewController, SlideButtonDelegate {
     func hideErrors() {
         errorLabelNotEnough.isHidden = true
     }
+    var transactionArray = [NSDictionary]()
     func coins() {
         //
         //        print("their uid is - \(senderUID)")
@@ -127,10 +128,10 @@ class SendViewController: UIViewController, SlideButtonDelegate {
                 self.OtherUserCoins += amounttosend!
                 // subtract coins from current user ->
                 let userID = Auth.auth().currentUser?.uid
-                self.ref.child("users").child(userID!
-                    ).child("Coins").observeSingleEvent(of: .value, with: { (othersnapshot) in
+                self.ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (othersnapshot) in
                         let userID = Auth.auth().currentUser?.uid
-                        let othervalue = othersnapshot.value
+                        let phoneNumber = othersnapshot.childSnapshot(forPath: "PhoneNumber").value
+                        let othervalue = othersnapshot.childSnapshot(forPath: "Coins").value
                         var CurrentUserCoins = othervalue as! Int
                         print(CurrentUserCoins)
                         CurrentUserCoins -= amounttosend!
@@ -144,6 +145,10 @@ class SendViewController: UIViewController, SlideButtonDelegate {
                             self.ref.child("users").child(userID!).updateChildValues(["Coins":CurrentUserCoins])
                             // add coins to user ->
                             self.ref.child("users").child(self.senderUID).updateChildValues(["Coins":self.OtherUserCoins])
+                            self.ref.child("users/\(self.senderUID)/PhoneNumber").observeSingleEvent(of: .value, with: { (datasnap) in
+                                self.ref.child("users").child(userID!).child("Transactions").updateChildValues([datasnap.value as! AnyHashable : amounttosend])
+                                self.ref.child("users").child(self.senderUID).child("Transactions").updateChildValues([phoneNumber as! AnyHashable : amounttosend])
+                            })
                             self.performSegue(withIdentifier: "seguetomain", sender: nil)
                         }
                         //self.ref.child("users").child(userID!).setValue(["Coins":CurrentUserCoins])
