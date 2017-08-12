@@ -11,6 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import SearchTextField
 import Contacts
+import Alamofire
 
 class SendViewController: UIViewController, SlideButtonDelegate {
     
@@ -148,6 +149,16 @@ class SendViewController: UIViewController, SlideButtonDelegate {
                             self.ref.child("users/\(self.senderUID)/PhoneNumber").observeSingleEvent(of: .value, with: { (datasnap) in
                                 self.ref.child("users").child(userID!).child("Transactions").updateChildValues([datasnap.value as! AnyHashable : amounttosend])
                                 self.ref.child("users").child(self.senderUID).child("Transactions").updateChildValues([phoneNumber as! AnyHashable : amounttosend])
+                                
+                            })
+                            self.ref.child("users/\(self.senderUID)/deviceToken").observeSingleEvent(of: .value, with: { (valuetoken) in
+                                let parameters: [String: AnyObject] = ["token":valuetoken.value as AnyObject,"coinamount":amounttosend as AnyObject]
+                                print(parameters)
+                                // Change ip to server ip
+                                Alamofire.request("http://10.0.0.30:8080/api", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                                    .responseJSON { response in
+                                        print(response)
+                                }
                             })
                             self.performSegue(withIdentifier: "seguetomain", sender: nil)
                         }
@@ -228,4 +239,3 @@ class SendViewController: UIViewController, SlideButtonDelegate {
     
     
 }
-

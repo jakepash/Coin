@@ -11,14 +11,10 @@ var apnProvider = new apn.Provider({
 });
 
 
-
-
-
-
 // // grab the packages we need
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8000;
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
@@ -40,13 +36,13 @@ notification.topic = 'com.labbylabs.coin';
 notification.expiry = Math.floor(Date.now() / 1000) + 3600;
 
 // Set app badge indicator
-notification.badge = 3;
+// notification.badge = ;
 
-// // Play ping.aiff sound when the notification is received
-// notification.sound = 'ping.aiff';
+// Play ping.aiff sound when the notification is received
+notification.sound = 'coinSound.aiff';
 
 // Display the following message (the actual notification text, supports emoji)
-notification.alert = 'Hello World';
+notification.alert = 'Someone sent you ' + coinamount + ' Coins';
 
   	// Actually send the notification
 	apnProvider.send(notification, token).then(function(result) {  
@@ -56,5 +52,7 @@ notification.alert = 'Hello World';
 
 });
 // start the server
+
 app.listen(port);
 console.log('Server started! At http://localhost:' + port);
+

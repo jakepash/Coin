@@ -120,7 +120,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     
     
-    
+
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
     var items = ["John Smith", "+4", "Johnny Appleseed", "-3", "(650)-353-0023", "+12", "John Smith", "+4", "Johnny Appleseed", "-3", "(650)-353-0023", "+12", "John Smith", "+4", "Johnny Appleseed", "-3", "(650)-353-0023", "+12", "John Smith", "+4", "Johnny Appleseed", "-3", "(650)-353-0023", "+12"]
     
