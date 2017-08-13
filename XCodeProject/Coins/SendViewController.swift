@@ -155,7 +155,7 @@ class SendViewController: UIViewController, SlideButtonDelegate {
                                 let parameters: [String: AnyObject] = ["token":valuetoken.value as AnyObject,"coinamount":amounttosend as AnyObject]
                                 print(parameters)
                                 // Change ip to server ip
-                                Alamofire.request("http://10.0.0.30:8080/api", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                                Alamofire.request("https://520858b1.ngrok.io/", method: .post, parameters: parameters, encoding: JSONEncoding.default)
                                     .responseJSON { response in
                                         print(response)
                                 }

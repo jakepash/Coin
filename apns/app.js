@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 // routes will go here
 
-app.post('/api', function(req, res) {
+app.post('/', function(req, res) {
     var coinamount = req.body.coinamount;
     var token = req.body.token;
 
@@ -56,3 +56,15 @@ notification.alert = 'Someone sent you ' + coinamount + ' Coins';
 app.listen(port);
 console.log('Server started! At http://localhost:' + port);
 
+[ 
+users :[
+	"adam",
+	"jacob",
+	"hanan"
+]	
+codes: [
+	"2342",
+	"432423",
+	"4324"
+]
+]

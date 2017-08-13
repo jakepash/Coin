@@ -67,16 +67,13 @@ class VerifyViewController: UIViewController {
                         }else{
                             
                             // New User
-//                            self.ref.child("users").child((user?.uid)!).setValue(["Coins": 0])
-                            // Replace with boolean
-//                            let count = RemoteConfig.remoteConfig()["week1and2"].numberValue?.intValue as! Int
-//                            print(count)
                             self.ref.child("Promo").observeSingleEvent(of: .value, with: { (snapshot) in
                                 // Get user value
                                 let value = snapshot.value as? NSDictionary
                                 self.signupcoins = value?["SignUpCoins"] as? Int ?? 10
                                 print(self.signupcoins)
-                                self.ref.child("users").child((user?.uid)!).setValue(["Coins": self.signupcoins, "PhoneNumber":phoneNumber])
+                                let inviteCode = ShortCodeGenerator.getCode(length: 6)
+                                self.ref.child("users").child((user?.uid)!).setValue(["Coins": self.signupcoins, "PhoneNumber":phoneNumber,"InviteCode": inviteCode])
                                 self.performSegue(withIdentifier: "segue2", sender: Any?.self)
                                 // ...
                             }) { (error) in
@@ -103,4 +100,19 @@ class VerifyViewController: UIViewController {
     }
     */
 
+}
+
+struct ShortCodeGenerator {
+    
+    private static let base62chars = [Character]("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".characters)
+    private static let maxBase : UInt32 = 62
+    
+    static func getCode(withBase base: UInt32 = maxBase, length: Int) -> String {
+        var code = ""
+        for _ in 0..<length {
+            let random = Int(arc4random_uniform(min(base, maxBase)))
+            code.append(base62chars[random])
+        }
+        return code
+    }
 }
