@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import Firebase
 
 class ShareViewController: UIViewController {
 
+    var ref: DatabaseReference!
+    
     @IBAction func shareButton(_ sender: Any) {
-//        let appURL = "String()"
+        
+
         let invitecodegenerated = "A23B"
         let firstActivityItem = "Hi, I invite you to Coin.\n The invite code is \(invitecodegenerated)"
                 let secondActivityItem : NSURL = NSURL(string: "https://coinreserve.xyz")!
@@ -47,7 +51,7 @@ class ShareViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        inviteCodeLabel.text = inviteCode
         // Do any additional setup after loading the view.
     }
 
@@ -55,6 +59,11 @@ class ShareViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBOutlet weak var inviteCodeLabel: UILabel!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        }
     
 
     /*

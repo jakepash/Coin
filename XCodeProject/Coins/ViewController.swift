@@ -13,6 +13,8 @@ import QRCode
 import CoreTelephony
 import SACountingLabel
 
+var inviteCode = String()
+
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     var ref: DatabaseReference!
     
@@ -28,6 +30,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
         
         if Reachability.isConnectedToNetwork(){
             print("Internet Connection Available!")
@@ -43,14 +46,25 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         
         ref = Database.database().reference()
+        ref.child("users").child((Auth.auth().currentUser?.uid)!).observe(.value, with: { (snapshot) in
+            if let userDict = snapshot.value as? [String:AnyObject]{
+                for each in userDict{
+                    if let quantity = each.value as? String {
+                        if quantity == "unused" {
+                            inviteCode = each.key
+                        }
+                        
+                    }
+                }
+            }
+        })
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: #selector(ViewController.didTapView))
         self.view.addGestureRecognizer(tapRecognizer)
         let userID = Auth.auth().currentUser!.uid
         _ = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(GetCoins), userInfo: nil, repeats: true)
         _ = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(pushDeviceToken), userInfo: nil, repeats: false)
-        GetCoins()
-
+        GetCoinsFirstTime()
         
         //end of viewdidload()
     }
@@ -79,7 +93,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
     }
     
-    
+    var newnum1 = Float()
     @objc func GetCoins() {
         if let userID = Auth.auth().currentUser?.uid{
             ref.child("users").child(userID).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -87,14 +101,26 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             let value = snapshot.value
             //let newnum = NSString(format: "%@", value as! CVarArg) as Float
             let newnum = value as? Float
+            self.newnum1 = newnum!
             self.numofcoins = newnum!
             self.CoinCount.countFrom(fromValue: self.numofcoins, to: newnum!, withDuration: 1.0, andAnimationType: .EaseOut, andCountingType: .Int)
         }) { (error) in
             print(error.localizedDescription)
         }
+//            if inviteCode == nil{
+//            }else{
+//            ref.child("users").child(userID).child(inviteCode).observeSingleEvent(of: .value, with: { (snapshotinvite) in
+//                let value = snapshotinvite.value
+//                if value as! String == "used" {
+//                    print("adding 10 coins and settings inviteCode as unused")
+//                    self.self.ref.child("users").child(userID).updateChildValues(["Coins" : self.newnum1 + 10])
+//                }
+//            })
+//            }
         } else{
             print("User signed out.")
         }
+        
     }
     
     @objc func didTapView(){

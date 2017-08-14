@@ -154,39 +154,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite your friend and get free Coins!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G48-mO-9oG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invite your friend and get free Coins!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G48-mO-9oG">
                                 <rect key="frame" x="20" y="346" width="374" height="61"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="4ln-qc-bvP"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <color key="textColor" red="0.34169539809999999" green="0.69161331650000002" blue="0.5372931957" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A1DH45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gc9-BM-ZrL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gc9-BM-ZrL">
                                 <rect key="frame" x="95" y="243" width="224" height="101"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="101" id="3mL-GP-2CH"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="45"/>
                                 <color key="textColor" red="0.34169539809999999" green="0.69161331650000002" blue="0.5372931957" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When your friend signs up and adds your unique code you will both receive 10 free coins." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWI-zr-pFL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="When your friend signs up and adds your unique code you will both receive 10 free coins." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWI-zr-pFL">
                                 <rect key="frame" x="29" y="415" width="355" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="K1N-wz-w5M"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.34169539809999999" green="0.69161331650000002" blue="0.5372931957" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9Z-2p-iQZ">
-                                <rect key="frame" x="153.66666666666669" y="490" width="107.00000000000006" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9Z-2p-iQZ">
+                                <rect key="frame" x="154" y="490" width="107" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="107" id="OLY-PI-bAy"/>
-                                </constraints>
                                 <state key="normal" title="Share Link">
                                     <color key="titleColor" red="0.34169539809999999" green="0.69161331650000002" blue="0.5372931957" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -199,12 +191,9 @@
                                     <action selector="shareButton:" destination="NnO-i6-AiB" eventType="touchUpInside" id="Mvn-E4-zyC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdw-BV-iFd">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdw-BV-iFd">
                                 <rect key="frame" x="16" y="28" width="109" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="YTX-GR-UHj"/>
-                                    <constraint firstAttribute="width" constant="90" id="wWO-zu-4re"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="23"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" red="0.1529411765" green="0.70196078429999997" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -215,23 +204,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1137254902" green="0.1215686275" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Gc9-BM-ZrL" firstAttribute="centerX" secondItem="G48-mO-9oG" secondAttribute="centerX" id="1nm-iX-dMy"/>
-                            <constraint firstItem="fdw-BV-iFd" firstAttribute="leading" secondItem="G48-mO-9oG" secondAttribute="leading" id="3He-8L-fPK"/>
-                            <constraint firstItem="G48-mO-9oG" firstAttribute="centerX" secondItem="uWI-zr-pFL" secondAttribute="centerX" id="82b-x7-LTk"/>
-                            <constraint firstItem="G48-mO-9oG" firstAttribute="top" secondItem="Gc9-BM-ZrL" secondAttribute="bottom" constant="2" id="EBG-xQ-oXG"/>
-                            <constraint firstItem="ihC-vU-GBB" firstAttribute="top" secondItem="e9Z-2p-iQZ" secondAttribute="bottom" constant="216" id="Khj-tt-LMX"/>
-                            <constraint firstItem="G48-mO-9oG" firstAttribute="trailing" secondItem="oYd-l5-HWH" secondAttribute="trailingMargin" id="RH0-rI-wd8"/>
-                            <constraint firstItem="e9Z-2p-iQZ" firstAttribute="top" secondItem="uWI-zr-pFL" secondAttribute="bottom" constant="20" id="Sfd-4m-a4n"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="uWI-zr-pFL" secondAttribute="trailing" constant="10" id="bJr-dN-gii"/>
-                            <constraint firstItem="fdw-BV-iFd" firstAttribute="top" secondItem="bPM-WM-5uZ" secondAttribute="bottom" id="c3n-dJ-ydx"/>
-                            <constraint firstItem="fdw-BV-iFd" firstAttribute="leading" secondItem="oYd-l5-HWH" secondAttribute="leadingMargin" id="fw5-7x-lZd"/>
-                            <constraint firstItem="e9Z-2p-iQZ" firstAttribute="centerX" secondItem="oYd-l5-HWH" secondAttribute="centerX" id="g7Y-l5-asy"/>
-                            <constraint firstItem="uWI-zr-pFL" firstAttribute="leading" secondItem="oYd-l5-HWH" secondAttribute="leadingMargin" constant="9" id="lGC-N1-mNk"/>
-                            <constraint firstItem="uWI-zr-pFL" firstAttribute="top" secondItem="G48-mO-9oG" secondAttribute="bottom" constant="8" symbolic="YES" id="pLv-bC-kJf"/>
-                            <constraint firstItem="Gc9-BM-ZrL" firstAttribute="leading" secondItem="oYd-l5-HWH" secondAttribute="leadingMargin" constant="75" id="vOe-jj-WeT"/>
-                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="inviteCodeLabel" destination="Gc9-BM-ZrL" id="QsK-zX-ulO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhK-lQ-UBD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -664,6 +640,42 @@ If you have any questions about this Agreement, please contact us at contact@coi
             </objects>
             <point key="canvasLocation" x="-1706" y="-375"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Hww-cq-aEm">
+            <objects>
+                <viewController id="QsO-7H-BXZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Bn-J1-u7b"/>
+                        <viewControllerLayoutGuide type="bottom" id="BwG-F2-zy2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="84A-FT-k8t">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="underline" translatesAutoresizingMaskIntoConstraints="NO" id="l2l-So-IaN">
+                                <rect key="frame" x="138" y="158" width="138" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aMs-Dp-v2T">
+                                <rect key="frame" x="115" y="104" width="184" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.17776930329999999" green="0.80832916499999996" blue="0.60771507020000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="45"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="0.69803921568627447" green="0.69803921568627447" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.11343727260828018" green="0.12129936367273331" blue="0.13792043924331665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1SH-QE-LAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2101.449275362319" y="-2165.217391304348"/>
+        </scene>
         <!--SignUp-->
         <scene sceneID="Heq-5s-B35">
             <objects>
@@ -828,8 +840,8 @@ If you have any questions about this Agreement, please contact us at contact@coi
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Code" textAlignment="center" minimumFontSize="27" translatesAutoresizingMaskIntoConstraints="NO" id="6WQ-RL-aBZ">
-                                <rect key="frame" x="68" y="102" width="278" height="28"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Code" textAlignment="center" minimumFontSize="27" translatesAutoresizingMaskIntoConstraints="NO" id="6WQ-RL-aBZ">
+                                <rect key="frame" x="68" y="174" width="278" height="28"/>
                                 <color key="textColor" red="0.1529411765" green="0.70196078429999997" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="23"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
@@ -839,23 +851,30 @@ If you have any questions about this Agreement, please contact us at contact@coi
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="underline" translatesAutoresizingMaskIntoConstraints="NO" id="xih-E7-tu1">
-                                <rect key="frame" x="138.66666666666669" y="138" width="138.00000000000006" height="2"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="underline" translatesAutoresizingMaskIntoConstraints="NO" id="xih-E7-tu1">
+                                <rect key="frame" x="138" y="210" width="138.00000000000006" height="2"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="138" id="CGo-ko-7BV"/>
                                     <constraint firstAttribute="height" constant="2" id="rmG-2R-zky"/>
                                 </constraints>
                             </imageView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="klv-Em-hnK">
-                                <rect key="frame" x="178" y="234" width="20" height="20"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="underline" translatesAutoresizingMaskIntoConstraints="NO" id="WGy-IG-71W">
+                                <rect key="frame" x="130" y="392" width="157" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="iHM-aJ-ys1"/>
+                                    <constraint firstAttribute="width" constant="138" id="mDv-YI-IUT"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="klv-Em-hnK">
+                                <rect key="frame" x="197" y="448" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="EXx-wV-YyT"/>
                                     <constraint firstAttribute="width" constant="20" id="J0x-YQ-4iq"/>
                                 </constraints>
                                 <color key="color" red="0.1764705882" green="0.80784313730000001" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCm-dO-LR0">
-                                <rect key="frame" x="169" y="348" width="39" height="58"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCm-dO-LR0">
+                                <rect key="frame" x="188" y="552" width="39" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="39" id="DAX-1H-rF3"/>
                                     <constraint firstAttribute="height" constant="58" id="Enj-4C-N8L"/>
@@ -863,6 +882,32 @@ If you have any questions about this Agreement, please contact us at contact@coi
                                 <state key="normal" image="arrow-right"/>
                                 <connections>
                                     <action selector="Login:" destination="DwH-M2-gWz" eventType="touchUpInside" id="BUr-14-gMe"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eHj-MY-KDt">
+                                <rect key="frame" x="115" y="330" width="184" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.17776930329999999" green="0.80832916499999996" blue="0.60771507020000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="45"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="0.69803921570000005" green="0.69803921570000005" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3f0-Ey-WNx">
+                                <rect key="frame" x="20" y="28" width="90" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="4Mo-Qy-9Vq"/>
+                                    <constraint firstAttribute="height" constant="36" id="VQm-kQ-dBj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="23"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.1529411765" green="0.70196078429999997" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="SD2-AW-Egu" kind="show" id="Z9J-XK-2AI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -887,7 +932,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ui2-CF-O6G" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2849" y="-1342"/>
+            <point key="canvasLocation" x="-2849.275362318841" y="-1342.663043478261"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="67v-HZ-gfM">
@@ -905,6 +950,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEU-WF-oMP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-149" y="-2129"/>
         </scene>
     </scenes>
     <resources>
@@ -914,8 +960,9 @@ If you have any questions about this Agreement, please contact us at contact@coi
         <image name="underline" width="619" height="4"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="moM-oo-eEw"/>
-        <segue reference="df5-b2-rKD"/>
-        <segue reference="UIb-00-qvU"/>
+        <segue reference="F1f-Zr-rI6"/>
+        <segue reference="Z9J-XK-2AI"/>
+        <segue reference="il0-09-Ftc"/>
+        <segue reference="Yy4-vb-mwm"/>
     </inferredMetricsTieBreakers>
 </document>

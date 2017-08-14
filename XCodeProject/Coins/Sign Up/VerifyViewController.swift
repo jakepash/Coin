@@ -72,8 +72,9 @@ class VerifyViewController: UIViewController {
                                 let value = snapshot.value as? NSDictionary
                                 self.signupcoins = value?["SignUpCoins"] as? Int ?? 10
                                 print(self.signupcoins)
-                                let inviteCode = ShortCodeGenerator.getCode(length: 6)
-                                self.ref.child("users").child((user?.uid)!).setValue(["Coins": self.signupcoins, "PhoneNumber":phoneNumber,"InviteCode": inviteCode])
+                                let inviteCode = randomStringWithLength(len: 6)
+                                // the invitecode will be set to false when the other person types it in
+                                self.ref.child("users").child((user?.uid)!).setValue(["Coins": self.signupcoins, "PhoneNumber":phoneNumber,inviteCode:"unused"])
                                 self.performSegue(withIdentifier: "segue2", sender: Any?.self)
                                 // ...
                             }) { (error) in
@@ -89,6 +90,22 @@ class VerifyViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         code.becomeFirstResponder()
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Enter your invite code", message: "to get 10 free coins", preferredStyle: .alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.borderStyle = UITextBorderStyle.line
+        }
+        
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            print("Text field: \(textField?.text)")
+        }))
+        
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
@@ -102,17 +119,17 @@ class VerifyViewController: UIViewController {
 
 }
 
-struct ShortCodeGenerator {
+func randomStringWithLength(len: Int) -> NSString {
     
-    private static let base62chars = [Character]("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".characters)
-    private static let maxBase : UInt32 = 62
+    let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     
-    static func getCode(withBase base: UInt32 = maxBase, length: Int) -> String {
-        var code = ""
-        for _ in 0..<length {
-            let random = Int(arc4random_uniform(min(base, maxBase)))
-            code.append(base62chars[random])
-        }
-        return code
+    let randomString : NSMutableString = NSMutableString(capacity: len)
+    
+    for _ in 1...len{
+        let length = UInt32 (letters.length)
+        let rand = arc4random_uniform(length)
+        randomString.appendFormat("%C", letters.character(at: Int(rand)))
     }
+    
+    return randomString
 }
