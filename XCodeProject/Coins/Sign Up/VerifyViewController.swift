@@ -20,7 +20,7 @@ class VerifyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.notvalidinvitelabel.isHidden = true
         activityindicator.isHidden = true
         ref = Database.database().reference()
         let tapRecognizer = UITapGestureRecognizer()
@@ -80,6 +80,8 @@ class VerifyViewController: UIViewController {
                                 } else {
                                     self.ref.child("codes").observeSingleEvent(of: .value, with: { (snapinvitecode) in
                                         if snapinvitecode.hasChild(self.inviteCodeInputed) {
+                                            self.notvalidinvitelabel.isHidden = true
+                                            
                                             self.ref.child("users").child(snapinvitecode.childSnapshot(forPath: self.inviteCodeInputed).value as! String).child("Coins").observeSingleEvent(of: .value, with: { (snapshot1) in
                                                 let newnum = snapshot1.value as! Int
                                                 self.ref.child("users").child(snapinvitecode.childSnapshot(forPath: self.inviteCodeInputed).value as! String).updateChildValues(["Coins":newnum + 10])
@@ -90,9 +92,8 @@ class VerifyViewController: UIViewController {
                                             self.performSegue(withIdentifier: "segue2", sender: Any?.self)
                                         }else{
                                             print("invite code doesn't exist")
-                                            self.ref.child("codes").updateChildValues([inviteCode:(user?.uid)!])
-                                            self.ref.child("users").child((user?.uid)!).setValue(["Coins": self.signupcoins, "PhoneNumber":phoneNumber,"InviteCode":inviteCode])
-                                            self.performSegue(withIdentifier: "segue2", sender: Any?.self)
+                                            self.notvalidinvitelabel.isHidden = false
+                                            self.activityindicator.isHidden = true
                                         }
                                     })
                                     // add coins if invite code exists
@@ -146,6 +147,7 @@ class VerifyViewController: UIViewController {
         // 4. Present the alert.
         self.present(alert, animated: true, completion: nil)
     }
+    @IBOutlet weak var notvalidinvitelabel: UILabel!
     /*
     // MARK: - Navigation
 

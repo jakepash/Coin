@@ -539,7 +539,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
                                     <constraint firstAttribute="height" constant="67" id="EWJ-UM-Gv3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
-                                <color key="textColor" red="0.83529411764705885" green="0.054901960784313725" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.83693104982376099" green="0.056254580616950989" blue="0.15881818532943726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcY-d5-LOE" customClass="MMSlidingButton" customModule="Coins" customModuleProvider="target">
@@ -902,6 +902,13 @@ If you have any questions about this Agreement, please contact us at contact@coi
                                     <segue destination="SD2-AW-Egu" kind="show" id="Z9J-XK-2AI"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invite Code Not Valid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pw-w4-LKX">
+                                <rect key="frame" x="73" y="381" width="229" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="23"/>
+                                <color key="textColor" red="0.83693104979999999" green="0.056254580620000001" blue="0.1588181853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.11372549019607843" green="0.12156862745098039" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -919,12 +926,13 @@ If you have any questions about this Agreement, please contact us at contact@coi
                     <connections>
                         <outlet property="activityindicator" destination="klv-Em-hnK" id="gDy-hy-uWD"/>
                         <outlet property="code" destination="6WQ-RL-aBZ" id="WJs-Ju-pgc"/>
+                        <outlet property="notvalidinvitelabel" destination="9pw-w4-LKX" id="yVR-iJ-aSX"/>
                         <segue destination="LUZ-tH-0oR" kind="show" identifier="segue2" id="il0-09-Ftc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ui2-CF-O6G" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2849.275362318841" y="-1342.663043478261"/>
+            <point key="canvasLocation" x="-2850.4000000000001" y="-1343.4782608695652"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="67v-HZ-gfM">
