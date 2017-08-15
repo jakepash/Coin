@@ -27,7 +27,7 @@ class VerifyViewController: UIViewController {
         tapRecognizer.addTarget(self, action: #selector(ViewController.didTapView))
         self.view.addGestureRecognizer(tapRecognizer)
         // Do any additional setup after loading the view.
-
+        inviteCodeInputed = "nil"
         
     }
 
@@ -73,9 +73,36 @@ class VerifyViewController: UIViewController {
                                 self.signupcoins = value?["SignUpCoins"] as? Int ?? 10
                                 print(self.signupcoins)
                                 let inviteCode = randomStringWithLength(len: 6)
-                                // the invitecode will be set to false when the other person types it in
-                                self.ref.child("users").child((user?.uid)!).setValue(["Coins": self.signupcoins, "PhoneNumber":phoneNumber,inviteCode:"unused"])
-                                self.performSegue(withIdentifier: "segue2", sender: Any?.self)
+                                if self.inviteCodeInputed == "nil"{
+                                    self.ref.child("codes").updateChildValues([inviteCode:(user?.uid)!])
+                                    self.ref.child("users").child((user?.uid)!).setValue(["Coins": self.signupcoins, "PhoneNumber":phoneNumber,"InviteCode":inviteCode])
+                                    self.performSegue(withIdentifier: "segue2", sender: Any?.self)
+                                } else {
+                                    self.ref.child("codes").observeSingleEvent(of: .value, with: { (snapinvitecode) in
+                                        if snapinvitecode.hasChild(self.inviteCodeInputed) {
+                                            self.ref.child("users").child(snapinvitecode.childSnapshot(forPath: self.inviteCodeInputed).value as! String).child("Coins").observeSingleEvent(of: .value, with: { (snapshot1) in
+                                                let newnum = snapshot1.value as! Int
+                                                self.ref.child("users").child(snapinvitecode.childSnapshot(forPath: self.inviteCodeInputed).value as! String).updateChildValues(["Coins":newnum + 10])
+                                            })
+                                            self.ref.child("codes").updateChildValues([inviteCode:(user?.uid)!])
+                                            let newCoins = self.signupcoins + 10
+                                            self.ref.child("users").child((user?.uid)!).setValue(["Coins": newCoins, "PhoneNumber":phoneNumber,"InviteCode":inviteCode])
+                                            self.performSegue(withIdentifier: "segue2", sender: Any?.self)
+                                        }else{
+                                            print("invite code doesn't exist")
+                                            self.ref.child("codes").updateChildValues([inviteCode:(user?.uid)!])
+                                            self.ref.child("users").child((user?.uid)!).setValue(["Coins": self.signupcoins, "PhoneNumber":phoneNumber,"InviteCode":inviteCode])
+                                            self.performSegue(withIdentifier: "segue2", sender: Any?.self)
+                                        }
+                                    })
+                                    // add coins if invite code exists
+                                    
+                                    
+//                                    self.ref.child("users").child((user?.uid)!).setValue(["Coins": self.signupcoins, "PhoneNumber":phoneNumber,"InviteCode":inviteCode])
+//                                    self.performSegue(withIdentifier: "segue2", sender: Any?.self)
+                                }
+                                
+                                
                                 // ...
                             }) { (error) in
                                 print(error.localizedDescription)
@@ -88,21 +115,33 @@ class VerifyViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        code.becomeFirstResponder()
+    
+    var inviteCodeInputed = String()
+    
+    @IBAction func invitecodebtn(_ sender: Any) {
         //1. Create the alert controller.
-        let alert = UIAlertController(title: "Enter your invite code", message: "to get 10 free coins", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Enter your friend's invite code", message: "to give you and them 10 free coins each!", preferredStyle: .alert)
         
         //2. Add the text field. You can configure it however you need.
         alert.addTextField { (textField) in
             textField.borderStyle = UITextBorderStyle.line
         }
-        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [weak alert] (_) in
+        }))
         // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
             print("Text field: \(textField?.text)")
+            let textinvite = textField?.text
+            if (textinvite?.characters.count)! < 7 {
+                print("continuing")
+                self.inviteCodeInputed = textinvite!
+            }
+            else {
+                print("No more than 6 characters, invalid")
+            }
         }))
+        
         
         // 4. Present the alert.
         self.present(alert, animated: true, completion: nil)

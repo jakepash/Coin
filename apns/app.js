@@ -56,15 +56,3 @@ notification.alert = 'Someone sent you ' + coinamount + ' Coins';
 app.listen(port);
 console.log('Server started! At http://localhost:' + port);
 
-[ 
-users :[
-	"adam",
-	"jacob",
-	"hanan"
-]	
-codes: [
-	"2342",
-	"432423",
-	"4324"
-]
-]

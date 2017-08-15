@@ -46,18 +46,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         
         ref = Database.database().reference()
-        ref.child("users").child((Auth.auth().currentUser?.uid)!).observe(.value, with: { (snapshot) in
-            if let userDict = snapshot.value as? [String:AnyObject]{
-                for each in userDict{
-                    if let quantity = each.value as? String {
-                        if quantity == "unused" {
-                            inviteCode = each.key
-                        }
-                        
-                    }
-                }
-            }
+        ref.child("users").child((Auth.auth().currentUser?.uid)!).child("InviteCode").observe(.value, with: { (snapshot) in
+            inviteCode = snapshot.value as! String
         })
+
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: #selector(ViewController.didTapView))
         self.view.addGestureRecognizer(tapRecognizer)
@@ -80,8 +72,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var numofcoins = Float()
     
     @objc func GetCoinsFirstTime() {
-        let userID = Auth.auth().currentUser?.uid
-        ref.child("users").child(userID!).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
+        if let userID = Auth.auth().currentUser?.uid {
+            ref.child("users").child(userID).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value
             //let newnum = NSString(format: "%@", value as! CVarArg) as Float
@@ -90,6 +82,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             self.CoinCount.countFrom(fromValue: 0, to: newnum, withDuration: 1.0, andAnimationType: .EaseOut, andCountingType: .Int)
         }) { (error) in
             print(error.localizedDescription)
+        }
         }
     }
     
@@ -118,7 +111,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 //            })
 //            }
         } else{
-            print("User signed out.")
+            
         }
         
     }
