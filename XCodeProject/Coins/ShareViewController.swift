@@ -15,9 +15,8 @@ class ShareViewController: UIViewController {
     
     @IBAction func shareButton(_ sender: Any) {
         
-
-        let invitecodegenerated = "A23B"
-        let firstActivityItem = "Hi, I invite you to Coin.\n The invite code is \(invitecodegenerated)"
+        // maybe take out the emoji if not we should add 😍
+        let firstActivityItem = "You should check out Coin 🤑.\n  When signing up for the first time use this code: \(inviteCode)"
                 let secondActivityItem : NSURL = NSURL(string: "https://coinreserve.xyz")!
         // If you want to put an image
         //

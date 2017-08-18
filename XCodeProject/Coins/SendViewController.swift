@@ -12,7 +12,7 @@ import FirebaseAuth
 import SearchTextField
 import Contacts
 import Alamofire
-
+import FirebaseAnalytics
 class SendViewController: UIViewController, SlideButtonDelegate {
     
     var ContactsArray = [String]()
@@ -149,16 +149,16 @@ class SendViewController: UIViewController, SlideButtonDelegate {
                             self.ref.child("users/\(self.senderUID)/PhoneNumber").observeSingleEvent(of: .value, with: { (datasnap) in
                                 self.ref.child("users").child(userID!).child("Transactions").updateChildValues([datasnap.value as! AnyHashable : amounttosend])
                                 self.ref.child("users").child(self.senderUID).child("Transactions").updateChildValues([phoneNumber as! AnyHashable : amounttosend])
-                                
+                                Analytics.logEvent("Sent Coins", parameters: ["Coins_Sent":amounttosend as! NSObject])
                             })
                             self.ref.child("users/\(self.senderUID)/deviceToken").observeSingleEvent(of: .value, with: { (valuetoken) in
                                 let parameters: [String: AnyObject] = ["token":valuetoken.value as AnyObject,"coinamount":amounttosend as AnyObject]
                                 print(parameters)
                                 // Change ip to server ip
-                                Alamofire.request("https://520858b1.ngrok.io/", method: .post, parameters: parameters, encoding: JSONEncoding.default)
-                                    .responseJSON { response in
-                                        print(response)
-                                }
+//                                Alamofire.request("https://520858b1.ngrok.io/", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+//                                    .responseJSON { response in
+//                                        print(response)
+//                                }
                             })
                             self.performSegue(withIdentifier: "seguetomain", sender: nil)
                         }

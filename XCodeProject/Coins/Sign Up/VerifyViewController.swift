@@ -28,7 +28,7 @@ class VerifyViewController: UIViewController {
         self.view.addGestureRecognizer(tapRecognizer)
         // Do any additional setup after loading the view.
         inviteCodeInputed = "nil"
-        
+        smscodeinvalidlabel.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,6 +41,7 @@ class VerifyViewController: UIViewController {
     }
     
     @IBOutlet weak var code: UITextField!
+    @IBOutlet weak var smscodeinvalidlabel: UILabel!
     
     var signupcoins = Int()
     
@@ -52,6 +53,7 @@ class VerifyViewController: UIViewController {
             self.activityindicator.startAnimating()
             if error != nil {
                 print(error?.localizedDescription)
+                self.smscodeinvalidlabel.isHidden = false
                 // show error
                 //stop animating activity indicator
                 self.activityindicator.isHidden = true
@@ -70,8 +72,16 @@ class VerifyViewController: UIViewController {
                             self.ref.child("Promo").observeSingleEvent(of: .value, with: { (snapshot) in
                                 // Get user value
                                 let value = snapshot.value as? NSDictionary
-                                self.signupcoins = value?["SignUpCoins"] as? Int ?? 10
-                                print(self.signupcoins)
+                                if let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as? String {
+                                    if countryCode == "US"{
+                                        self.signupcoins = value?["SignUpUS"] as? Int ?? 3
+                                        print(self.signupcoins)
+                                    } else {
+                                        self.signupcoins = value?["SignUpIL"] as? Int ?? 10
+                                        print(self.signupcoins)
+                                    }
+                                    
+                                }
                                 let inviteCode = randomStringWithLength(len: 6)
                                 if self.inviteCodeInputed == "nil"{
                                     self.ref.child("codes").updateChildValues([inviteCode:(user?.uid)!])

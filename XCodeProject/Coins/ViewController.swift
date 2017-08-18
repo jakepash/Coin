@@ -95,8 +95,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             //let newnum = NSString(format: "%@", value as! CVarArg) as Float
             let newnum = value as? Float
             self.newnum1 = newnum!
-            self.numofcoins = newnum!
             self.CoinCount.countFrom(fromValue: self.numofcoins, to: newnum!, withDuration: 1.0, andAnimationType: .EaseOut, andCountingType: .Int)
+            self.numofcoins = newnum!
         }) { (error) in
             print(error.localizedDescription)
         }
