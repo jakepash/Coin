@@ -20,7 +20,7 @@ target 'Coins' do
     pod 'SACountingLabel'
     pod 'Canvas'
     pod 'Firebase/Messaging'
-    
+    pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'    
     target 'CoinsTests' do
         inherit! :search_paths
         # Pods for testing

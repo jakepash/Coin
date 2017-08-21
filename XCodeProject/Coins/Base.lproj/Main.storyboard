@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="height" constant="164" id="tFd-rG-O90"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="113"/>
-                                <color key="textColor" red="0.3416953980922699" green="0.69161331653594971" blue="0.5372931957244873" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.3411764705882353" green="0.69019607843137254" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKA-R4-mWv">
@@ -108,23 +108,54 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="4yC-QL-0Us"/>
                                 </connections>
                             </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipe-left" translatesAutoresizingMaskIntoConstraints="NO" id="Mbs-cZ-xU8" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="0.0" y="289" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="NWf-2p-ysX"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideRight"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipe-right" translatesAutoresizingMaskIntoConstraints="NO" id="qJf-I3-pLb" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="287" y="289" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="XMI-Hp-qCW"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideLeft"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.113887772" green="0.1214915812" blue="0.13737426699999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="8MM-jB-A8g" firstAttribute="top" secondItem="RKA-R4-mWv" secondAttribute="top" id="13C-7z-wdU"/>
                             <constraint firstItem="RKA-R4-mWv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Bzl-9a-exI"/>
                             <constraint firstItem="8MM-jB-A8g" firstAttribute="leading" secondItem="Vlx-9Y-hj9" secondAttribute="leading" id="Fwb-vJ-Hny"/>
+                            <constraint firstItem="yWf-Z9-CPe" firstAttribute="top" secondItem="Mbs-cZ-xU8" secondAttribute="bottom" constant="8" symbolic="YES" id="GA0-G7-4ZO"/>
+                            <constraint firstItem="Mbs-cZ-xU8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Gtc-vs-Udu"/>
                             <constraint firstItem="Vlx-9Y-hj9" firstAttribute="trailing" secondItem="RKA-R4-mWv" secondAttribute="trailing" id="Jml-IZ-tU1"/>
                             <constraint firstItem="RKA-R4-mWv" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Kb9-g6-Elb"/>
                             <constraint firstItem="yWf-Z9-CPe" firstAttribute="top" secondItem="jGA-Xt-7qg" secondAttribute="bottom" constant="169" id="LoN-07-an1"/>
+                            <constraint firstItem="qJf-I3-pLb" firstAttribute="trailing" secondItem="jGA-Xt-7qg" secondAttribute="trailing" id="MFO-Ns-sit"/>
                             <constraint firstItem="Vlx-9Y-hj9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="OB5-El-Mdf"/>
                             <constraint firstItem="rJv-y2-npZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="67" id="W9P-4f-gZK"/>
+                            <constraint firstItem="Mbs-cZ-xU8" firstAttribute="leading" secondItem="jGA-Xt-7qg" secondAttribute="leading" id="cEx-jt-31W"/>
                             <constraint firstItem="RKA-R4-mWv" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="gkj-Nz-Gyz"/>
                             <constraint firstAttribute="trailing" secondItem="jGA-Xt-7qg" secondAttribute="trailing" id="iWM-db-TUa"/>
                             <constraint firstItem="rJv-y2-npZ" firstAttribute="top" secondItem="yWf-Z9-CPe" secondAttribute="bottom" constant="25" id="jKI-cE-Cft"/>
                             <constraint firstItem="jGA-Xt-7qg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="jmE-W8-f49"/>
+                            <constraint firstItem="Mbs-cZ-xU8" firstAttribute="top" secondItem="qJf-I3-pLb" secondAttribute="top" id="lgE-ud-chV"/>
                             <constraint firstItem="yWf-Z9-CPe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="71" id="oJs-uz-4nq"/>
                             <constraint firstItem="yWf-Z9-CPe" firstAttribute="top" secondItem="Vlx-9Y-hj9" secondAttribute="bottom" constant="44" id="pJ5-gG-Gdk"/>
+                            <constraint firstItem="Mbs-cZ-xU8" firstAttribute="bottom" secondItem="qJf-I3-pLb" secondAttribute="bottom" id="paF-v5-UHc"/>
                             <constraint firstItem="yWf-Z9-CPe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="152" id="rhB-qg-19k"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yWf-Z9-CPe" secondAttribute="trailing" constant="72" id="s4C-G3-iw6"/>
                             <constraint firstItem="jGA-Xt-7qg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="v6C-EG-3Fo"/>
@@ -911,12 +942,13 @@ If you have any questions about this Agreement, please contact us at contact@coi
         <image name="Settings-Icon" width="420" height="420"/>
         <image name="arrow-right" width="73" height="107"/>
         <image name="frame" width="500" height="500"/>
+        <image name="swipe-left" width="512" height="512"/>
+        <image name="swipe-right" width="512" height="512"/>
         <image name="underline" width="619" height="4"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F1f-Zr-rI6"/>
         <segue reference="moM-oo-eEw"/>
         <segue reference="OfK-MP-BBH"/>
-        <segue reference="Yy4-vb-mwm"/>
+        <segue reference="UIb-00-qvU"/>
     </inferredMetricsTieBreakers>
 </document>
