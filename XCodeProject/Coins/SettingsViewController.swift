@@ -27,6 +27,11 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    @IBAction func sitebtn(_ sender: Any) {
+            if let url = NSURL(string: "https://coinreserve.xyz/"){
+                UIApplication.shared.openURL(url as URL)
+            }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

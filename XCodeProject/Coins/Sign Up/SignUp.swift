@@ -10,6 +10,8 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
+var userPhoneNumber = String()
+
 class SignUp: UIViewController {
     
     @IBOutlet weak var phoneLabel: UITextField!
@@ -65,6 +67,7 @@ class SignUp: UIViewController {
                 if error != nil{
                     print(error?.localizedDescription)
                 } else {
+                    userPhoneNumber = self.phoneNumber
                     let defaults = UserDefaults.standard
                     defaults.set(verificationID, forKey: "AuthVID")
                     self.performSegue(withIdentifier: "segue1", sender: Any?.self)

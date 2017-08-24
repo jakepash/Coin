@@ -155,10 +155,10 @@ class SendViewController: UIViewController, SlideButtonDelegate {
                                 let parameters: [String: AnyObject] = ["token":valuetoken.value as AnyObject,"coinamount":amounttosend as AnyObject]
                                 print(parameters)
                                 // Change ip to server ip
-//                                Alamofire.request("https://520858b1.ngrok.io/", method: .post, parameters: parameters, encoding: JSONEncoding.default)
-//                                    .responseJSON { response in
-//                                        print(response)
-//                                }
+                                Alamofire.request("https://coin-reserve.appspot.com/", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                                    .responseJSON { response in
+                                        print(response)
+                                }
                             })
                             self.performSegue(withIdentifier: "seguetomain", sender: nil)
                         }

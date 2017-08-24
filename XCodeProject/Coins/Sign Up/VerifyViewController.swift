@@ -29,6 +29,7 @@ class VerifyViewController: UIViewController {
         // Do any additional setup after loading the view.
         inviteCodeInputed = "nil"
         smscodeinvalidlabel.isHidden = true
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +39,14 @@ class VerifyViewController: UIViewController {
     
     @objc func didTapView(){
         self.view.endEditing(true)
+//        PhoneAuthProvider.provider().verifyPhoneNumber("", completion: { (verificationID, error) in
+//            if error != nil{
+//                print(error?.localizedDescription)
+//            } else {
+//                 UserDefaults.standard.set(verificationID, forKey: "AuthVID")
+//            }
+//        })
+       
     }
     
     @IBOutlet weak var code: UITextField!

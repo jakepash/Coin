@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_CoinsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_CoinsVersionString[];
+FOUNDATION_EXPORT double Pods_CoinUITestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_CoinUITestsVersionString[];
 

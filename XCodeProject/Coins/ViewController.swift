@@ -134,6 +134,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         qrCode?.backgroundColor = CIColor(red:0.11, green: 0.12, blue:0.14, alpha:1.0)
         //qrCode?.backgroundColor = CIColor(red:1.00, green: 1.00, blue:1.00, alpha:1.0)
         imageView.image = qrCode?.image
+        
     }
     
     

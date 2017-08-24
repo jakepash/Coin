@@ -29,17 +29,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Coins.xcscheme</key>
+		<key>Pods-Coin.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-CoinsTests.xcscheme</key>
+		<key>Pods-CoinTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-CoinsUITests.xcscheme</key>
+		<key>Pods-CoinUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

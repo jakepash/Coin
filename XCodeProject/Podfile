@@ -2,11 +2,11 @@
 # platform :ios, '9.0'
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'Coins' do
+target 'Coin' do
     # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
     use_frameworks!
     
-    # Pods for Coins
+    # Pods for Coin
     pod 'Alamofire', '~> 4.4'
     pod 'SwiftyJSON'
     pod 'Firebase/Auth'
@@ -21,12 +21,12 @@ target 'Coins' do
     pod 'Canvas'
     pod 'Firebase/Messaging'
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'    
-    target 'CoinsTests' do
+    target 'CoinTests' do
         inherit! :search_paths
         # Pods for testing
     end
     
-    target 'CoinsUITests' do
+    target 'CoinUITests' do
         inherit! :search_paths
         # Pods for testing
     end

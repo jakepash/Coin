@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "981AC8761F08CA2000F7830B"
-               BuildableName = "Coins.app"
-               BlueprintName = "Coins"
-               ReferencedContainer = "container:Coins.xcodeproj">
+               BuildableName = "Coin.app"
+               BlueprintName = "Coin"
+               ReferencedContainer = "container:Coin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "981AC88A1F08CA2000F7830B"
-               BuildableName = "CoinsTests.xctest"
-               BlueprintName = "CoinsTests"
-               ReferencedContainer = "container:Coins.xcodeproj">
+               BuildableName = "CoinTests.xctest"
+               BlueprintName = "CoinTests"
+               ReferencedContainer = "container:Coin.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -44,9 +44,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "981AC8951F08CA2000F7830B"
-               BuildableName = "CoinsUITests.xctest"
-               BlueprintName = "CoinsUITests"
-               ReferencedContainer = "container:Coins.xcodeproj">
+               BuildableName = "CoinUITests.xctest"
+               BlueprintName = "CoinUITests"
+               ReferencedContainer = "container:Coin.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -54,9 +54,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "981AC8761F08CA2000F7830B"
-            BuildableName = "Coins.app"
-            BlueprintName = "Coins"
-            ReferencedContainer = "container:Coins.xcodeproj">
+            BuildableName = "Coin.app"
+            BlueprintName = "Coin"
+            ReferencedContainer = "container:Coin.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,9 +78,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "981AC8761F08CA2000F7830B"
-            BuildableName = "Coins.app"
-            BlueprintName = "Coins"
-            ReferencedContainer = "container:Coins.xcodeproj">
+            BuildableName = "Coin.app"
+            BlueprintName = "Coin"
+            ReferencedContainer = "container:Coin.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -97,9 +97,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "981AC8761F08CA2000F7830B"
-            BuildableName = "Coins.app"
-            BlueprintName = "Coins"
-            ReferencedContainer = "container:Coins.xcodeproj">
+            BuildableName = "Coin.app"
+            BlueprintName = "Coin"
+            ReferencedContainer = "container:Coin.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
