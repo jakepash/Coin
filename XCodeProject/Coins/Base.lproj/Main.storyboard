@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="Coins" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="Coin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -77,7 +77,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" reuseIdentifier="cell" id="cFt-Tk-NdD" customClass="LedgerCollectionViewCell" customModule="Coins" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" reuseIdentifier="cell" id="cFt-Tk-NdD" customClass="LedgerCollectionViewCell" customModule="Coin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="159" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -134,6 +134,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="CoinCount" destination="jGA-Xt-7qg" id="mHm-S1-Sy8"/>
+                        <outlet property="collectionview" destination="Vlx-9Y-hj9" id="SSH-KY-Mbh"/>
                         <outlet property="imageView" destination="yWf-Z9-CPe" id="Ldd-MW-UPW"/>
                         <outlet property="noconnectionerror" destination="rJv-y2-npZ" id="cdI-yt-OHH"/>
                     </connections>
@@ -145,7 +146,7 @@
         <!--Share View Controller-->
         <scene sceneID="JQ2-PU-ZnA">
             <objects>
-                <viewController id="NnO-i6-AiB" customClass="ShareViewController" customModule="Coins" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NnO-i6-AiB" customClass="ShareViewController" customModule="Coin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bPM-WM-5uZ"/>
                         <viewControllerLayoutGuide type="bottom" id="ihC-vU-GBB"/>
@@ -316,7 +317,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
         <!--Settings View Controller-->
         <scene sceneID="crc-jQ-kgv">
             <objects>
-                <viewController id="WhZ-oK-bHJ" customClass="SettingsViewController" customModule="Coins" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WhZ-oK-bHJ" customClass="SettingsViewController" customModule="Coin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HQo-UM-2zn"/>
                         <viewControllerLayoutGuide type="bottom" id="vxo-HG-kwc"/>
@@ -399,7 +400,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
         <!--Send View Controller-->
         <scene sceneID="WzY-Bk-uN1">
             <objects>
-                <viewController storyboardIdentifier="QRSendViewController" id="XSH-9n-Jl2" customClass="QRSendViewController" customModule="Coins" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRSendViewController" id="XSH-9n-Jl2" customClass="QRSendViewController" customModule="Coin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j5x-fN-84V"/>
                         <viewControllerLayoutGuide type="bottom" id="CMe-WW-1sS"/>
@@ -408,7 +409,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0A-vN-chh" customClass="MMSlidingButton" customModule="Coins" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0A-vN-chh" customClass="MMSlidingButton" customModule="Coin" customModuleProvider="target">
                                 <rect key="frame" x="12" y="585" width="351" height="62"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -517,7 +518,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
         <!--Send View Controller-->
         <scene sceneID="xQ0-IZ-FDO">
             <objects>
-                <viewController storyboardIdentifier="SendViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yNc-AX-Vlj" customClass="SendViewController" customModule="Coins" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SendViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yNc-AX-Vlj" customClass="SendViewController" customModule="Coin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C8E-xp-6Do"/>
                         <viewControllerLayoutGuide type="bottom" id="sAy-TZ-qCl"/>
@@ -579,7 +580,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
                                 <color key="textColor" red="0.83693104982376099" green="0.056254580616950989" blue="0.15881818532943726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcY-d5-LOE" customClass="MMSlidingButton" customModule="Coins" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcY-d5-LOE" customClass="MMSlidingButton" customModule="Coin" customModuleProvider="target">
                                 <rect key="frame" x="12" y="585" width="351" height="62"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -641,7 +642,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
         <!--Table View Controller-->
         <scene sceneID="0gT-Xq-cwf">
             <objects>
-                <tableViewController id="WeM-mE-OiG" customClass="TableViewController" customModule="Coins" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="WeM-mE-OiG" customClass="TableViewController" customModule="Coin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="0JG-yT-RkK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -672,7 +673,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
         <!--Page View Controller-->
         <scene sceneID="nND-zH-hH6">
             <objects>
-                <pageViewController storyboardIdentifier="pageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="LUZ-tH-0oR" customClass="PageViewController" customModule="Coins" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="pageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="LUZ-tH-0oR" customClass="PageViewController" customModule="Coin" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEn-6y-tel" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1706" y="-375"/>
@@ -680,7 +681,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
         <!--SignUp-->
         <scene sceneID="Heq-5s-B35">
             <objects>
-                <viewController title="SignUp" id="SD2-AW-Egu" customClass="SignUp" customModule="Coins" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="SignUp" id="SD2-AW-Egu" customClass="SignUp" customModule="Coin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="53Y-vf-I8Y"/>
                         <viewControllerLayoutGuide type="bottom" id="9yr-o4-3wS"/>
@@ -778,7 +779,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
         <!--QRScanViewController-->
         <scene sceneID="p5Q-1N-JuL">
             <objects>
-                <viewController storyboardIdentifier="QRScanViewController" title="QRScanViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5Ml-gJ-UnX" customClass="QRScanViewController" customModule="Coins" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRScanViewController" title="QRScanViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5Ml-gJ-UnX" customClass="QRScanViewController" customModule="Coin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JIw-v5-Gvc"/>
                         <viewControllerLayoutGuide type="bottom" id="j80-BD-0he"/>
@@ -796,7 +797,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan a Friend's Code To Send Them Some Coins" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaj-0c-0nb">
                                         <rect key="frame" x="68" y="24" width="239" height="66"/>
                                         <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="23"/>
-                                        <color key="textColor" red="0.1529411765" green="0.70196078429999997" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.3411764705882353" green="0.69019607843137254" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -832,7 +833,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
         <!--Verify-->
         <scene sceneID="hfu-NT-Sbj">
             <objects>
-                <viewController title="Verify" id="DwH-M2-gWz" customClass="VerifyViewController" customModule="Coins" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Verify" id="DwH-M2-gWz" customClass="VerifyViewController" customModule="Coin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OIm-cK-DRe"/>
                         <viewControllerLayoutGuide type="bottom" id="aCa-95-9b4"/>
@@ -954,7 +955,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="moM-oo-eEw"/>
-        <segue reference="OfK-MP-BBH"/>
+        <segue reference="g7f-8F-725"/>
         <segue reference="UIb-00-qvU"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -35,6 +35,20 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if Reachability.isConnectedToNetwork(){
             print("Internet Connection Available!")
             // do nothing in this case
+            ref = Database.database().reference()
+            if let userID = Auth.auth().currentUser?.uid {
+                ref.child("users").child(userID).child("InviteCode").observe(.value, with: { (snapshot) in
+                    inviteCode = snapshot.value as! String
+                })
+            }
+            
+            let tapRecognizer = UITapGestureRecognizer()
+            tapRecognizer.addTarget(self, action: #selector(ViewController.didTapView))
+            self.view.addGestureRecognizer(tapRecognizer)
+            let userID = Auth.auth().currentUser!.uid
+            _ = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(GetCoins), userInfo: nil, repeats: true)
+            _ = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(pushDeviceToken), userInfo: nil, repeats: false)
+            GetCoinsFirstTime()
         }else{
             print("Internet Connection not Available!")
             noconnectionerror.isHidden = false
@@ -45,18 +59,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         
         
-        ref = Database.database().reference()
-        ref.child("users").child((Auth.auth().currentUser?.uid)!).child("InviteCode").observe(.value, with: { (snapshot) in
-            inviteCode = snapshot.value as! String
-        })
-
-        let tapRecognizer = UITapGestureRecognizer()
-        tapRecognizer.addTarget(self, action: #selector(ViewController.didTapView))
-        self.view.addGestureRecognizer(tapRecognizer)
-        let userID = Auth.auth().currentUser!.uid
-        _ = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(GetCoins), userInfo: nil, repeats: true)
-        _ = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(pushDeviceToken), userInfo: nil, repeats: false)
-        GetCoinsFirstTime()
+        
         
         //end of viewdidload()
     }
@@ -134,15 +137,32 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         qrCode?.backgroundColor = CIColor(red:0.11, green: 0.12, blue:0.14, alpha:1.0)
         //qrCode?.backgroundColor = CIColor(red:1.00, green: 1.00, blue:1.00, alpha:1.0)
         imageView.image = qrCode?.image
-        
+        let userID = Auth.auth().currentUser?.uid
+//        ref.child("users").child(userID!).child("Transactions").observeSingleEvent(of: .value, with: { (snapshot) in
+//            // Get user value
+//            let values = snapshot.value as? NSDictionary
+////            for (key, value) in values! {
+////                self.items.append(key as! String)
+////                self.items.append(value as! String)
+////            }
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+//        _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(reloadtransactions), userInfo: nil, repeats: false)
     }
     
+    func reloadtransactions() {
+        collectionview.reloadData()
+//        for v in items {
+//            print(v)
+//        }
+    }
     
-    
+    @IBOutlet weak var collectionview: UICollectionView!
     
 
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
-    var items = ["John Smith", "+4", "Johnny Appleseed", "-3", "(650)-353-0023", "+12", "John Smith", "+4", "Johnny Appleseed", "-3", "(650)-353-0023", "+12", "John Smith", "+4", "Johnny Appleseed", "-3", "(650)-353-0023", "+12", "John Smith", "+4", "Johnny Appleseed", "-3", "(650)-353-0023", "+12"]
+    var items = ["John Smith","+4"]
     
     
     // MARK: - UICollectionViewDataSource protocol

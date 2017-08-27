@@ -144,7 +144,8 @@ class VerifyViewController: UIViewController {
         
         //2. Add the text field. You can configure it however you need.
         alert.addTextField { (textField) in
-            textField.borderStyle = UITextBorderStyle.line
+            textField.borderStyle = UITextBorderStyle.none
+            
         }
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [weak alert] (_) in
         }))

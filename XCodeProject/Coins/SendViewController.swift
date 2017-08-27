@@ -12,7 +12,6 @@ import FirebaseAuth
 import SearchTextField
 import Contacts
 import Alamofire
-import FirebaseAnalytics
 class SendViewController: UIViewController, SlideButtonDelegate {
     
     var ContactsArray = [String]()
@@ -34,7 +33,7 @@ class SendViewController: UIViewController, SlideButtonDelegate {
         store.requestAccess(for: .contacts) { (isGranted, error) in
             // Check the isGranted flag and proceed if true
         }
-        phoneNum.theme.font = UIFont.systemFont(ofSize: 14)
+        phoneNum.theme.font = UIFont.systemFont(ofSize: 16)
         
         phoneNum.theme.bgColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
         phoneNum.theme.borderColor = UIColor(red:0.15, green:0.70, blue:0.53, alpha:1)
@@ -149,7 +148,6 @@ class SendViewController: UIViewController, SlideButtonDelegate {
                             self.ref.child("users/\(self.senderUID)/PhoneNumber").observeSingleEvent(of: .value, with: { (datasnap) in
                                 self.ref.child("users").child(userID!).child("Transactions").updateChildValues([datasnap.value as! AnyHashable : amounttosend])
                                 self.ref.child("users").child(self.senderUID).child("Transactions").updateChildValues([phoneNumber as! AnyHashable : amounttosend])
-                                Analytics.logEvent("Sent Coins", parameters: ["Coins_Sent":amounttosend as! NSObject])
                             })
                             self.ref.child("users/\(self.senderUID)/deviceToken").observeSingleEvent(of: .value, with: { (valuetoken) in
                                 let parameters: [String: AnyObject] = ["token":valuetoken.value as AnyObject,"coinamount":amounttosend as AnyObject]
