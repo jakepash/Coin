@@ -64,7 +64,7 @@ class QRSendViewController: UIViewController, SlideButtonDelegate {
     var OtherUserCoins = Int()
     
     func GetCoins() {
-
+        
         if QRGetUID != Auth.auth().currentUser?.uid {
             ref.child("users").child(QRGetUID).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
                 

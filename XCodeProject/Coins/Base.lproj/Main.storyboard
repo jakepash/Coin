@@ -509,12 +509,6 @@ If you have any questions about this Agreement, please contact us at contact@coi
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have enough coins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJU-Rl-r5p">
-                                <rect key="frame" x="63" y="369" width="250" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
-                                <color key="textColor" red="0.83529411764705885" green="0.054901960784313725" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="underline" translatesAutoresizingMaskIntoConstraints="NO" id="Ji8-dY-UtY">
                                 <rect key="frame" x="123.5" y="258" width="127" height="2"/>
                                 <constraints>
@@ -522,16 +516,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
                                     <constraint firstAttribute="width" constant="127" id="nas-lk-tWp"/>
                                 </constraints>
                             </imageView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You cannot send more than 100 coins!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pet-ci-yTt">
-                                <rect key="frame" x="43.5" y="346" width="289" height="67"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="67" id="EWJ-UM-Gv3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
-                                <color key="textColor" red="0.83693104982376099" green="0.056254580616950989" blue="0.15881818532943726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcY-d5-LOE" customClass="MMSlidingButton" customModule="Coin" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcY-d5-LOE" customClass="MMSlidingButton" customModule="Coin" customModuleProvider="target">
                                 <rect key="frame" x="12" y="585" width="351" height="62"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -558,30 +543,22 @@ If you have any questions about this Agreement, please contact us at contact@coi
                         <color key="backgroundColor" red="0.11372549019607843" green="0.12156862745098039" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qm1-xp-EHQ" firstAttribute="centerX" secondItem="Unc-Mw-Pmm" secondAttribute="centerX" id="FhG-uF-nab"/>
-                            <constraint firstItem="bJU-Rl-r5p" firstAttribute="leading" secondItem="yyC-S9-PgT" secondAttribute="leadingMargin" constant="47" id="GPu-co-kKK"/>
                             <constraint firstItem="qm1-xp-EHQ" firstAttribute="trailing" secondItem="yyC-S9-PgT" secondAttribute="trailingMargin" id="GTe-CJ-8y6"/>
                             <constraint firstItem="Unc-Mw-Pmm" firstAttribute="centerX" secondItem="wC1-SP-4W7" secondAttribute="centerX" id="LA6-mi-3BD"/>
                             <constraint firstItem="wC1-SP-4W7" firstAttribute="top" secondItem="Unc-Mw-Pmm" secondAttribute="bottom" constant="32" id="Rl7-Za-MHL"/>
                             <constraint firstItem="xcY-d5-LOE" firstAttribute="leading" secondItem="yyC-S9-PgT" secondAttribute="leadingMargin" constant="-4" id="X6S-ba-vwj"/>
                             <constraint firstItem="sAy-TZ-qCl" firstAttribute="top" secondItem="xcY-d5-LOE" secondAttribute="bottom" constant="20" id="Yh8-da-ZGy"/>
-                            <constraint firstItem="Pet-ci-yTt" firstAttribute="top" secondItem="Ji8-dY-UtY" secondAttribute="bottom" constant="86" id="aTg-1v-gDb"/>
                             <constraint firstItem="qm1-xp-EHQ" firstAttribute="centerX" secondItem="yyC-S9-PgT" secondAttribute="centerX" id="ion-dk-qrA"/>
                             <constraint firstItem="wC1-SP-4W7" firstAttribute="centerX" secondItem="Ji8-dY-UtY" secondAttribute="centerX" id="kqr-yf-Ebg"/>
-                            <constraint firstItem="Pet-ci-yTt" firstAttribute="centerY" secondItem="bJU-Rl-r5p" secondAttribute="centerY" id="mNm-6T-Mak"/>
                             <constraint firstItem="Ji8-dY-UtY" firstAttribute="top" secondItem="wC1-SP-4W7" secondAttribute="bottom" constant="3" id="mex-Uh-VMC"/>
                             <constraint firstItem="qm1-xp-EHQ" firstAttribute="top" secondItem="C8E-xp-6Do" secondAttribute="bottom" constant="54" id="oQl-XZ-YNh"/>
                             <constraint firstItem="Unc-Mw-Pmm" firstAttribute="leading" secondItem="yyC-S9-PgT" secondAttribute="leadingMargin" constant="60" id="pVo-zA-td0"/>
                             <constraint firstItem="Unc-Mw-Pmm" firstAttribute="top" secondItem="qm1-xp-EHQ" secondAttribute="bottom" constant="22" id="ru7-QV-7Dg"/>
-                            <constraint firstItem="Unc-Mw-Pmm" firstAttribute="centerX" secondItem="bJU-Rl-r5p" secondAttribute="centerX" id="sCR-a6-Ns8"/>
-                            <constraint firstItem="Pet-ci-yTt" firstAttribute="centerX" secondItem="bJU-Rl-r5p" secondAttribute="centerX" id="ytm-tF-AUv"/>
-                            <constraint firstItem="xcY-d5-LOE" firstAttribute="centerX" secondItem="bJU-Rl-r5p" secondAttribute="centerX" id="zvG-jO-2my"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="SlideToSend" destination="xcY-d5-LOE" id="iVz-Mw-Egg"/>
                         <outlet property="amountToSend" destination="wC1-SP-4W7" id="dZx-kk-WCs"/>
-                        <outlet property="errorLabelNotEnough" destination="bJU-Rl-r5p" id="Z1O-nD-bYc"/>
-                        <outlet property="moreErrorLabel" destination="Pet-ci-yTt" id="lXO-dg-hAI"/>
                         <outlet property="phoneNum" destination="qm1-xp-EHQ" id="bJu-0l-awu"/>
                         <segue destination="LUZ-tH-0oR" kind="show" identifier="seguetomain" id="gRU-zI-h78"/>
                     </connections>
@@ -905,7 +882,7 @@ If you have any questions about this Agreement, please contact us at contact@coi
         <image name="underline" width="619" height="4"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="moM-oo-eEw"/>
+        <segue reference="Z9J-XK-2AI"/>
         <segue reference="gRU-zI-h78"/>
         <segue reference="UIb-00-qvU"/>
     </inferredMetricsTieBreakers>

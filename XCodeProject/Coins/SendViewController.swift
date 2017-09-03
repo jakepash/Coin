@@ -12,6 +12,8 @@ import FirebaseAuth
 import SearchTextField
 import Contacts
 import Alamofire
+import SCLAlertView
+
 class SendViewController: UIViewController, SlideButtonDelegate {
     
     var ContactsArray = [String]()
@@ -50,34 +52,29 @@ class SendViewController: UIViewController, SlideButtonDelegate {
     
     @IBOutlet weak var phoneNum: SearchTextField!
     @IBOutlet weak var amountToSend: UITextField!
-    @IBOutlet weak var moreErrorLabel: UILabel!
-    @IBOutlet weak var errorLabelNotEnough: UILabel!
     @IBOutlet weak var SlideToSend: MMSlidingButton!
     
     func buttonStatus(status: String, sender: MMSlidingButton) {
         let userID = Auth.auth().currentUser?.uid
         if let amounttosend = Int(amountToSend.text!){
+            //change for countries
             if amounttosend < 100 {
-                moreErrorLabel.isHidden = true
                 let UserToSend = phoneNum.text!
                 GetCoins()
             }
             else {
-                moreErrorLabel.isHidden = false
+                SCLAlertView().showError("Error", subTitle: "Can't send more than 100 Coins")
                 SlideToSend.reset()
-                _ = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(self.hideOtherErrors), userInfo: nil, repeats: false)
             }
         }
         
     }
     
-    func hideOtherErrors() {
-        moreErrorLabel.isHidden = true
-    }
+
     
     
     var OtherUserCoins = Int()
-    var senderUID = String()
+    var senderUID: String? = nil
     
     
     
@@ -97,6 +94,7 @@ class SendViewController: UIViewController, SlideButtonDelegate {
                 print("UID: \((snapp as! DataSnapshot).key)")
                 self.senderUID = (snapp as! DataSnapshot).key
             }
+            
         }
         //// When you task complete
         myGroup.leave()
@@ -108,27 +106,29 @@ class SendViewController: UIViewController, SlideButtonDelegate {
        
     }
     
-    func hideErrors() {
-        errorLabelNotEnough.isHidden = true
-    }
+ 
     var transactionArray = [NSDictionary]()
     func coins() {
         //
-        //        print("their uid is - \(senderUID)")
-        if senderUID != Auth.auth().currentUser?.uid {
-        ref.child("users").child(senderUID).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            let value = snapshot.value
-            if snapshot.exists(){
-                self.OtherUserCoins = value as! Int
-                
-                print(self.OtherUserCoins)
-                
-                let amounttosend = Int(self.amountToSend.text!)
-                self.OtherUserCoins += amounttosend!
-                // subtract coins from current user ->
-                let userID = Auth.auth().currentUser?.uid
-                self.ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (othersnapshot) in
+        print(senderUID)
+        if (senderUID ?? "").isEmpty {
+            SCLAlertView().showError("Error", subTitle: "User doesn't exist")
+            self.SlideToSend.reset()
+
+        } else {
+            if senderUID != Auth.auth().currentUser?.uid {
+                self.ref.child("users").child(self.senderUID!).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                    let value = snapshot.value
+                    self.OtherUserCoins = value as! Int
+                    
+                    print(self.OtherUserCoins)
+                    
+                    let amounttosend = Int(self.amountToSend.text!)
+                    self.OtherUserCoins += amounttosend!
+                    // subtract coins from current user ->
+                    let userID = Auth.auth().currentUser?.uid
+                    self.ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (othersnapshot) in
                         let userID = Auth.auth().currentUser?.uid
                         let phoneNumber = othersnapshot.childSnapshot(forPath: "PhoneNumber").value
                         let othervalue = othersnapshot.childSnapshot(forPath: "Coins").value
@@ -137,26 +137,20 @@ class SendViewController: UIViewController, SlideButtonDelegate {
                         CurrentUserCoins -= amounttosend!
                         // continue doing this -
                         if CurrentUserCoins < 1{
-                            print ("cant")
                             self.SlideToSend.reset()
-                            self.errorLabelNotEnough.isHidden = false
-                            _ = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(self.hideErrors), userInfo: nil, repeats: false)
+                            SCLAlertView().showError("Not enough coins", subTitle: "You don't have enough coins")
                         } else {
                             self.ref.child("users").child(userID!).updateChildValues(["Coins":CurrentUserCoins])
                             // add coins to user ->
-                            self.ref.child("users").child(self.senderUID).updateChildValues(["Coins":self.OtherUserCoins])
-                            self.ref.child("users/\(self.senderUID)/PhoneNumber").observeSingleEvent(of: .value, with: { (datasnap) in
-                                let transactionID = randomString(length: 8)
-                                self.ref.child("users").child(userID!).child("Transactions").updateChildValues([transactionID : amounttosend as! String])
-                                self.ref.child("users").child(self.senderUID).child("Transactions").updateChildValues([transactionID : amounttosend as! String])
-                            })
-                            self.ref.child("users/\(self.senderUID)/deviceToken").observeSingleEvent(of: .value, with: { (valuetoken) in
-                                let parameters: [String: AnyObject] = ["token":valuetoken.value as AnyObject,"coinamount":amounttosend as AnyObject]
+                            self.ref.child("users").child(self.senderUID!).updateChildValues(["Coins":self.OtherUserCoins])
+                            self.ref.child("users").child(self.senderUID!).child("deviceToken").observeSingleEvent(of: .value, with: { (valuetoken) in
+                                let newtoken = valuetoken.value as! String
+                                let parameters: [String: AnyObject] = ["token":newtoken as AnyObject,"coinamount":amounttosend as AnyObject]
                                 print(parameters)
                                 // Change ip to server ip
                                 Alamofire.request("https://coin-reserve.appspot.com/", method: .post, parameters: parameters, encoding: JSONEncoding.default)
                                     .responseJSON { response in
-                                        print(response)
+                                        //print(response.value)
                                 }
                             })
                             self.performSegue(withIdentifier: "seguetomain", sender: nil)
@@ -166,20 +160,19 @@ class SendViewController: UIViewController, SlideButtonDelegate {
                         //self.ref.child("users").child(self.phoneNum.text!).setValue(["Coins":OtherUserCoins])
                         
                     })
-                
-                //let newAmountOtherUser Int(amountToSend.text!)
-            } else {
-                print("User doesn't exist")
+                    
+                    //let newAmountOtherUser Int(amountToSend.text!)
+                    
+                }) { (error) in
+                    print(error.localizedDescription)
+                    SCLAlertView().showError("Unknown error", subTitle: "Try again")
+                    self.SlideToSend.reset()
+                }
+            }
+            else {
+                SCLAlertView().showError("Error", subTitle: "You can't send money to yourself")
                 self.SlideToSend.reset()
             }
-            
-        }) { (error) in
-            print(error.localizedDescription)
-            self.SlideToSend.reset()
-            }
-        }
-        else {
-            print("cant send money to yourself")
         }
     }
     @objc func didTapView(){

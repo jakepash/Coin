@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import Firebase
 import FirebaseRemoteConfig
+import SCLAlertView
 
 class VerifyViewController: UIViewController {
     
@@ -140,20 +141,15 @@ class VerifyViewController: UIViewController {
     
     @IBAction func invitecodebtn(_ sender: Any) {
         //1. Create the alert controller.
-        let alert = UIAlertController(title: "Enter your friend's invite code", message: "to give you and them 10 free coins each!", preferredStyle: .alert)
         
-        //2. Add the text field. You can configure it however you need.
-        alert.addTextField { (textField) in
-            textField.borderStyle = UITextBorderStyle.none
-            
-        }
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [weak alert] (_) in
-        }))
-        // 3. Grab the value from the text field, and print it when the user clicks OK.
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-            print("Text field: \(textField?.text)")
-            let textinvite = textField?.text
+        let appearance = SCLAlertView.SCLAppearance(
+            kCircleIconHeight: CGFloat(40), kWindowWidth: CGFloat(300), showCircularIcon: true
+        )
+        let alertViewIcon = UIImage(named: "inviteIcon")
+        let alert = SCLAlertView(appearance: appearance)
+        let txt = alert.addTextField("Enter an Invite Code")
+        alert.addButton("Continue") {
+            let textinvite = txt.text
             if (textinvite?.characters.count)! < 7 {
                 print("continuing")
                 self.inviteCodeInputed = textinvite!
@@ -161,11 +157,40 @@ class VerifyViewController: UIViewController {
             else {
                 print("No more than 6 characters, invalid")
             }
-        }))
+        }
+        alert.showSuccess("Enter an invite code", subTitle: "to get 10 free coins!", closeButtonTitle:"Cancel", circleIconImage: alertViewIcon)
         
+        //alertViewResponder.close() // Close view
+        
+//        let alert = UIAlertController(title: "Enter your friend's invite code", message: "to give you and them 10 free coins each!", preferredStyle: .alert)
+//
+//
+//
+//
+//        //2. Add the text field. You can configure it however you need.
+//        alert.addTextField { (textField) in
+//            textField.borderStyle = UITextBorderStyle.none
+//
+//        }
+//        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [weak alert] (_) in
+//        }))
+//        // 3. Grab the value from the text field, and print it when the user clicks OK.
+//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+//            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+//            print("Text field: \(textField?.text)")
+//            let textinvite = textField?.text
+//            if (textinvite?.characters.count)! < 7 {
+//                print("continuing")
+//                self.inviteCodeInputed = textinvite!
+//            }
+//            else {
+//                print("No more than 6 characters, invalid")
+//            }
+//        }))
+//
         
         // 4. Present the alert.
-        self.present(alert, animated: true, completion: nil)
+        //self.present(alert, animated: true, completion: nil)
     }
     @IBOutlet weak var notvalidinvitelabel: UILabel!
     /*

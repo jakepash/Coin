@@ -12,6 +12,7 @@ import FirebaseDatabase
 import QRCode
 import CoreTelephony
 import SACountingLabel
+import SCLAlertView
 
 var inviteCode = String()
 
@@ -38,7 +39,7 @@ class ViewController: UIViewController {
             // changed these things to be here instead of being outside Reachability.isConnectedToNetwork()
             ref = Database.database().reference()
             if let userID = Auth.auth().currentUser?.uid {
-                ref.child("users").child(userID).child("InviteCode").observe(.value, with: { (snapshot) in
+                ref.child("users").child(userID).child("InviteCode").observeSingleEvent(of: .value, with: { (snapshot) in
                     inviteCode = snapshot.value as! String
                 })
             }
@@ -50,10 +51,9 @@ class ViewController: UIViewController {
             _ = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(GetCoins), userInfo: nil, repeats: true)
             _ = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(pushDeviceToken), userInfo: nil, repeats: false)
             GetCoinsFirstTime()
-        }else{
+        } else{
             print("Internet Connection not Available!")
-            noconnectionerror.isHidden = false
-            _ = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(hideNoConnectionError), userInfo: nil, repeats: false)
+            SCLAlertView().showError("No internet connection", subTitle: "Try again later...")
             // things are not going to load...
         }
         
@@ -132,7 +132,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!  // user QR code image
     override func viewDidAppear(_ animated: Bool) {
-        GetCoinsFirstTime() //remove this
+        
         let url1 = Auth.auth().currentUser!.uid
         //print(url1) // remove this no need to print uid more than once
 

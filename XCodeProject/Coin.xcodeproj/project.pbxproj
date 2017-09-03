@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06F67ADDC79D26D25E224598 /* Pods_CoinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DAFDA5DAAB69FBDDC044D14 /* Pods_CoinUITests.framework */; };
 		661F6C461F31D63D002A5309 /* OtherFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F6C451F31D63D002A5309 /* OtherFunctions.swift */; };
 		6697C1911F334B1500C67535 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6697C1901F334B1500C67535 /* SettingsViewController.swift */; };
 		66A640841F286A8D008A0614 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66A640831F286A8D008A0614 /* GoogleService-Info.plist */; };
@@ -29,6 +30,7 @@
 		98F959DA1F08CD7600635EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F959D91F08CD7600635EB8 /* Assets.xcassets */; };
 		98F959DC1F08DC6C00635EB8 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F959DB1F08DC6C00635EB8 /* SignUp.swift */; };
 		A6240E0C3FF84FFFE3A2FED2 /* Pods_Coin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D815E2A446163AD80032F8FE /* Pods_Coin.framework */; };
+		CB9E074BE21E1D61618CE99E /* Pods_CoinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC674A4BDDE83AAB6021838B /* Pods_CoinTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		04D31442D43514F875D6F4A1 /* Pods-Coin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coin/Pods-Coin.debug.xcconfig"; sourceTree = "<group>"; };
+		1DAFDA5DAAB69FBDDC044D14 /* Pods_CoinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4808094C6D39C5AFBCF244D4 /* Pods-CoinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoinUITests/Pods-CoinUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		58067BC574FA5D7A684E95FD /* Pods-CoinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoinUITests/Pods-CoinUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6326D560A4A56B59E1D3F9B5 /* Pods-CoinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoinTests/Pods-CoinTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 		98F959DB1F08DC6C00635EB8 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		C960D2EE7098C54D92908A15 /* Pods-Coin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coin/Pods-Coin.release.xcconfig"; sourceTree = "<group>"; };
 		D815E2A446163AD80032F8FE /* Pods_Coin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC674A4BDDE83AAB6021838B /* Pods_CoinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9E074BE21E1D61618CE99E /* Pods_CoinTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06F67ADDC79D26D25E224598 /* Pods_CoinUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				D815E2A446163AD80032F8FE /* Pods_Coin.framework */,
+				FC674A4BDDE83AAB6021838B /* Pods_CoinTests.framework */,
+				1DAFDA5DAAB69FBDDC044D14 /* Pods_CoinUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -477,6 +485,7 @@
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCode/QRCode.framework",
 				"${BUILT_PRODUCTS_DIR}/SACountingLabel/SACountingLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftQRCode/SwiftQRCode.framework",
@@ -492,6 +501,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SACountingLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SearchTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftQRCode.framework",
