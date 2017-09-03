@@ -146,8 +146,9 @@ class SendViewController: UIViewController, SlideButtonDelegate {
                             // add coins to user ->
                             self.ref.child("users").child(self.senderUID).updateChildValues(["Coins":self.OtherUserCoins])
                             self.ref.child("users/\(self.senderUID)/PhoneNumber").observeSingleEvent(of: .value, with: { (datasnap) in
-                                self.ref.child("users").child(userID!).child("Transactions").updateChildValues([datasnap.value as! AnyHashable : amounttosend])
-                                self.ref.child("users").child(self.senderUID).child("Transactions").updateChildValues([phoneNumber as! AnyHashable : amounttosend])
+                                let transactionID = randomString(length: 8)
+                                self.ref.child("users").child(userID!).child("Transactions").updateChildValues([transactionID : amounttosend as! String])
+                                self.ref.child("users").child(self.senderUID).child("Transactions").updateChildValues([transactionID : amounttosend as! String])
                             })
                             self.ref.child("users/\(self.senderUID)/deviceToken").observeSingleEvent(of: .value, with: { (valuetoken) in
                                 let parameters: [String: AnyObject] = ["token":valuetoken.value as AnyObject,"coinamount":amounttosend as AnyObject]
@@ -236,4 +237,19 @@ class SendViewController: UIViewController, SlideButtonDelegate {
     var phoneNumberArray = [String]()
     
     
+}
+func randomString(length: Int) -> String {
+    
+    let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    let len = UInt32(letters.length)
+    
+    var randomString = ""
+    
+    for _ in 0 ..< length {
+        let rand = arc4random_uniform(len)
+        var nextChar = letters.character(at: Int(rand))
+        randomString += NSString(characters: &nextChar, length: 1) as String
+    }
+    
+    return randomString
 }

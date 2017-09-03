@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  Coins
+//  Coin
 //
-//  Created by Jacob Pashman on 7/2/17.
-//  Copyright © 2017 Jacob Pashman. All rights reserved.
+//  Created by Adam Eliezerov on 7/2/17.
+//  Copyright © 2017 Adam Eliezerov. All rights reserved.
 //
 
 import UIKit
@@ -15,7 +15,7 @@ import SACountingLabel
 
 var inviteCode = String()
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ViewController: UIViewController {
     var ref: DatabaseReference!
     
     @IBOutlet weak var CoinCount: SACountingLabel!
@@ -35,6 +35,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if Reachability.isConnectedToNetwork(){
             print("Internet Connection Available!")
             // do nothing in this case
+            // changed these things to be here instead of being outside Reachability.isConnectedToNetwork()
             ref = Database.database().reference()
             if let userID = Auth.auth().currentUser?.uid {
                 ref.child("users").child(userID).child("InviteCode").observe(.value, with: { (snapshot) in
@@ -63,7 +64,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         //end of viewdidload()
     }
-    
+    // push device token to Firebase Database
     func pushDeviceToken() {
         print(userDeviceToken)
         if let userID = Auth.auth().currentUser?.uid{
@@ -73,7 +74,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var noconnectionerror: UILabel!
 
     var numofcoins = Float()
-    
+    // Get number of Coins from the database for the first time...
     @objc func GetCoinsFirstTime() {
         if let userID = Auth.auth().currentUser?.uid {
             ref.child("users").child(userID).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -90,6 +91,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     var newnum1 = Float()
+    // use this function every time to get the Coins after the first time (GetCoinsFirstTime())
     @objc func GetCoins() {
         if let userID = Auth.auth().currentUser?.uid{
             ref.child("users").child(userID).child("Coins").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -127,81 +129,83 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var imageView: UIImageView!  // user QR code image
     override func viewDidAppear(_ animated: Bool) {
-        GetCoinsFirstTime()
+        GetCoinsFirstTime() //remove this
         let url1 = Auth.auth().currentUser!.uid
-        print(url1)
+        //print(url1) // remove this no need to print uid more than once
+
         var qrCode = QRCode(url1)
         qrCode?.color = CIColor(red:0.34, green:0.69, blue:0.54, alpha:1.0)
         qrCode?.backgroundColor = CIColor(red:0.11, green: 0.12, blue:0.14, alpha:1.0)
         //qrCode?.backgroundColor = CIColor(red:1.00, green: 1.00, blue:1.00, alpha:1.0)
         imageView.image = qrCode?.image
         let userID = Auth.auth().currentUser?.uid
+        // update this to work - transactions
 //        ref.child("users").child(userID!).child("Transactions").observeSingleEvent(of: .value, with: { (snapshot) in
 //            // Get user value
 //            let values = snapshot.value as? NSDictionary
-////            for (key, value) in values! {
-////                self.items.append(key as! String)
-////                self.items.append(value as! String)
-////            }
+//            for (key, value) in values! {
+//                self.items.append(value as! String)
+//            }
 //        }) { (error) in
 //            print(error.localizedDescription)
 //        }
 //        _ = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(reloadtransactions), userInfo: nil, repeats: false)
     }
     
-    func reloadtransactions() {
-        collectionview.reloadData()
-//        for v in items {
-//            print(v)
+//    func reloadtransactions() {
+//        collectionview.reloadData()
+////        for v in items {
+////            print(v)
+////        }
+//    }
+//
+//    @IBOutlet weak var collectionview: UICollectionView!
+//
+//
+//    let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
+//    var items = ["John Smith","+4"]
+//
+//
+//    // MARK: - UICollectionViewDataSource protocol
+//
+//    // tell the collection view how many cells to make
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return self.items.count
+//    }
+//
+//    // make a cell for each cell index path
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//
+//        // get a reference to our storyboard cell
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! LedgerCollectionViewCell
+//
+//        // Use the outlet in our custom class to get a reference to the UILabel in the cell
+//        cell.myLabel.text = self.items[indexPath.item]
+//        //  cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
+//
+//        if cell.myLabel.text![0] == "+" {
+//            cell.myLabel.textColor = UIColor(red:0.02, green:0.69, blue:0.00, alpha:1.0)
+//            cell.myLabel.textAlignment = .right
+//        } else if cell.myLabel.text![0] == "-" {
+//            cell.myLabel.textColor = UIColor(red:0.69, green:0.05, blue:0.00, alpha:1.0)
+//            cell.myLabel.textAlignment = .right
+//        } else {
+//            cell.myLabel.textColor = UIColor.white
+//            cell.myLabel.textAlignment = .left
 //        }
-    }
-    
-    @IBOutlet weak var collectionview: UICollectionView!
-    
-
-    let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
-    var items = ["John Smith","+4"]
-    
-    
-    // MARK: - UICollectionViewDataSource protocol
-    
-    // tell the collection view how many cells to make
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.items.count
-    }
-    
-    // make a cell for each cell index path
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        // get a reference to our storyboard cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! LedgerCollectionViewCell
-        
-        // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.myLabel.text = self.items[indexPath.item]
-        //  cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
-        
-        if cell.myLabel.text![0] == "+" {
-            cell.myLabel.textColor = UIColor(red:0.02, green:0.69, blue:0.00, alpha:1.0)
-            cell.myLabel.textAlignment = .right
-        } else if cell.myLabel.text![0] == "-" {
-            cell.myLabel.textColor = UIColor(red:0.69, green:0.05, blue:0.00, alpha:1.0)
-            cell.myLabel.textAlignment = .right
-        } else {
-            cell.myLabel.textColor = UIColor.white
-            cell.myLabel.textAlignment = .left
-        }
-        
-        return cell
-    }
-    
-    // MARK: - UICollectionViewDelegate protocol
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // handle tap events
-        print("You selected cell #\(indexPath.item)!")
-    }
+//
+//        return cell
+//    }
+//
+//    // MARK: - UICollectionViewDelegate protocol
+//
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        // handle tap events
+//        print("You selected cell #\(indexPath.item)!")
+//    }
 }
 
 extension String {

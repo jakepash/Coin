@@ -21,9 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>The camera is needed to send more to friends with QR codes</string>
+	<string>The camera is needed to send money to friends with QR codes</string>
 	<key>NSContactsUsageDescription</key>
-	<string>Search For Friends more easily</string>
+	<string>Search For Friends easily</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
