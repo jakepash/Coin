@@ -87,7 +87,11 @@ class SignUp: UIViewController {
         super.viewDidAppear(true)
         print("This is their UID: \(String(describing: Auth.auth().currentUser?.uid))")
         if Auth.auth().currentUser != nil {
-            performSegue(withIdentifier: "segueToMain", sender: self)
+           // performSegue(withIdentifier: "segueToMain", sender: self)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "ViewController")
+            self.present(controller, animated: false, completion: nil)
+
         }
         
         
