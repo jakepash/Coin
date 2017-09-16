@@ -89,7 +89,7 @@ class SignUp: UIViewController {
         if Auth.auth().currentUser != nil {
            // performSegue(withIdentifier: "segueToMain", sender: self)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "ViewController")
+            let controller = storyboard.instantiateViewController(withIdentifier: "pageViewController")
             self.present(controller, animated: false, completion: nil)
 
         }

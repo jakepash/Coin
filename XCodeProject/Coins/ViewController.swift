@@ -131,7 +131,20 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var imageView: UIImageView!  // user QR code image
+    
     override func viewDidAppear(_ animated: Bool) {
+        //intro animation
+        let screenOutline = UIImageView(image:UIImage(named: "screenOutlne"))
+        screenOutline.frame = view.frame
+        view.addSubview(screenOutline)
+        UIView.animate(withDuration: 5.0, animations: {() -> Void in
+            screenOutline.transform = CGAffineTransform(scaleX: 3.8, y: 3.8)
+        }, completion: {(_ finished: Bool) -> Void in
+            UIView.animate(withDuration: 2.0, animations: {() -> Void in
+                screenOutline.isHidden = true
+            })
+        })
+        
         
         let url1 = Auth.auth().currentUser!.uid
         //print(url1) // remove this no need to print uid more than once
