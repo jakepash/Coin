@@ -134,16 +134,25 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         //intro animation
-        let screenOutline = UIImageView(image:UIImage(named: "screenOutlne"))
-        screenOutline.frame = view.frame
-        view.addSubview(screenOutline)
-        UIView.animate(withDuration: 5.0, animations: {() -> Void in
-            screenOutline.transform = CGAffineTransform(scaleX: 3.8, y: 3.8)
-        }, completion: {(_ finished: Bool) -> Void in
-            UIView.animate(withDuration: 2.0, animations: {() -> Void in
-                screenOutline.isHidden = true
+        
+        let isFirstLaunch = UserDefaults.isFirstLaunch()
+        if isFirstLaunch {
+            let screenOutline = UIImageView(image:UIImage(named: "screenOutlne"))
+            screenOutline.frame = view.frame
+            view.addSubview(screenOutline)
+            UIView.animate(withDuration: 5.0, animations: {() -> Void in
+                screenOutline.transform = CGAffineTransform(scaleX: 3.8, y: 3.8)
+            }, completion: {(_ finished: Bool) -> Void in
+                UIView.animate(withDuration: 5.0, animations: {() -> Void in
+                    screenOutline.isHidden = true
+                    //UserDefaults.standard.set(true, forKey: "notFirstLaunch")
+                    print("first launch")
+                })
             })
-        })
+        } else {
+            print("not first launch")
+        }
+        
         
         
         let url1 = Auth.auth().currentUser!.uid
@@ -238,3 +247,16 @@ extension String {
     }
 }
 
+extension UserDefaults {
+    // check for is first launch - only true on first invocation after app install, false on all further invocations
+    // Note: Store this value in AppDelegate if you have multiple places where you are checking for this flag
+    static func isFirstLaunch() -> Bool {
+        let hasBeenLaunchedBeforeFlag = "hasBeenLaunchedBeforeFlag"
+        let isFirstLaunch = !UserDefaults.standard.bool(forKey: hasBeenLaunchedBeforeFlag)
+        if (isFirstLaunch) {
+            UserDefaults.standard.set(true, forKey: hasBeenLaunchedBeforeFlag)
+            UserDefaults.standard.synchronize()
+        }
+        return isFirstLaunch
+    }
+}
